@@ -1,0 +1,76 @@
+--- !ruby/object:Gem::Specification 
+name: dancroak-validates_email_format_of
+version: !ruby/object:Gem::Version 
+  version: 1.2.2
+platform: ruby
+authors: 
+- Alex Dunae
+- Dan Croak
+- Mike Burns
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-10-01 00:00:00 -04:00
+default_executable: 
+dependencies: []
+
+description: Validate e-mail addreses against RFC 2822 and RFC 3696.
+email: dcroak@thoughtbot.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- CHANGELOG
+- lib/validates_email_format_of.rb
+- README.markdown
+files: 
+- CHANGELOG
+- init.rb
+- lib/validates_email_format_of.rb
+- MIT-LICENSE
+- rails/init.rb
+- Rakefile
+- README
+- test/database.yml
+- test/fixtures/people.yml
+- test/fixtures/person.rb
+- test/schema.rb
+- test/test_helper.rb
+- test/validates_email_format_of_test.rb
+- validates_email_format_of.gemspec
+- README.markdown
+has_rdoc: true
+homepage: http://code.dunae.ca/validates_email_format_of.html
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --line-numbers
+- --inline-source
+- --title
+- Validates_email_format_of
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 2
+summary: Validate e-mail addreses against RFC 2822 and RFC 3696.
+test_files: []
+

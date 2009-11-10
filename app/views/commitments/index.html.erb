@@ -1,0 +1,21 @@
+<% title "Commitments" %>
+
+<table>
+  <tr>
+    <th>State</th>
+    <th>User</th>
+    <th>Project</th>
+  </tr>
+  <% for commitment in @commitments %>
+    <tr>
+      <td><%=h commitment.state %></td>
+      <td><%=h commitment.user_id %></td>
+      <td><%=h commitment.project_id %></td>
+      <td><%= link_to "Show", commitment %></td>
+      <td><%= link_to "Edit", edit_commitment_path(commitment) %></td>
+      <td><%= link_to "Destroy", commitment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Commitment", new_commitment_path %></p>

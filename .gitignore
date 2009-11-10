@@ -1,0 +1,11 @@
+log
+tmp
+config/database.yml
+db/*.sqlite*
+db/*.sql
+.DS_Store
+Thumbs.db
+public/attachments
+public/robots.txt
+sh.exe.stackdump
+coverage*

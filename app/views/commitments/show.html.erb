@@ -1,0 +1,20 @@
+<% title "Commitment" %>
+
+<p>
+  <strong>State:</strong>
+  <%=h @commitment.state %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @commitment.user_id %>
+</p>
+<p>
+  <strong>Project:</strong>
+  <%=h @commitment.project_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_commitment_path(@commitment) %> |
+  <%= link_to "Destroy", @commitment, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", commitments_path %>
+</p>

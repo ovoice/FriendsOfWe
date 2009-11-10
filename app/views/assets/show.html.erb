@@ -1,0 +1,44 @@
+<% title "Asset" %>
+
+<p>
+  <strong>Type:</strong>
+  <%=h @asset.type %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%=h @asset.name %>
+</p>
+<p>
+  <strong>Url:</strong>
+  <%=h @asset.url %>
+</p>
+<p>
+  <strong>Attachment File Name:</strong>
+  <%=h @asset.attachment_file_name %>
+</p>
+<p>
+  <strong>Attachment Content Type:</strong>
+  <%=h @asset.attachment_content_type %>
+</p>
+<p>
+  <strong>Attachment File Size:</strong>
+  <%=h @asset.attachment_file_size %>
+</p>
+<p>
+  <strong>Attachment Updated At:</strong>
+  <%=h @asset.attachment_updated_at %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%=h @asset.state %>
+</p>
+<p>
+  <strong>Assetable:</strong>
+  <%=h @asset.assetable %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_asset_path(@asset) %> |
+  <%= link_to "Destroy", @asset, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", assets_path %>
+</p>

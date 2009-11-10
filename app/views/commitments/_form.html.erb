@@ -1,0 +1,16 @@
+<% form_for @commitment do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
