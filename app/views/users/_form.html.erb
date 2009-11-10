@@ -1,20 +1,4 @@
-<% form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+<% semantic_form_for @user do |form| %>
+  <%= form.inputs :name, :email, :title, :password  %>
+  <%= form.buttons %>
 <% end %>

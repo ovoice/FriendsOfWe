@@ -1,40 +1,4 @@
-<% form_for @asset do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.label :attachment_file_name %><br />
-    <%= f.text_field :attachment_file_name %>
-  </p>
-  <p>
-    <%= f.label :attachment_content_type %><br />
-    <%= f.text_field :attachment_content_type %>
-  </p>
-  <p>
-    <%= f.label :attachment_file_size %><br />
-    <%= f.text_field :attachment_file_size %>
-  </p>
-  <p>
-    <%= f.label :attachment_updated_at %><br />
-    <%= f.datetime_select :attachment_updated_at %>
-  </p>
-  <p>
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </p>
-  <p>
-    <%= f.label :assetable %><br />
-    <%= f.text_field :assetable %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+<% semantic_form_for @asset do |form| %>
+  <%= form.inputs :name, :url, :attachment, :state  %>
+  <%= form.buttons %>
 <% end %>
