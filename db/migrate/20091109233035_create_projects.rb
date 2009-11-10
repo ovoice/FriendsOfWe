@@ -4,6 +4,8 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.text :activities
+      t.string :status
+      t.integer :volunteer_count
       t.timestamps
     end
   end

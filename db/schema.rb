@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20091110000102) do
     t.string   "name"
     t.text     "description"
     t.text     "activities"
+    t.string   "status"
+    t.integer  "volunteer_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
