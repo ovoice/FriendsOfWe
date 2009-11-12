@@ -1,13 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-  <head>
-    <title><%= h(yield(:title) || "Untitled") %></title>
-    <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes' %>
-    <%= yield(:head) %>
-
-  </head>
-  <body>
-    <div id="container">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Friends Of We &raquo; <%= h(yield(:title) || "") %></title>
+  <link rel="Shortcut Icon" type="image/ico" href="favicon.ico" />
+  <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => true %>
+  <%= javascript 'jquery', 'cufon-yui.js', 'gillSans_400.development.font', 'arialRounded_400.development.font', :cache => true   %>
+  <%= yield(:head) %>
+  <script type="text/javascript">
+    Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'});
+    Cufon.replace('H2', {hover: true, fontFamily: 'gillSans'});
+  </script>
+</head>
+<body>
+  <div class="pageWrap">
+    <div id="header">
+      <div class="headerLiner">
+        <h1><a href="#"><img src="/images/friends-of-we-logo.jpg" alt="Friends of We" /></a></h1>
+        <ul id="menu">
+          <li class="first"><%= link_to 'Home', root_url %></li>
+          <li><%= link_to 'Campaigns', projects_path %></li>
+          <li><%= link_to 'Goals', page_path('goals') %></li>
+          <li><%= link_to 'About', page_path('about') %></li>
+          <li><a href="#" class="normal">weBlog</a></li>
+          <li><a href="#">volunteer</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+        <ul id="user-actions">
+          <li><%= link_to 'Register', register_path %></li>
+          <li class="last"><%= link_to 'Log in', login_path %></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
@@ -18,5 +43,11 @@
       
       <%= yield %>
     </div>
-  </body>
+  </div>
+  <div id="footer">
+    <div class="pageWrap">
+      &nbsp;
+    </div>
+  </div>
+</body>
 </html>

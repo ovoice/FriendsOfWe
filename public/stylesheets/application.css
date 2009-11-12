@@ -1,81 +1,168 @@
-body {
-  background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
-}
+@charset "utf-8";
+/* Reset */
+HTML, BODY, DIV, SPAN, APPLET, OBJECT, IFRAME, H1, H2, H3, H4, H5, H6, P, BLOCKQUOTE, PRE,
+A, ABBR, ACRONYM, ADDRESS, BIG, CITE, CODE, DEL, DFN, EM, FONT, IMG, INS, KBD, Q, S, SAMP,
+SMALL, STRIKE, STRONG, B, SUB, SUP, TT, VAR, INPUT DL, DT, DD, OL, UL, LI, FIELDSET, FORM, 
+LABEL, LEGEND, TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD, BUTTON
+{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;
+font-size:100%;font-family:inherit;vertical-align:baseline}
 
-a img {
-  border: none;
-}
+:focus{outline:0}
+OL, UL{list-style:none}
+TABLE{border-collapse:collapse;border-spacing:0}
+CAPTION, TH, TD{text-align:left;font-weight:normal}
+BLOCKQUOTE:before, BLOCKQUOTE:after,
+Q:before, Q:after{content:"";content:none}
+BLOCKQUOTE, Q{quotes:"" ""}
+HTML{font-size:100.01%}
 
-a {
-  color: #0000FF;
-}
+/** Layout **/
+BODY{background:#fff url('../images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
+.pageWrap{width:960px;margin:0 auto;padding:0;position:relative}
+#header{width:950px;padding:0 10px 0 0;background:transparent url('../images/bg_menu_foldunder.png') no-repeat right 120px}
+.headerLiner{background:#fff url('../images/bg_header.gif') no-repeat 0 0;height:183px}
+#content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.8em;color:#333;position:relative}
+#footer{width:100%;padding:0 0 10px;background:#352400 url('../images/bg_footer.gif') repeat-x center 0}
+#footer .pageWrap{min-height:410px;height:auto !important;height:410px;background:transparent url('../images/bg_footer_tree.gif') no-repeat 652px 0}
 
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
 
-#container {
-  width: 75%;
-  margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
-}
+/** Topography **/
 
-#flash_notice, #flash_error {
-  padding: 5px 8px;
-  margin: 10px 0;
-}
+/*heading*/ 
+H1, H2, H3, H4, H5, H6{font:400 1.0em arial,sans}
+H1{font-size:1.8em;display:block}
+H2{font-size:1.8em;margin:0 0 15px;color:#115f85;font-family:/*"Gill Sans MT",*/gillSans,arial,sans}
+H3{font-size:1.1em;font-weight:700}
+H4{font-size:1.2em}
+/*link*/
+A{color:#ff6036;text-decoration:none}
+A:link, A:visited{color:#ff6036}
+A:hover{text-decoration:underline}
+H2 A:link, H2 A:visited{color:#fff}
+H2 A:hover{color:#ff6036;text-decoration:none}
+H2 A.header_bg.red:hover{color:#ffc736}
+H3 A:link, H3 A:visited,A.greenBg:link,A.greenBg:visited{color:#fff;background:#25b14f;padding:1px 2px;font-weight:700}
+H3 A.plus{padding:1px 5px}
+H3 A.noBg{background:none;color:#ff6036}
+H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
+H3 A.noBg:hover{background:#25b14f;color:#fff}
+/*format*/
+P{padding:0 0 10px}
+STRONG{font-weight:700}
+SMALL{font-size:0.85em}
+SUP{position:relative;bottom:0.3em;vertical-align:baseline}
+SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
+ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}
+/*form
+FORM{display:block}
+INPUT, SELECT, TEXTAREA{font:1em Arial, Helvetica, sans-serif;border:1px #b0b1ad solid}
+.checkbox{border:none  !important}
+TEXTAREA{width:100%;line-height:1.25}*/
+INPUT.submit, INPUT.submitOv,
+INPUT.buttons, button{cursor:pointer}
 
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
-}
+/* Header & Menu */
+#header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
+#header UL#menu{float:right;background:#fff url('../images/bg_menu.png') repeat-x 0 0}
+#header UL#menu LI{float:left;padding:10px 30px;height:25px}
+#header UL#menu LI.first{padding-left:45px;background:transparent url('../images/bg_menu_left.png') no-repeat 0 0}
+#header UL#menu LI A{text-transform:lowercase;color:#fff;font:16px 400 arialrounded,arial,sans}
+#header UL#menu LI A.normal{text-transform:none}
+#header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
+#header UL#user-actions{font-size:.7em;line-height:1em;position:absolute;top:105px;right:35px}
+#header UL#user-actions LI{float:left;padding:0 5px;border-right:1px solid #339acc}
+#header UL#user-actions LI.last{border:none}
+#header UL#user-actions LI A{color:#115f85}
+#header UL#user-actions LI A:hover{color:#339acc;text-decoration:none}
 
-#flash_error {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
+/* columns */
+.column{margin-right:30px}
+.column.w510{width:510px}
+.column.w360{width:360px}
+.column.last{margin:0}
 
-.fieldWithErrors {
-  display: inline;
-}
 
-#errorExplanation {
-  width: 400px;
-  border: 2px solid #CF0000;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
+/** Library **/
+.clear{overflow:hidden;width:100%}
+.left{float:left}
+.right{float:right}
+.alignLeft{text-align:left}
+.alignCenter{text-align:center}
+.alignRight{text-align:right}
+.bottom{position:absolute;bottom:5px}
+.blue{color:#339acc}
+.darkBlue{color:#115f85}
+.green{color:#25b14f}
+.grey{color:#e3e3e3}
+.yellow{color:#ffc736}
+.red{color:#ff6036}
+.bottom20, H2.header_bg.bottom20{margin-bottom:20px}
 
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: 0;
-  background-color: #c00;
-  color: #fff;
-}
 
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 8px;
-}
+/* sprites */
+.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner, .buttons INPUT, .buttons BUTTON{background:transparent url('../images/sprite_buttons.png') no-repeat -960px 0}
+.buttons{padding:0 10px 0 0}
+.buttons SPAN.buttonsInner{display:block;color:#fff;padding:8px 0 8px 10px;line-height:20px;font:400 1.2em arialRounded,arial,sans;white-space:nowrap}
+A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration:none}
+.buttons.menu{padding:0;background-position:right 0} .buttons.menu SPAN.buttonsInner{background-position:0 0;color:#1b8ff9}/* class is needed here or Cufon will cause issues*/
+.buttons.yellowB{background-position:right -60px}    .buttons.yellowB SPAN.buttonsInner{background-position:0 -60px;color:#339acc}
+.buttons.redB{background-position:right -120px}      .buttons.redB SPAN.buttonsInner{background-position:0 -120px}/* Added the B, otherwise IE6 gets indicators.red and buttons.red confused */
 
-#errorExplanation ul {
-  margin: 2px 24px;
-}
+H2.header_bg{background:url('../images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
+H2.header_bg.blue{background-position:right 0}
+H2.header_bg.green{background-position:right -100px}
+H2.header_bg.grey{background-position:right -200px}
+H2.header_bg.yellow{background-position:right -300px} 
+  H2.header_bg.yellow A:link, H2.header_bg.yellow A:visited{color:#339acc}
+  H2.header_bg.yellow A:hover{color:#ff6036}
+H2.header_bg.red{background-position:right -400px}
 
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: disc;
-}
+
+.withIndicators H3{float:left;margin:2px 0}
+.indicators, .indicators SPAN{background:url('../images/sprite_status_indicators.png') no-repeat -960px -30px;text-decoration:none;font:700 1em arial,sans;font-variant:small-caps}
+.indicators{float:right;padding:0 10px 0 0;margin:0 10px 0 0}
+A.indicators:hover{text-decoration:none}
+.indicators SPAN{display:block;padding:1px 0 1px 10px;line-height:20px;width:70px;text-align:center;color:#fff}
+.indicators.blue{background-position:right 0}             .indicators.blue SPAN{background-position:0 0}
+.indicators.green{background-position:right -40px}        .indicators.green SPAN{background-position:0 -40px}
+.indicators.grey{background-position:right -80px}         .indicators.grey SPAN{background-position:0 -80px;color:#115f85}
+.indicators.yellow{background-position:right -120px}      .indicators.yellow SPAN{background-position:0 -120px}
+.indicators.red{background-position:right -160px}         .indicators.red SPAN{background-position:0 -160px}
+.indicators.large SPAN{width:100px;padding:3px 0 3px 10px;font-size:1.1em}
+.indicators.blue.large{background-position:right -200px}   .indicators.blue.large SPAN{background-position:0 -200px}
+.indicators.green.large{background-position:right -240px}  .indicators.green.large SPAN{background-position:0 -240px}
+.indicators.grey.large{background-position:right -280px}   .indicators.grey.large SPAN{background-position:0 -280px}
+.indicators.yellow.large{background-position:right -320px} .indicators.yellow.large SPAN{background-position:0 -320px}
+.indicators.red.large{background-position:right -360px}    .indicators.red.large SPAN{background-position:0 -360px}
+
+/* Homepage */
+#introduction{width:510px;height:250px;padding-right:400px;background:#fff url('../images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
+#introduction .buttons{float:right}
+.byline{font:400 1.2em/1.5em georgia,times,arial,serif;color:#115f85;margin-bottom:20px}
+#introduction .buttons{margin-left:20px}
+UL#campaigns LI H2.header_bg, UL#blog LI H2.header_bg{margin-bottom:15px}
+UL#campaigns LI, UL#blog LI{margin:0 0 15px}
+UL#campaigns P, UL#blog LI P{margin:5px 0}
+
+/* General pages */
+#content .bullets{margin:0 0 25px 20px} 
+#content .bullets LI{list-style-type:square;margin:5px 0 5px 25px}
+#content .columnContent{margin-bottom:20px}
+
+/* campaign page */
+
+#campaign-status{position:absolute;top:5px;right:0}
+#content #volunteer-list, #content #recuriting-list{margin:0 0 20px}
+#content #volunteer-list LI, #content #recuriting-list LI{margin:0 0 6px}
+
+/* from nifty_scaffold */
+
+#flash_notice, #flash_error{padding:5px 8px;margin:10px 0}
+#flash_notice{background-color:#CFC;border:solid 1px #6C6}
+#flash_error{background-color:#FCC;border:solid 1px #C66}
+.fieldWithErrors{display:inline}
+#errorExplanation{width:400px;border:2px solid #CF0000;padding:0px;padding-bottom:12px;margin-bottom:20px;background-color:#f0f0f0}
+#errorExplanation h2{text-align:left;font-weight:bold;padding:5px 5px 5px 15px;font-size:12px;margin:0;background-color:#c00;color:#fff}
+#errorExplanation p{color:#333;margin-bottom:0;padding:8px}
+#errorExplanation ul{margin:2px 24px}
+#errorExplanation ul li{font-size:12px;list-style:disc}
