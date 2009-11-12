@@ -36,7 +36,7 @@ namespace :db do
     
     puts "creating projects..."
     Project.populate(30) do |project|
-      project.name         = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
+      project.name         = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(6)+1)
       project.description  = Faker::Lorem.sentences(5)
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
@@ -45,7 +45,7 @@ namespace :db do
     project_ids = Project.all.collect(&:id)
     
     puts "setting featured projcets..."
-    3.times{Project.update(project_ids, :featured => true)}
+    3.times{Project.update(project_ids.randexit, :featured => true)}
     
     puts "associating users and projects through commitments..."
     Project.find_each do |project|
