@@ -6,7 +6,7 @@
           <a href="#" class="indicators red large"><span>Volunteer</span></a>        
           <a href="#" class="indicators grey large"><span>22 Members</span></a>          
         </div>
-        <p><%= link_to "Edit", edit_project_path(@project) %> | <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |  <%= link_to "View All", projects_path %></p>
+        <% if admin_rights? %><p><%= link_to "Edit", edit_project_path(@project) %> | <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |  <%= link_to "View All", projects_path %></p><% end -%>
       </div>
       <p class="byline">We are a group of professional volunteers getting it done.  Morbi dolor elit, pulvinar quis, porttitor in, lobortis id, felis. Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit massa vitae elit. Donec consectetuer augue at leo. Sed tincidunt pede sed libero. Donec urna.  Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit.</p>
       <div class="column w510 left">
@@ -21,19 +21,18 @@
         <div class="columnContent">
           <h2 class="header_bg green">Resources</h2>
           <ul id="resources" >
+            <%- if @project.links.any? -%>
             <li class="bullets">Links
               <ul>
-                <li><a href="#">Research</a> &ndash; This is a short description of this link.</li>
-                <li><a href="#">Good Case Study</a></li>
-                <li><a href="#">Partner Organization</a></li>
+                <%- for link in @project.links  -%>
+                <li><%= link_to h(link.name), h(link.url), :target => 'blank' %> &ndash; <%=h link.description %></li>
+                <%- end -%>
               </ul>
             </li>
+            <%- end -%>
             <li class="bullets">Documents
               <ul>
                 <li><a href="#">Project Brief</a> &ndash; This is a short description of this document.</li>
-                <li><a href="#">Copy Deck</a></li>
-                <li><a href="#">Creative Brief</a></li>
-                <li><a href="#">Homepage PSD</a></li>
               </ul>
             </li>
           </ul>
