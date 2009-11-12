@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :title
-      t.string :status
+      t.string :state
       t.timestamps
       
       #authlogic fields follow

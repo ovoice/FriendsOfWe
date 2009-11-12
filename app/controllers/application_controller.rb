@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  helper_method :current_user_session, :current_user, :logged_in?, :require_user, :require_no_user
+  helper_method :current_user_session, :current_user, :logged_in?, :admin_rights?
 
   private
   
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
   
   def logged_in?
     !!current_user
+  end
+  
+  def admin_rights?
+    logged_in? && current_user.admin?
   end
 
   def require_user
@@ -41,6 +45,14 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "You must be logged out to access this page"
       redirect_back_or_default "/"
       return false
+    end
+  end
+  
+  def require_admin
+    unless current_user && current_user.admin?
+      store_location
+      flash[:notice] = "You must be a logged administrator to access this page."
+      redirect_to current_user ? root_url : new_user_session_path
     end
   end
   

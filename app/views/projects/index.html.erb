@@ -10,11 +10,7 @@
               <a href="#" class="indicators red"><span>Volunteer</span></a>
             </div>
             <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
-            <ul>
-              <li><%= link_to "Show", project %></li>
-              <li><%= link_to "Edit", edit_project_path(project) %></li>
-              <li><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></li>
-            </ul>
+            <% if admin_rights? %><p><%= link_to "Show", project %> | <%= link_to "Edit", edit_project_path(project) %> | <%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></p><% end -%>
           </li>
           <% end %>
         </ul>
