@@ -9,8 +9,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projects, :as => 'campaigns'
   map.resources :user_sessions
   map.resources :users
+  map.resource :contact, :controller => 'contact'
+
   
-  map.page '/:id', :controller => 'pages', :action => 'show', :id => /about|goals|/
+  map.page '/:id', :controller => 'pages', :action => 'show', :id => /about|goals/
   map.root :controller => 'pages', :action => 'home'
   
   
