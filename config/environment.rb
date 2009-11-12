@@ -24,6 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
   config.gem "dancroak-validates_email_format_of", :lib => "validates_email_format_of", :source => "http://gems.github.com"
   config.gem "state_machine", :source => "http://gemcutter.org"
+  config.gem "inherited_resources", :source => "http://gemcutter.org"
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
