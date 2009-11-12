@@ -23,10 +23,12 @@ namespace :db do
     puts "creating users..."
     User.populate(400) do |user|
       user.name      = Faker::Name.name
-      user.bio       = Faker::Lorem.sentences
       user.email     = Faker::Internet.email
-      user.title     = Faker::Lorem.words(1) + " title"
+      user.title     = "#{Faker::Lorem.words(1)} title"
+      user.login_count = 0
+      user.failed_login_count = 0
     end
+    puts "create test user"
     User.create(:name => "test", :email => "test@test.com", :password => "test", :password_confirmation => "test" )
     user_ids = User.all.collect(&:id)
     
@@ -45,7 +47,7 @@ namespace :db do
     puts "associating users and projects through commitments..."
     Project.find_each do |project|
       (ActiveSupport::SecureRandom.random_number(10)).times do 
-        project.users << User.find(user_ids.rand)
+        project.volunteers << User.find(user_ids.rand)
       end
     end
     
@@ -57,17 +59,19 @@ namespace :db do
     
     puts "create links... "
     Link.populate(75) do |link|
-      link.name        = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
-      link.url         = Faker::Internet.domain_name
-      link.description = Faker::Lorem.words(8)
-      link.project_id  = project_ids
+      link.name           = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
+      link.url            = Faker::Internet.domain_name
+      link.description    = Faker::Lorem.words(8)
+      link.assetable_id   = project_ids
+      link.assetable_type = "Project"
     end
     
-    puts "create documents... "
+    puts "create documents... TODO: (?) add file information"
     Document.populate(75) do |document|
-      document.name = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
-      document.description = Faker::Lorem.words(8)
-      documents.project_id  = project_ids
+      document.name         = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
+      document.description  = Faker::Lorem.words(8)
+      document.assetable_id  = project_ids
+      document.assetable_type   = "Project"
     end
     
   end
