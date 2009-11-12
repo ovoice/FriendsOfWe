@@ -1,20 +1,55 @@
-<% title "Project" %>
+<% title "Campaign &raquo; #{@project.name}" %>
 
-<p>
-  <strong>Name:</strong>
-  <%=h @project.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%=h @project.description %>
-</p>
-<p>
-  <strong>Activities:</strong>
-  <%=h @project.activities %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_project_path(@project) %> |
-  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", projects_path %>
-</p>
+<div class="clear">
+        <h2><%=h @project.name.titleize %></h2>
+        <div id="campaign-status">
+          <a href="#" class="indicators red large"><span>Volunteer</span></a>        
+          <a href="#" class="indicators grey large"><span>22 Members</span></a>          
+        </div>
+        <p><%= link_to "Edit", edit_project_path(@project) %> | <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |  <%= link_to "View All", projects_path %></p>
+      </div>
+      <p class="byline">We are a group of professional volunteers getting it done.  Morbi dolor elit, pulvinar quis, porttitor in, lobortis id, felis. Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit massa vitae elit. Donec consectetuer augue at leo. Sed tincidunt pede sed libero. Donec urna.  Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit.</p>
+      <div class="column w510 left">
+        <div class="columnContent">
+          <h2 class="header_bg blue">Background</h2>
+          <%=h @project.description %>
+        </div>
+        <div class="columnContent">
+          <h2 class="header_bg blue">Activities</h2>
+          <%=h @project.activities %>
+        </div>
+        <div class="columnContent">
+          <h2 class="header_bg green">Resources</h2>
+          <ul id="resources" >
+            <li class="bullets">Links
+              <ul>
+                <li><a href="#">Research</a> &ndash; This is a short description of this link.</li>
+                <li><a href="#">Good Case Study</a></li>
+                <li><a href="#">Partner Organization</a></li>
+              </ul>
+            </li>
+            <li class="bullets">Documents
+              <ul>
+                <li><a href="#">Project Brief</a> &ndash; This is a short description of this document.</li>
+                <li><a href="#">Copy Deck</a></li>
+                <li><a href="#">Creative Brief</a></li>
+                <li><a href="#">Homepage PSD</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="column w360 right last">
+        <h2 class="header_bg red">Recruting</h2>
+        <ul id="volunteer-list">
+          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Get Involved! Click Here!</a></li>
+          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Get Involved! Click Here!</a></li>
+          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Get Involved! Click Here!</a></li>
+        </ul>
+        <h2 class="header_bg yellow">Current Volunteers</h2>
+        <ul id="recuriting-list">
+          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
+          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
+          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
+        </ul>
+      </div>

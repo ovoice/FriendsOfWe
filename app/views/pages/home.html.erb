@@ -5,7 +5,7 @@
         <a href="#" class="buttons yellowB"><span class="buttonsInner">Learn More</span></a>
       </div>
       <div class="column w510 left">
-        <h2 class="header_bg blue bottom20"><a href="#">Campaigns</a></h2>
+        <h2 class="header_bg blue bottom20"><%= link_to 'Campaigns', projects_path %></h2>
         <ul id="campaigns" class="withIndicators">
           <% for project in @projects %>
           <li>
@@ -13,7 +13,7 @@
               <h3><a href="#"><%= project.name %></a></h3>
               <a href="#" class="indicators red"><span>Volunteer</span></a>
             </div>
-            <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <a href="#">More</a></p>
+            <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
           </li>
           <% end %>
         </ul>

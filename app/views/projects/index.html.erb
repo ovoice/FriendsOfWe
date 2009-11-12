@@ -1,21 +1,26 @@
-<% title "Projects" %>
+<% title "Campaigns" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Activities</th>
-  </tr>
-  <% for project in @projects %>
-    <tr>
-      <td><%=h project.name %></td>
-      <td><%=h project.description %></td>
-      <td><%=h project.activities %></td>
-      <td><%= link_to "Show", project %></td>
-      <td><%= link_to "Edit", edit_project_path(project) %></td>
-      <td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<p class="byline">We are a group of professional volunteers getting it done.  Morbi dolor elit, pulvinar quis, porttitor in, lobortis id, felis. Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit massa vitae elit. Donec consectetuer augue at leo. Sed tincidunt pede sed libero. Donec urna.  Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit.</p>
+        <h2 class="header_bg blue bottom20"><a href="#">Campaigns</a></h2>
+        <ul id="campaigns" class="withIndicators">
+          <% for project in @projects %>
+          <li>
+            <div class="clear">
+              <h3><%= link_to '+', project_path(project), :class => 'plus' %> <%= link_to project.name, project_path(project), :class => 'noBg' %></h3>
+              <a href="#" class="indicators red"><span>Volunteer</span></a>
+            </div>
+            <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
+            <ul>
+              <li><%= link_to "Show", project %></li>
+              <li><%= link_to "Edit", edit_project_path(project) %></li>
+              <li><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></li>
+            </ul>
+          </li>
+          <% end %>
+        </ul>
+      
+
 
 <p><%= link_to "New Project", new_project_path %></p>
+
+<div><%= will_paginate @projects %></div>
