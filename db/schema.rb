@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20091110000102) do
   create_table "assets", :force => true do |t|
     t.string   "type"
     t.string   "name"
+    t.string   "description"
     t.string   "url"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20091110000102) do
     t.datetime "attachment_updated_at"
     t.string   "state"
     t.integer  "assetable_id"
+    t.string   "assetable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,16 +66,15 @@ ActiveRecord::Schema.define(:version => 20091110000102) do
     t.string   "name"
     t.string   "email"
     t.string   "title"
-    t.string   "state"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "single_access_token",                :null => false
     t.string   "perishable_token"
-    t.integer  "login_count",         :default => 0, :null => false
-    t.integer  "failed_login_count",  :default => 0, :null => false
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
     t.datetime "last_login_at"
     t.string   "last_login_ip"
   end
