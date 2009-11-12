@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20091110000102) do
     t.text     "activities"
     t.string   "status"
     t.integer  "volunteer_count"
+    t.boolean  "featured"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

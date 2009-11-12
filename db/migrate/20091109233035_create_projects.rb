@@ -6,6 +6,7 @@ class CreateProjects < ActiveRecord::Migration
       t.text :activities
       t.string :status
       t.integer :volunteer_count
+      t.boolean :featured
       t.timestamps
     end
   end

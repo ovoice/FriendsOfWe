@@ -44,6 +44,9 @@ namespace :db do
     end
     project_ids = Project.all.collect(&:id)
     
+    puts "setting featured projcets..."
+    3.times{Project.update(project_ids, :featured => true)}
+    
     puts "associating users and projects through commitments..."
     Project.find_each do |project|
       (ActiveSupport::SecureRandom.random_number(10)).times do 
