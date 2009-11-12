@@ -1,9 +1,13 @@
 class PagesController < ApplicationController
   unloadable
-  before_filter :ensure_valid
+  before_filter :ensure_valid, :only => 'show'  
 
   def show
     render :template => current_page
+  end
+  
+  def home
+    @projects = Project.features
   end
 
   protected
