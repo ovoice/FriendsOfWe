@@ -1,5 +1,5 @@
 class ProjectsController < InheritedResources::Base
-  
+  before_filter :require_admin, :only => [:edit, :update, :destroy]
   
   protected
 

@@ -14,9 +14,5 @@
           </li>
           <% end %>
         </ul>
-      
-
-
-<p><%= link_to "New Project", new_project_path %></p>
-
-<div><%= will_paginate @projects %></div>
+        <% if admin_rights? %><p><%= link_to "New Project", new_project_path %></p><% end -%>
+        <div><%= will_paginate @projects %></div>

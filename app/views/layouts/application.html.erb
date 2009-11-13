@@ -27,12 +27,18 @@
           <li><%= link_to 'Contact', new_contact_path %></li>
         </ul>
         <ul id="user-actions">
-          <li><%= link_to 'Register', register_path %></li>
-          <li class="last"><%= link_to 'Log in', login_path %></li>
+          <%- unless logged_in? -%>
+            <li><%= link_to 'Register', register_path %></li>
+            <li class="last"><%= link_to 'Log in', login_path %></li>
+          <%- else -%>
+            <li><%= link_to 'Your Profile', edit_user_path(current_user) %></li>
+            <li class="last"><%= link_to 'Log out', logout_path %></li>
+          <%- end -%>
         </ul>
       </div>
     </div>
     <div id="content">
+      <%= params.inspect %><br />
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
