@@ -28,8 +28,9 @@ namespace :db do
       user.login_count = 0
       user.failed_login_count = 0
     end
-    puts "create test user"
+    puts "create test and admin users..."
     User.create(:name => "test", :email => "test@test.com", :password => "test", :password_confirmation => "test" )
+    User.create(:name => "admin", :email => "admin@test.com", :password => "admin", :password_confirmation => "admin", :state => 'admin' )
     user_ids = User.all.collect(&:id)
     
     
@@ -41,18 +42,23 @@ namespace :db do
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
       project.volunteer_count = 10 #FIX ME
+      Opportunity.populate(ActiveSupport::SecureRandom.random_number(7)) do |opportunity|
+        opportunity.project_id = project.id
+        opportunity.name = Faker::Lorem.words(2)
+      end
     end
     project_ids = Project.all.collect(&:id)
     
     puts "setting featured projcets..."
-    3.times{Project.update(project_ids.randexit, :featured => true)}
+    3.times{Project.update(project_ids.rand, :featured => true)}
     
     puts "associating users and projects through commitments..."
-    Project.find_each do |project|
+    Opportunity.find_each do |opportunity|
       (ActiveSupport::SecureRandom.random_number(10)).times do 
-        project.volunteers << User.find(user_ids.rand)
+        opportunity.volunteers << User.find(user_ids.rand)
       end
     end
+    Commitment.update_all(:state => 'confirmed')
     
     puts "TODO: creating project tags... "
     

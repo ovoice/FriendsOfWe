@@ -1,0 +1,20 @@
+<% title "Opportunities" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Project</th>
+    <th>Commitment</th>
+  </tr>
+  <% for opportunity in @opportunities %>
+    <tr>
+      <td><%=h opportunity.name %></td>
+      <td><%=h opportunity.project_id %></td>
+      <td><%= link_to "Show", opportunity %></td>
+      <td><%= link_to "Edit", edit_opportunity_path(opportunity) %></td>
+      <td><%= link_to "Destroy", opportunity, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Opportunity", new_opportunity_path %></p>
