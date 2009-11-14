@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
   has_many :commitments
   has_many :volunteers, :through => :commitments, :source => :user  #, :condition => 'state = "confirmed"'
   
+  acts_as_taggable_on :tags
+  
   default_scope :order => 'created_at desc'
   named_scope :features, :conditions => {:featured => true}
   

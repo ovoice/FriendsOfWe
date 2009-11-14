@@ -28,11 +28,10 @@ namespace :db do
       user.login_count = 0
       user.failed_login_count = 0
     end
-    puts "create test user"
+    puts "create test and admin users..."
     User.create(:name => "test", :email => "test@test.com", :password => "test", :password_confirmation => "test" )
-    user_ids = User.all.collect(&:id)
-    
-    
+    User.create(:name => "admin", :email => "admin@test.com", :password => "admin", :password_confirmation => "admin", :state => 'admin' )
+    user_ids = User.all.collect(&:id)    
     
     puts "creating projects..."
     Project.populate(30) do |project|
@@ -44,8 +43,8 @@ namespace :db do
     end
     project_ids = Project.all.collect(&:id)
     
-    puts "setting featured projcets..."
-    3.times{Project.update(project_ids.randexit, :featured => true)}
+    puts "setting featured projects..."
+    3.times{Project.update(project_ids.rand, :featured => true)}
     
     puts "associating users and projects through commitments..."
     Project.find_each do |project|
@@ -53,6 +52,7 @@ namespace :db do
         project.volunteers << User.find(user_ids.rand)
       end
     end
+    Commitment.update_all(:state => 'confirmed')
     
     puts "TODO: creating project tags... "
     
