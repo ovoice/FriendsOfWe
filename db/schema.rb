@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091113004614) do
+ActiveRecord::Schema.define(:version => 20091110000102) do
 
   create_table "assets", :force => true do |t|
     t.string   "type"
@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(:version => 20091113004614) do
   create_table "commitments", :force => true do |t|
     t.string   "state"
     t.integer  "user_id"
-    t.integer  "opportunity_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "opportunities", :force => true do |t|
-    t.string   "name"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -74,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20091113004614) do
     t.string   "name"
     t.string   "email"
     t.string   "title"
-    t.string   "state"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"

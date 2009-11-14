@@ -3,10 +3,8 @@ class Project < ActiveRecord::Base
   has_many :links, :as => :assetable
   has_many :documents, :as => :assetable
   has_many :photos, :as => :assetable
-  has_many :opportunities
-  has_many :volunteers, :through => :opportunities #, :condition => 'state = "confirmed"'
-  
-  acts_as_taggable_on :tags
+  has_many :commitments
+  has_many :volunteers, :through => :commitments, :source => :user  #, :condition => 'state = "confirmed"'
   
   default_scope :order => 'created_at desc'
   named_scope :features, :conditions => {:featured => true}
