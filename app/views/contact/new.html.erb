@@ -1,7 +1,11 @@
 <% title "Contact Us" %>
 <h2>Contact Us</h2>
 <p class="byline">Maecenas ac diam non lectus accumsan euismod. Ut vel nulla. Quisque leo elit, facilisis tempor, fermentum eu, elementum quis, diam. Integer in libero ac nibh aliquam commodo. Mauris eu ligula quis mi convallis faucibus. </p>
-<% semantic_form_for :contact do |form| %>
-  <%= form.inputs :name, :email, :message, :referrer  %>
+<% semantic_form_for :contact, :url => contact_path do |form| %>
+  <% form.inputs do -%>
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.input :message, :as => :text %>
+  <% end -%>
   <%= form.buttons %>
 <% end %>

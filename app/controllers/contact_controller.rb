@@ -6,15 +6,15 @@ class ContactController < ApplicationController
   end
 
   def create
-    Notifier.deliver_contact_form params[:name], params[:email], params[:message], params[:referer]
-    flash[:success] = 'Feedback sent successfully'
+    Notifications.deliver_contact_form(params[:contact])
+    flash[:success] = 'Your contact request has been sent!'
     redirect_to root_url
   end
 
   protected
 
   def check_message
-    if params[:message].blank?
+    if params[:contact][:message].blank?
       flash.now[:failure] = 'Please supply a message'
       render :action => :new and return false
     end
