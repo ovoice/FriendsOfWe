@@ -5,7 +5,6 @@ class Notifications < ActionMailer::Base
     setup_message
     subject    'FOW: Contact Form Submitted'
     recipients  ADMIN_RECIPIENT
-    
     body        :contact =>  contact
   end
 
@@ -13,7 +12,6 @@ class Notifications < ActionMailer::Base
     setup_message
     subject    'Password Reset Instructions'
     recipients user.email
-    
     body       :edit_password_reset_url => edit_password_reset_url(user.perishable_token)  
   end
   

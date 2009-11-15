@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projects, :as => 'campaigns'
   map.resources :assets
   map.resources :commitments
+  map.resources :opportunities
   map.resources :users, :as => 'volunteers' do |users|
     users.resources :commitments
   end

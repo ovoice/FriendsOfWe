@@ -21,15 +21,15 @@
         <div class="columnContent">
           <h2 class="header_bg green">Resources</h2>
           <ul id="resources" >
-            <%- if @project.links.any? -%>
-            <li class="bullets">Links
-              <ul>
-                <%- for link in @project.links  -%>
-                <li><%= link_to h(link.name), h(link.url), :target => 'blank' %> &ndash; <%=h link.description %></li>
-                <%- end -%>
-              </ul>
-            </li>
-            <%- end -%>
+            <% if @project.links.any? -%>
+              <li class="bullets">Links
+                <ul>
+                  <%- for link in @project.links  -%>
+                  <li><%= link_to h(link.name), h(link.url), :target => 'blank' %> &ndash; <%=h link.description %></li>
+                  <%- end -%>
+                </ul>
+              </li>
+            <% end -%>
             <li class="bullets">Documents
               <ul>
                 <li><a href="#">Project Brief</a> &ndash; This is a short description of this document.</li>
@@ -39,12 +39,15 @@
         </div>
       </div>
       <div class="column w360 right last">
-        <h2 class="header_bg red">Recruting</h2>
-        <ul id="volunteer-list">
-          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Get Involved! Click Here!</a></li>
-          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Get Involved! Click Here!</a></li>
-          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Get Involved! Click Here!</a></li>
-        </ul>
+        <% if @project.opportunities.any? -%>
+          <h2 class="header_bg red">Recruting</h2>
+          <ul id="volunteer-list">
+            <% for opportunity in @project.opportunities -%>
+            <%# TODO FIX LINK TO ACTUAL VOLUNTEERING PAGE %>
+            <li><%= link_to opportunity.name, '#', :class => 'greenBg'  %> <%= link_to "Get Involved! Click Here!", '#' %></li>
+            <% end -%>
+          </ul>
+        <% end -%>
         <h2 class="header_bg yellow">Current Volunteers</h2>
         <ul id="recuriting-list">
           <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
