@@ -1,0 +1,11 @@
+<table id="deliveries">
+	<thead>
+		<tr>
+			<th id="from_header">from</th>
+			<th id="to_header">to</th>
+			<th id="subject_header">subject</th>
+			<th id="sent_header">sent at</th>
+		</tr>
+	</thead>
+	<%= render :partial => 'delivery', :collection => @deliveries%>
+</table>

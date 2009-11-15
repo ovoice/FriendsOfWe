@@ -1,0 +1,7 @@
+= railmail
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Scott Fleckenstein. See LICENSE for details.
