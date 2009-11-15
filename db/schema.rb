@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20091110000102) do
     t.string   "name"
     t.string   "email"
     t.string   "title"
-    t.string   "status"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"
