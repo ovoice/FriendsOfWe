@@ -97,7 +97,7 @@ INPUT.buttons, button{cursor:pointer}
 .yellow{color:#ffc736}
 .red{color:#ff6036}
 .bottom20, H2.header_bg.bottom20{margin-bottom:20px}
-
+.bottom40{margin-bottom:40px}
 
 /* sprites */
 .buttons, .buttons SPAN,  .buttons SPAN.buttonsInner, .buttons INPUT, .buttons BUTTON{background:transparent url('../images/sprite_buttons.png') no-repeat -960px 0}

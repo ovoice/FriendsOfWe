@@ -39,19 +39,25 @@
         </div>
       </div>
       <div class="column w360 right last">
+        <div class="clear bottom40">
         <% if @project.opportunities.any? -%>
           <h2 class="header_bg red">Recruting</h2>
-          <ul id="volunteer-list">
+          <ul id="recuriting-list">
             <% for opportunity in @project.opportunities -%>
             <%# TODO FIX LINK TO ACTUAL VOLUNTEERING PAGE %>
-            <li><%= link_to opportunity.name, '#', :class => 'greenBg'  %> <%= link_to "Get Involved! Click Here!", '#' %></li>
+            <li><%= link_to opportunity.name, '#', :class => 'greenBg' %></li>
+            <% end -%>
+          </ul>
+          <%= link_to content_tag(:span, "Get Involved! Click Here!", :class => 'buttonsInner'), '#', :class => 'buttons redB right' %>
+        </div>
+        <% end -%>
+        <% if @project.commitments.confirmed.any? -%>
+        <h2 class="header_bg yellow">Current Volunteers</h2>
+          <ul id="volunteer-list">
+            <% for commitment in @project.commitments -%>
+            <li><%= link_to commitment.name, '#', :class => 'greenBg' %> 
+              <%= link_to commitment.volunteer.name, user_path(commitment.volunteer) %></li>
             <% end -%>
           </ul>
         <% end -%>
-        <h2 class="header_bg yellow">Current Volunteers</h2>
-        <ul id="recuriting-list">
-          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
-          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
-          <li><a href="#" class="greenBg">Team Lead</a> <a href="#">Mario Olivio Flores</a></li>
-        </ul>
       </div>
