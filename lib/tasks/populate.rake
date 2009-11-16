@@ -36,17 +36,17 @@ namespace :db do
     
     puts "creating projects, with opportunities and opportunities..."
     Project.populate(30) do |project|
-      project.name         = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(6)+1)
+      project.name         = Populator.words(ActiveSupport::SecureRandom.random_number(4)+1)
       project.description  = Faker::Lorem.sentences(5)
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
       project.volunteer_count = 10 #FIX ME
       Opportunity.populate(ActiveSupport::SecureRandom.random_number(17))  do |opportunity|
-        opportunity.name       = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(2)+1)
+        opportunity.name       = Populator.words(ActiveSupport::SecureRandom.random_number(3)+1)
         opportunity.project_id = project.id
       end
       Commitment.populate(ActiveSupport::SecureRandom.random_number(10)+3)  do |commitment|
-        commitment.name       = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(2)+1)
+        commitment.name       = Populator.words(ActiveSupport::SecureRandom.random_number(2)+1)
         commitment.project_id = project.id
         commitment.user_id    = user_ids.rand
         commitment.state      = 'confirmed'
@@ -66,7 +66,7 @@ namespace :db do
     
     puts "create links... "
     Link.populate(75) do |link|
-      link.name           = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
+      link.name           = Populator.words(ActiveSupport::SecureRandom.random_number(4)+1)
       link.url            = Faker::Internet.domain_name
       link.description    = Faker::Lorem.words(8)
       link.assetable_id   = project_ids
@@ -75,7 +75,7 @@ namespace :db do
     
     puts "create documents... TODO: (?) add file information"
     Document.populate(75) do |document|
-      document.name         = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(3)+1)
+      document.name         = Populator.words(ActiveSupport::SecureRandom.random_number(4)+1)
       document.description  = Faker::Lorem.words(8)
       document.assetable_id  = project_ids
       document.assetable_type   = "Project"
