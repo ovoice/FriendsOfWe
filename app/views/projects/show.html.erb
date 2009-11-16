@@ -55,8 +55,7 @@
         <h2 class="header_bg yellow">Current Volunteers</h2>
           <ul id="volunteer-list">
             <% for commitment in @project.commitments -%>
-            <li><%= link_to commitment.name, '#', :class => 'greenBg' %> 
-              <%= link_to commitment.volunteer.name, user_path(commitment.volunteer) %></li>
+            <li><span class="greenBg"><%= commitment.name %></span> <%= commitment.volunteer.name %></li>
             <% end -%>
           </ul>
         <% end -%>
