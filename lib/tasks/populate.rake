@@ -34,30 +34,29 @@ namespace :db do
     User.create(:name => "admin", :email => "admin@test.com", :password => "admin", :password_confirmation => "admin", :state => 'admin' )
     user_ids = User.all.collect(&:id)    
     
-    puts "creating projects..."
+    puts "creating projects, with opportunities and opportunities..."
     Project.populate(30) do |project|
       project.name         = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(6)+1)
       project.description  = Faker::Lorem.sentences(5)
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
       project.volunteer_count = 10 #FIX ME
-      Opportunity.populate(ActiveSupport::SecureRandom.random_number(10))  do |opportunity|
+      Opportunity.populate(ActiveSupport::SecureRandom.random_number(17))  do |opportunity|
         opportunity.name       = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(2)+1)
         opportunity.project_id = project.id
       end
+      Commitment.populate(ActiveSupport::SecureRandom.random_number(10)+3)  do |commitment|
+        commitment.name       = Faker::Lorem.words(ActiveSupport::SecureRandom.random_number(2)+1)
+        commitment.project_id = project.id
+        commitment.user_id    = user_ids.rand
+        commitment.state      = 'confirmed'
+      end
+      
     end
     project_ids = Project.all.collect(&:id)
     
     puts "setting featured projects..."
     3.times{Project.update(project_ids.rand, :featured => true)}
-    
-    puts "associating users and projects through commitments..."
-    Project.find_each do |project|
-      (ActiveSupport::SecureRandom.random_number(10)).times do 
-        project.volunteers << User.find(user_ids.rand)
-      end
-    end
-    Commitment.update_all(:state => 'confirmed')
     
     puts "TODO: creating project tags... "
     
