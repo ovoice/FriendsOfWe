@@ -20,15 +20,15 @@
       </div>
       <div class="column w360 right last">
         <h2 class="header_bg yellow bottom20"><a href="#">weBlog</a></h2>
+        <% if @posts.any? -%>
         <ul id="blog">
-          <li>
-            <h3 class="red">11/12 <a href="#">Site Launch!</a></h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec viverra. Duis pellentesque. Etiam elit libero, pretium eget, luctus eu, dapibus eget, mauris. Pellentesque orci.<a href="#">More</a></p>
+          <% for post in @posts -%>
+          <li>            
+            <h3 class="red">11/12 <%= link_to post['regular_title'], post['url_with_slug'] %></h3>
+            <%= truncate_html(post['regular_body'], :length => 180, :omission => "... #{link_to('More', post['url_with_slug'])}") %>
           </li>
-          <li>
-            <h3 class="red">11/12 <a href="#">Site Launch!</a></h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec viverra. Duis pellentesque. Etiam elit libero, pretium eget, luctus eu, dapibus eget, mauris. Pellentesque orci.<a href="#">More</a></p>
-          </li>
+          <% end -%>
         </ul>
+        <% end -%>
       </div>
     

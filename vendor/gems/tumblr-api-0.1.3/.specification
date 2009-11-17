@@ -1,0 +1,100 @@
+--- !ruby/object:Gem::Specification 
+name: tumblr-api
+version: !ruby/object:Gem::Version 
+  version: 0.1.3
+platform: ruby
+authors: 
+- Jeff Kreeftmeijer
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-11-16 00:00:00 -05:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: httparty
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: activesupport
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: 
+email: jeff@kreeftmeijer.nl
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- LICENSE
+- README.rdoc
+files: 
+- .document
+- .gitignore
+- History
+- LICENSE
+- README.rdoc
+- Rakefile
+- VERSION.yml
+- lib/tumblr.rb
+- lib/tumblr/post.rb
+- lib/tumblr/request.rb
+- lib/tumblr/user.rb
+- spec/fixtures/read_0_0.xml
+- spec/fixtures/read_0_0_photo.xml
+- spec/fixtures/read_0_1.xml
+- spec/fixtures/read_0_1_photo.xml
+- spec/fixtures/read_0_50.xml
+- spec/fixtures/read_0_50_photo.xml
+- spec/fixtures/read_100_50.xml
+- spec/fixtures/read_108796131.xml
+- spec/fixtures/read_119_1.xml
+- spec/fixtures/read_50_50.xml
+- spec/spec_helper.rb
+- spec/tumblr_spec.rb
+- tumblr-api.gemspec
+- tumblr.gemspec
+has_rdoc: true
+homepage: http://github.com/jeffkreeftmeijer/tumblr
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: Tumblr API wrapper
+test_files: 
+- spec/spec_helper.rb
+- spec/tumblr_spec.rb
