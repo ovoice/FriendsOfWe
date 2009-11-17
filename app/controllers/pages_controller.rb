@@ -9,8 +9,8 @@ class PagesController < ApplicationController
   def home
     #not restful, but I didn't want to create a new controller just for this - would be open to suggestions
     @projects = Project.features
-    Tumblr.blog = 'friendsofwe'
-    @posts = Tumblr::Post.all(:num => 3, :tagged => 'featured', :filter => 'text')
+    Tumblr.blog = 'weblog.friendsofwe.org'
+    @posts = Tumblr::Post.all(:num => 3, :filter => 'text')
   end
 
   protected

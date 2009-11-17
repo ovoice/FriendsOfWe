@@ -3,7 +3,8 @@ class Tumblr
     
     # a GET request to http://[YOURUSERNAME].tumblr.com/api/read
     def self.read(options = {})
-        response = HTTParty.get("http://#{Tumblr::blog ||= 'staff'}.tumblr.com/api/read", options)
+        blog_root = Tumblr::blog.include?('.') ? Tumblr::blog : "#{Tumblr::blog ||= 'staff'}.tumblr.com"
+        response = HTTParty.get("http://#{blog_root}/api/read", options)
       return response unless raise_errors(response)
     end
     
