@@ -18,6 +18,7 @@ namespace :db do
     more_true = %w(false true true true)
     user_types = %w(band_member booking_agent promoter venue_owner)
     project_statuses = %w(recruting planning launched)
+    project_states = %w(published archived deleted draft)
     
     puts "TODO: creating user skills... "
     
@@ -40,6 +41,7 @@ namespace :db do
       project.description  = Faker::Lorem.sentences(5)
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
+      project.state       = project_states
       project.volunteer_count = 10 #FIX ME
       Opportunity.populate(ActiveSupport::SecureRandom.random_number(17))  do |opportunity|
         opportunity.name       = Populator.words(ActiveSupport::SecureRandom.random_number(3)+1)

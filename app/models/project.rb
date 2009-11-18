@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
   
   default_scope :order => 'created_at desc'
   named_scope :features, :conditions => {:featured => true}
+  named_scope :published, :conditions => {:state => 'publish'}
   
   attr_accessible :name, :description, :activities, :state, :volunteer_count, :featured
 end
