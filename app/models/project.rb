@@ -10,8 +10,9 @@ class Project < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   default_scope :order => 'created_at desc'
-  named_scope :features, :conditions => {:featured => true}
+  named_scope :features, :conditions => {:featured => true, :state => 'publish'}
   named_scope :published, :conditions => {:state => 'publish'}
+  named_scope :recruiting, :conditions => {:status => 'recruiting', :state => 'publish'}
   
   attr_accessible :name, :description, :activities, :state, :volunteer_count, :featured
 end

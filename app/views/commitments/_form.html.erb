@@ -1,4 +1,9 @@
-<% semantic_form_for @commitment do |form| %>
-  <%= form.inputs :state, :user, :project  %>
+<p class="byline">Please check off any project you would be able and willing to commit some hours toward.</p>
+<% semantic_form_for '', :url => commitments_path  do |form| %>
+  <% form.inputs do -%>
+    <%= form.input :project, :as => :check_boxes, :required => false, :collection => @projects, :label => '',
+      :label_method => Proc.new { |p| "<span class=\"red strong\">#{p.name}</span> &ndash; #{p.description}"} %>
+    <%= form.input :user_id, :as => :hidden, :value => current_user.id %>
+  <% end -%>
   <%= form.buttons %>
 <% end %>
