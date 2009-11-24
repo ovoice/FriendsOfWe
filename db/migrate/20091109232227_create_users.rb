@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :title
       t.string :state
+      t.boolean :allow_contact, :allow_email
       t.timestamps
       
       #authlogic fields follow

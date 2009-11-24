@@ -8,9 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :assets
   map.resources :commitments
   map.resources :opportunities
-  map.resources :users, :as => 'volunteers' do |users|
-    users.resources :commitments
-  end
+  map.resources :users, :as => 'volunteers'
   map.resources :user_sessions
   map.resources :password_resets
   

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     login_field :email
   end
   
-  attr_accessible :name, :email, :password, :state, :title, :password_confirmation
+  attr_accessible :name, :email, :password, :state, :title, :password_confirmation, :allow_contact, :allow_email
   
   def admin?
     state == 'admin'

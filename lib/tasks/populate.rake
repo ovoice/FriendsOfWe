@@ -18,16 +18,18 @@ namespace :db do
     more_true = %w(false true true true)
     user_types = %w(band_member booking_agent promoter venue_owner)
     project_statuses = %w(recruting planning launched)
-    project_states = %w(published archived deleted draft)
+    project_states = %w(publish publish publish archived deleted draft)
     
     puts "TODO: creating user skills... "
     
     puts "creating users..."
     User.populate(400) do |user|
-      user.name      = Faker::Name.name
-      user.email     = Faker::Internet.email
-      user.title     = "#{Faker::Lorem.words(1)} title"
-      user.login_count = 0
+      user.name          = Faker::Name.name
+      user.email         = Faker::Internet.email
+      user.title         = "#{Faker::Lorem.words(1)} title"
+      user.allow_email   = more_true
+      user.allow_contact = more_false
+      user.login_count   = 0
       user.failed_login_count = 0
     end
     puts "create test and admin users..."
@@ -37,7 +39,7 @@ namespace :db do
     
     puts "creating projects, with opportunities and opportunities..."
     Project.populate(30) do |project|
-      project.name         = Populator.words(ActiveSupport::SecureRandom.random_number(4)+1)
+      project.name         = Populator.words(ActiveSupport::SecureRandom.random_number(4)+1).titleize
       project.description  = Faker::Lorem.sentences(5)
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
@@ -57,8 +59,10 @@ namespace :db do
     end
     project_ids = Project.all.collect(&:id)
     
-    puts "setting featured projects..."
-    3.times{Project.update(project_ids.rand, :featured => true)}
+    puts "setting featured and publising recuting projects..."
+    3.times{Project.update(project_ids.rand, :featured => true, :state => 'publish')}
+    Project.update_all("status = 'recruiting'", "state = 'publish'")
+
     
     puts "TODO: creating project tags... "
     

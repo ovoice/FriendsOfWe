@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
     t.string   "email"
     t.string   "title"
     t.string   "state"
+    t.boolean  "allow_contact"
+    t.boolean  "allow_email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "crypted_password"
