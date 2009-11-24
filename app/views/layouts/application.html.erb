@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 <head profile="http://gmpg.org/xfn/11">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Friends Of We &raquo; <%= h(yield(:title) || "") %></title>
+  <title>Friends Of We &raquo; <%= yield(:title) || "" %></title>
   <link rel="Shortcut Icon" type="image/ico" href="favicon.ico" />
   <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => true %>
   <%= javascript 'jquery', 'cufon-yui.js', 'gillSans_400.development.font', 'arialRounded_400.development.font', :cache => true   %>
@@ -22,8 +22,8 @@
           <li><%= link_to 'Campaigns', projects_path %></li>
           <li><%= link_to 'Goals', page_path('goals') %></li>
           <li><%= link_to 'About', page_path('about') %></li>
-          <li><a href="#" class="normal">weBlog</a></li>
-          <li><a href="#">Volunteer</a></li>
+          <li><a href="http://weblog.friendsofwe.org" class="normal">weBlog</a></li>
+          <li><%= link_to "Volunteer", new_commitment_path %></li>
           <li><%= link_to 'Contact', new_contact_path %></li>
         </ul>
         <ul id="user-actions">
@@ -54,5 +54,6 @@
       &nbsp;
     </div>
   </div>
+  <%= yield(:footer_scripts) %>
 </body>
 </html>

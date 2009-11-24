@@ -1,18 +1,35 @@
 <% title "Campaigns" %>
 
 <p class="byline">We are a group of professional volunteers getting it done.  Morbi dolor elit, pulvinar quis, porttitor in, lobortis id, felis. Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit massa vitae elit. Donec consectetuer augue at leo. Sed tincidunt pede sed libero. Donec urna.  Pellentesque elementum posuere mauris. Quisque tempor mi vel dolor. Ut suscipit.</p>
-        <h2 class="header_bg blue bottom20"><a href="#">Campaigns</a></h2>
+        <h2 class="header_bg blue bottom20"><%= link_to "Campaigns", projects_path %></h2>
         <ul id="campaigns" class="withIndicators">
           <% for project in @projects %>
           <li>
             <div class="clear">
-              <h3><%= link_to '+', project_path(project), :class => 'plus' %> <%= link_to project.name, project_path(project), :class => 'noBg' %></h3>
-              <a href="#" class="indicators red"><span>Volunteer</span></a>
+              <h3><%= link_to '+', "#", :class => 'plus' %> <%= link_to project.name, project_path(project), :class => 'noBg' %></h3>
+              <%= link_to content_tag(:span, "Volunteer"), project_path(project), :class => "indicators red" %>
             </div>
-            <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
+            <p class="campaign-description"><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
             <% if admin_rights? %><p><%= link_to "Show", project %> | <%= link_to "Edit", edit_project_path(project) %> | <%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></p><% end -%>
           </li>
           <% end %>
         </ul>
         <% if admin_rights? %><p><%= link_to "New Project", new_project_path %></p><% end -%>
         <div><%= will_paginate @projects %></div>
+        
+<% content_for :footer_scripts  do -%>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("p.campaign-description").hide();
+      $("a.plus").toggle(function(){
+		    $(this).html('&ndash;');
+		  }, function () {
+		    $(this).html('+');
+	    });
+      $("a.plus").click(function () {
+        $(this).parent().parent().parent().find('p.campaign-description').toggle(300);   
+      });
+    });
+  </script>
+  
+<% end -%>
