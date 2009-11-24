@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :commitments
+  has_many :commitments
   has_many :projects, :through => :commitments
   
   acts_as_taggable_on :interests, :skills
