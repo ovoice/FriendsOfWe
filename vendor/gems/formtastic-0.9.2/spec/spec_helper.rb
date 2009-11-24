@@ -20,8 +20,11 @@ smart_require 'active_support', 'activesupport', '>= 2.3.4'
 smart_require 'action_controller', 'actionpack', '>= 2.3.4'
 smart_require 'action_view', 'actionpack', '>= 2.3.4'
 
+require 'custom_macros'
+
 Spec::Runner.configure do |config|
   config.include(RspecHpricotMatchers)
+  config.include(CustomMacros)
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
@@ -60,6 +63,10 @@ module FormtasticSpecHelper
     end
   end
   class ::Author
+    def to_label
+    end
+  end
+  class ::Continent
   end
   
   def mock_everything
@@ -86,11 +93,23 @@ module FormtasticSpecHelper
     @bob.stub!(:class).and_return(::Author)
     @bob.stub!(:to_label).and_return('Bob Rock')
     @bob.stub!(:login).and_return('bob')
+    @bob.stub!(:created_at)
     @bob.stub!(:id).and_return(42)
     @bob.stub!(:posts).and_return([])
     @bob.stub!(:post_ids).and_return([])
     @bob.stub!(:new_record?).and_return(false)
     @bob.stub!(:errors).and_return(mock('errors', :[] => nil))
+    
+    @james = mock('user')
+     @james.stub!(:class).and_return(::Author)
+     @james.stub!(:to_label).and_return('James Shock')
+     @james.stub!(:login).and_return('james')
+     @james.stub!(:id).and_return(75)
+     @james.stub!(:posts).and_return([])
+     @james.stub!(:post_ids).and_return([])
+     @james.stub!(:new_record?).and_return(false)
+     @james.stub!(:errors).and_return(mock('errors', :[] => nil))
+    
 
     ::Author.stub!(:find).and_return([@fred, @bob])
     ::Author.stub!(:human_attribute_name).and_return { |column_name| column_name.humanize }
@@ -126,7 +145,9 @@ module FormtasticSpecHelper
     ::Post.stub!(:reflect_on_association).and_return do |column_name|
       case column_name
       when :author, :author_status
-        mock('reflection', :options => {}, :klass => ::Author, :macro => :belongs_to)
+        mock = mock('reflection', :options => {}, :klass => ::Author, :macro => :belongs_to)
+        mock.stub!(:[]).with(:class_name).and_return("Author")
+        mock
       when :authors
         mock('reflection', :options => {}, :klass => ::Author, :macro => :has_and_belongs_to_many)
       end
@@ -136,10 +157,22 @@ module FormtasticSpecHelper
     @new_post.stub!(:title)
     @new_post.stub!(:body)
     @new_post.stub!(:published)
+    @new_post.stub!(:publish_at)
+    @new_post.stub!(:secret)
+    @new_post.stub!(:time_zone)
+    @new_post.stub!(:category_name)
+    @new_post.stub!(:allow_comments)
     @new_post.stub!(:column_for_attribute).with(:meta_description).and_return(mock('column', :type => :string, :limit => 255))
-    @new_post.stub!(:column_for_attribute).with(:title).and_return(mock('column', :type => :string, :limit => 255))
+    @new_post.stub!(:column_for_attribute).with(:title).and_return(mock('column', :type => :string, :limit => 50))
     @new_post.stub!(:column_for_attribute).with(:body).and_return(mock('column', :type => :text))
     @new_post.stub!(:column_for_attribute).with(:published).and_return(mock('column', :type => :boolean))
+    @new_post.stub!(:column_for_attribute).with(:publish_at).and_return(mock('column', :type => :date))
+    @new_post.stub!(:column_for_attribute).with(:time_zone).and_return(mock('column', :type => :string))
+    @new_post.stub!(:column_for_attribute).with(:allow_comments).and_return(mock('column', :type => :boolean))
+    
+    @new_post.stub!(:author).and_return(@bob)
+    @new_post.stub!(:author_id).and_return(@bob.id)
+        
   end
   
   def self.included(base)
@@ -156,4 +189,4 @@ module FormtasticSpecHelper
   
 end
 
-::ActiveSupport::Deprecation.silenced = true
+::ActiveSupport::Deprecation.silenced = false

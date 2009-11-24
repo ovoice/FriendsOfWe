@@ -25,17 +25,7 @@ module Formtastic #:nodoc:
     I18N_SCOPES = [ '{{model}}.{{action}}.{{attribute}}',
                     '{{model}}.{{attribute}}',
                     '{{attribute}}']
-
-    # Keeps simple mappings in a hash
-    INPUT_MAPPINGS = {
-      :string   => :text_field,
-      :password => :password_field,
-      :numeric  => :text_field,
-      :text     => :text_area,
-      :file     => :file_field
-    }
-    STRING_MAPPINGS = [ :string, :password, :numeric ]
-
+        
     attr_accessor :template
 
     # Returns a suitable form input for the given +method+, using the database column information
@@ -88,7 +78,6 @@ module Formtastic #:nodoc:
 
       html_class = [ options[:as], (options[:required] ? :required : :optional) ]
       html_class << 'error' if @object && @object.respond_to?(:errors) && !@object.errors[method.to_sym].blank?
-      html_class << method.to_s
 
       wrapper_html = options.delete(:wrapper_html) || {}
       wrapper_html[:id]  ||= generate_html_id(method)
@@ -299,12 +288,6 @@ module Formtastic #:nodoc:
       if @object
         key = @object.new_record? ? :create : :update
         object_name = @object.class.human_name
-
-        if key == :update
-          # Note: Fallback on :save-key (deprecated), :update makes more sense in the REST-world.
-          fallback_text = ::I18n.t(:save, :model => object_name, :default => "Save {{model}}", :scope => [:formtastic])
-          ::ActiveSupport::Deprecation.warn "Formtastic I18n: Key 'formtastic.save' is now deprecated in favor 'formtastic.update'."
-        end
       else
         key = :submit
         object_name = @object_name.to_s.send(@@label_str_method)
@@ -392,8 +375,8 @@ module Formtastic #:nodoc:
       end
     end
 
-    # Generates error messages for the given method. Errors can be shown as list
-    # or as sentence. If :none is set, no error is shown.
+    # Generates error messages for the given method. Errors can be shown as list,
+    # as sentence or just the first error can be displayed. If :none is set, no error is shown.
     #
     # This method is also aliased as errors_on, so you can call on your custom
     # inputs as well:
@@ -404,7 +387,7 @@ module Formtastic #:nodoc:
     #   end
     #
     def inline_errors_for(method, options=nil) #:nodoc:
-      return nil unless @object && @object.respond_to?(:errors) && [:sentence, :list].include?(@@inline_errors)
+      return nil unless @object && @object.respond_to?(:errors) && [:sentence, :list, :first].include?(@@inline_errors)
 
       errors = @object.errors[method.to_sym]
       send("error_#{@@inline_errors}", Array(errors)) unless errors.blank?
@@ -491,24 +474,42 @@ module Formtastic #:nodoc:
       if_condition ? !!condition : !condition
     end
 
-    # A method that deals with most of inputs (:string, :password, :file,
-    # :textarea and :numeric). :select, :radio, :boolean and :datetime inputs
-    # are not handled by this method, since they need more detailed approach.
-    #
-    # If input_html is given as option, it's passed down to the input.
-    #
-    def input_simple(type, method, options)
+    def basic_input_helper(form_helper_method, type, method, options)
       html_options = options.delete(:input_html) || {}
-      html_options = default_string_options(method, type).merge(html_options) if STRING_MAPPINGS.include?(type)
+      html_options = default_string_options(method, type).merge(html_options) if [:numeric, :string, :password].include?(type)
 
       self.label(method, options_for_label(options)) +
-      self.send(INPUT_MAPPINGS[type], method, html_options)
+      self.send(form_helper_method, method, html_options)
+    end
+    
+    # Outputs a label and standard Rails text field inside the wrapper.
+    def string_input(method, options)
+      basic_input_helper(:text_field, :string, method, options)
+    end
+
+    # Outputs a label and standard Rails password field inside the wrapper.
+    def password_input(method, options)
+      basic_input_helper(:password_field, :password, method, options)
+    end
+    
+    # Outputs a label and standard Rails text field inside the wrapper.
+    def numeric_input(method, options)
+      basic_input_helper(:text_field, :numeric, method, options)
+    end
+    
+    # Ouputs a label and standard Rails text area inside the wrapper.
+    def text_input(method, options)
+      basic_input_helper(:text_area, :text, method, options)
+    end
+    
+    # Outputs a label and a standard Rails file field inside the wrapper.
+    def file_input(method, options)
+      basic_input_helper(:file_field, :file, method, options)
     end
 
     # Outputs a hidden field inside the wrapper, which should be hidden with CSS.
     # Additionals options can be given and will be sent straight to hidden input
     # element.
-    #
     def hidden_input(method, options)
       self.hidden_field(method, set_options(options))
     end
@@ -585,6 +586,13 @@ module Formtastic #:nodoc:
     #   f.input :author, :value_method => :login
     #   f.input :author, :value_method => Proc.new { |a| "author_#{a.login}" }
     #
+    # You can pre-select a specific option value by passing in the :selected option.
+    # 
+    # Examples:
+    #  
+    #   f.input :author, :selected => current_user.id
+    #   f.input :author, :value_method => :login, :selected => current_user.login
+    #
     # You can pass html_options to the select tag using :input_html => {}
     #
     # Examples:
@@ -594,8 +602,21 @@ module Formtastic #:nodoc:
     # By default, all select inputs will have a blank option at the top of the list. You can add
     # a prompt with the :prompt option, or disable the blank option with :include_blank => false.
     #
+    #
+    # You can group the options in optgroup elements by passing the :group_by option 
+    # (Note: only tested for belongs_to relations)
+    # 
+    # Examples:
+    #
+    #   f.input :author, :group_by => :continent
+    # 
+    # All the other options should work as expected. If you want to call a custom method on the 
+    # group item. You can include the option:group_label_method
+    # Examples:
+    #
+    #   f.input :author, :group_by => :continents, :group_label_method => :something_different
+    #
     def select_input(method, options)
-      collection = find_collection_for_column(method, options)
       html_options = options.delete(:input_html) || {}
       options = set_include_blank(options)
 
@@ -608,7 +629,25 @@ module Formtastic #:nodoc:
 
       input_name = generate_association_input_name(method)
       self.label(method, options_for_label(options).merge(:input_name => input_name)) +
-      self.select(input_name, collection, set_options(options), html_options)
+
+      if options[:group_by]
+        # The grouped_options_select is a bit counter intuitive and not optimised (mostly due to ActiveRecord). 
+        # The formtastic user however shouldn't notice this too much.
+        raw_collection = find_raw_collection_for_column(method, options.reverse_merge(:find_options => { :include => options[:group_by] }))
+        label, value = detect_label_and_value_method!(raw_collection)
+        group_collection = raw_collection.map { |option| option.send(options[:group_by]) }.uniq
+        group_label_method = options[:group_label_method] || detect_label_method(group_collection)
+        group_collection = group_collection.sort_by { |group_item| group_item.send(group_label_method) }
+
+        # Here comes the monster with 8 arguments
+        self.grouped_collection_select(input_name, group_collection,
+                                       method.to_s.pluralize, group_label_method,
+                                       value, label, 
+                                       set_options(options), html_options)
+      else
+        collection = find_collection_for_column(method, options)
+        self.select(input_name, collection, set_options(options), html_options)
+      end
     end
     alias :boolean_select_input :select_input
 
@@ -678,6 +717,11 @@ module Formtastic #:nodoc:
     #   f.input :author, :as => :radio, :value_method => :full_name
     #   f.input :author, :as => :radio, :value_method => :login
     #   f.input :author, :as => :radio, :value_method => Proc.new { |a| "author_#{a.login}" }
+    # 
+    # You can force a particular radio button in the collection to be checked with the :selected option.  Example:
+    #
+    #   f.input :subscribe_to_newsletter, :as => :radio, :selected => true
+    #   f.input :subscribe_to_newsletter, :as => :radio, :collection => ["Yeah!", "Nope!"], :selected => "Nope!"
     #
     # Finally, you can set :value_as_class => true if you want the li wrapper around each radio 
     # button / label combination to contain a class with the value of the radio button (useful for
@@ -692,6 +736,7 @@ module Formtastic #:nodoc:
       list_item_content = collection.map do |c|
         label = c.is_a?(Array) ? c.first : c
         value = c.is_a?(Array) ? c.last  : c
+        html_options[:checked] = options.delete(:selected) unless options[:selected].blank?
 
         li_content = template.content_tag(:label,
           "#{self.radio_button(input_name, value, html_options)} #{label}",
@@ -945,20 +990,8 @@ module Formtastic #:nodoc:
     end
 
     # Generates an input for the given method using the type supplied with :as.
-    #
-    # If the input is included in INPUT_MAPPINGS, it uses input_simple
-    # implementation which maps most of the inputs. All others have specific
-    # code and then a proper handler should be called (like radio_input) for
-    # :radio types.
-    #
     def inline_input_for(method, options)
-      input_type = options.delete(:as)
-
-      if INPUT_MAPPINGS.key?(input_type)
-        input_simple(input_type,  method, options)
-      else
-        send("#{input_type}_input", method, options)
-      end
+      send("#{options.delete(:as)}_input", method, options)
     end
 
     # Generates hints for the given method using the text supplied in :hint.
@@ -983,6 +1016,12 @@ module Formtastic #:nodoc:
         list_elements <<  template.content_tag(:li, error.untaint)
       end
       template.content_tag(:ul, list_elements.join("\n"), :class => 'errors')
+    end
+
+    # Creates an error sentence containing only the first error
+    #
+    def error_first(errors) #:nodoc:
+      template.content_tag(:p, errors.first.untaint, :class => 'inline-errors')
     end
 
     # Generates the required or optional string. If the value set is a proc,
@@ -1100,26 +1139,43 @@ module Formtastic #:nodoc:
     # appropriate label and value.
     #
     def find_collection_for_column(column, options)
+      collection = find_raw_collection_for_column(column, options)
+
+      # Return if we have an Array of strings, fixnums or arrays
+      return collection if collection.instance_of?(Array) &&
+                           [Array, Fixnum, String, Symbol].include?(collection.first.class)
+
+      label, value = detect_label_and_value_method!(collection, options)
+
+      collection.map { |o| [send_or_call(label, o), send_or_call(value, o)] }
+    end
+    
+    # As #find_collection_for_column but returns the collection without mapping the label and value
+    #
+    def find_raw_collection_for_column(column, options) #:nodoc:
       reflection = find_reflection(column)
 
       collection = if options[:collection]
         options.delete(:collection)
       elsif reflection
-        reflection.klass.find(:all)
+        reflection.klass.find(:all, options[:find_options] || {})
       else
         create_boolean_collection(options)
       end
 
       collection = collection.to_a if collection.is_a?(Hash)
 
-      # Return if we have an Array of strings, fixnums or arrays
-      return collection if collection.instance_of?(Array) &&
-                           [Array, Fixnum, String, Symbol].include?(collection.first.class)
-
-      label = options.delete(:label_method) || detect_label_method(collection)
+      collection
+    end
+    
+    # Detects the label and value methods from a collection values set in 
+    # @@collection_label_methods. It will use and delete
+    # the options :label_method and :value_methods when present
+    #
+    def detect_label_and_value_method!(collection_or_instance, options = {}) #:nodoc
+      label = options.delete(:label_method) || detect_label_method(collection_or_instance)
       value = options.delete(:value_method) || :id
-
-      collection.map { |o| [send_or_call(label, o), send_or_call(value, o)] }
+      [label, value]
     end
 
     # Detected the label collection method when none is supplied using the
@@ -1318,8 +1374,8 @@ module Formtastic #:nodoc:
   #   <% end %>
   #
   # The above examples use a resource-oriented style of form_for() helper where only the @post
-  # object is given as an argument, but the generic style is also supported if you really want it,
-  # as is forms with inline objects (Post.new) rather than objects with instance variables (@post):
+  # object is given as an argument, but the generic style is also supported, as are forms with 
+  # inline objects (Post.new) rather than objects with instance variables (@post):
   #
   #   <% semantic_form_for :post, @post, :url => posts_path do |f| %>
   #     ...
@@ -1328,14 +1384,6 @@ module Formtastic #:nodoc:
   #   <% semantic_form_for :post, Post.new, :url => posts_path do |f| %>
   #     ...
   #   <% end %>
-  #
-  # The shorter, resource-oriented style is most definitely preferred, and has recieved the most
-  # testing to date.
-  #
-  # Please note: Although it's possible to call Rails' built-in form_for() helper without an
-  # object, all semantic forms *must* have an object (either Post.new or @post), as Formtastic
-  # has too many dependencies on an ActiveRecord object being present.
-  #
   module SemanticFormHelper
     @@builder = Formtastic::SemanticFormBuilder
     mattr_accessor :builder
@@ -1350,7 +1398,7 @@ module Formtastic #:nodoc:
       html_tag
     end
     
-    def use_custom_field_error_proc(&block)
+    def with_custom_field_error_proc(&block)
       @@default_field_error_proc = ::ActionView::Base.field_error_proc
       ::ActionView::Base.field_error_proc = FIELD_ERROR_PROC
       result = yield
@@ -1374,7 +1422,7 @@ module Formtastic #:nodoc:
           end
           options[:html][:class] = class_names.join(" ")
           
-          use_custom_field_error_proc do
+          with_custom_field_error_proc do
             #{meth}(record_or_name_or_array, *(args << options), &proc)
           end
         end

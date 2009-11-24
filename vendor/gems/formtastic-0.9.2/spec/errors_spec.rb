@@ -1,5 +1,5 @@
 # coding: utf-8
-require File.dirname(__FILE__) + '/test_helper'
+require File.dirname(__FILE__) + '/spec_helper'
 
 describe 'SemanticFormBuilder#errors_on' do
   
@@ -32,6 +32,13 @@ describe 'SemanticFormBuilder#errors_on' do
         @title_errors.each do |error|
           builder.errors_on(:title).should have_tag('ul.errors li', error)
         end
+      end
+    end
+
+    it 'should render a paragraph with the first error when inline_errors config is :first' do
+      Formtastic::SemanticFormBuilder.inline_errors = :first
+      semantic_form_for(@new_post) do |builder|
+        builder.errors_on(:title).should have_tag('p.inline-errors', @title_errors.first)
       end
     end
     

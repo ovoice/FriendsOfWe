@@ -311,12 +311,12 @@ Formtastic supports localized *labels*, *hints*, *legends*, *actions* using the 
 
 <pre>
   <% semantic_form_for Post.new do |form| %>
-    <% inputs do %>
+    <% form.inputs do %>
       <%= form.input :title %>      # => :label => "Choose a title...", :hint => "Choose a good title for you post."
       <%= form.input :body %>       # => :label => "Write something...", :hint => "Write something inspiring here."
       <%= form.input :section %>    # => :label => I18n.t('activerecord.attributes.user.section')  or 'Section'
     <% end %>
-    <% buttons do %>
+    <% form.buttons do %>
       <%= form.commit_button %>     # => "Create my {{model}}"
     <% end %>
   <% end %>
@@ -328,7 +328,7 @@ _Note: Slightly different because Formtastic can't guess how you group fields in
 
 <pre>
   <% semantic_form_for @post do |form| %>
-    <% inputs :title => :post_details do %>   # => :title => "Post details"
+    <% form.inputs :title => :post_details do %>   # => :title => "Post details"
       # ...
     <% end %>
     # ...
@@ -339,12 +339,12 @@ _Note: Slightly different because Formtastic can't guess how you group fields in
 
 <pre>
   <% semantic_form_for @post do |form| %>
-    <% inputs do %>
+    <% form.inputs do %>
       <%= form.input :title %>      # => :label => "Choose a title...", :hint => "Choose a good title for you post."
       <%= form.input :body, :hint => false %>                 # => :label => "Write something..."
       <%= form.input :section, :label => 'Some section' %>    # => :label => 'Some section'
     <% end %>
-    <% buttons do %>
+    <% form.buttons do %>
       <%= form.commit_button :dummie %>     # => "Launch!"
     <% end %>
   <% end %>
@@ -360,12 +360,12 @@ If I18n-lookups is disabled, i.e.:
 
 <pre>
   <% semantic_form_for @post do |form| %>
-    <% inputs do %>
+    <% form.inputs do %>
       <%= form.input :title, :label => true %>      # => :label => "Choose a title..."
       <%= form.input :body, :label => true %>       # => :label => "Write something..."
       <%= form.input :section, :label => true %>    # => :label => I18n.t('activerecord.attributes.user.section')  or 'Section'
     <% end %>
-    % buttons do %>
+    <% form.buttons do %>
       <%= form.commit_button true %>                # => "Save changes" (if we are in edit that is...)
     <% end %>
   <% end %>
@@ -416,6 +416,13 @@ h2. Configuration
 Run @./script/generate formtastic@ to copy a commented out config file into @config/initializers/formtastic.rb@. You can "view the configuration file on GitHub":http://github.com/justinfrench/formtastic/blob/master/generators/formtastic/templates/formtastic.rb
 
 
+h2. Custom Inputs
+
+If you want to add your own input types to encapsulate your own logic or interface patterns, you can do so by subclassing SemanticFormBuilder and configuring Formtastic to use your custom builder class.
+
+@Formtastic::SemanticFormHelper.builder = MyCustomBuilder@
+
+
 h2. Status
 
 Formtastic has been in active development for about a year. We've just recently jumped to an 0.9 version number, signaling that we consider this a 1.0 release candidate, and that the API won't change significantly for the 1.x series.
@@ -432,7 +439,7 @@ There are none, but...
 
 h2. Compatibility
 
-I'm only testing Formtastic with the latest Rails 2.2.x stable release, and it should be fine under Rails 2.3 as well (including nested forms). Patches are welcome to allow backwards compatibility, but I don't have the energy!
+I'm only testing Formtastic with the latest Rails 2.4.x stable release, and it should be fine under Rails 2.3.x as well (including nested forms). Patches are welcome to allow backwards compatibility, but I don't have the energy!
 
 
 h2. Got TextMate?
@@ -444,27 +451,12 @@ Well...there's a TextMate-bundle in town, dedicated to make usage of Formtastic 
 
 h2. Contributors
 
-Formtastic is maintained by "Justin French":http://justinfrench.com and "José Valim":http://github.com/josevalim, but it wouldn't be as awesome as it is today if it weren't for the wonderful contributions of these fine, fine coders.
+Formtastic is maintained by "Justin French":http://justinfrench.com, "José Valim":http://github.com/josevalim and "Jonas Grimfelt":http://github.com/grimen, but it wouldn't be as awesome as it is today without help from over 30 contributors.
 
-* "Jeff Smick":http://github.com/sprsquish
-* "Tien Dung":http://github.com/tiendung
-* "Mark Mansour":http://stateofflux.com
-* "Andy Pearson":http://github.com/andypearson
-* "negonicrac":http://github.com/negonicrac
-* "Xavier Shay":http://rhnh.net
-* "Pat Allan":http://github.com/freelancing-god
-* "Gareth Townsend":http://github.com/quamen
-* "Sascha Hoellger":http://github.com/mitnal
-* "Andrew Carpenter":http://github.com/andrewcarpenter
-* "Jack Dempsey":http://github.com/jackdempsey/
-* "Greg Fitzgerald":http://github.com/gregf/
-* "Hector E. Gomez Morales":http://github.com/hectoregm
-* "Ben Hamill":http://blog.benhamill.com/
-* "Simon Chiu":http://github.com/tolatomeow
-* "Bin Dong":http://github.com/dongbin
+@git shortlog -n -s --no-merges@
 
 
-h2. Hey, join the Google group!
+h2. Google Group
 
 Please join the "Formtastic Google Group":http://groups.google.com.au/group/formtastic, especially if you'd like to talk about a new feature, or report a bug.
 
