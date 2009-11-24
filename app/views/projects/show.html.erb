@@ -3,8 +3,8 @@
 <div class="clear">
         <h2><%=h @project.name.titleize %></h2>
         <div id="campaign-status">
-          <a href="#" class="indicators red large"><span>Volunteer</span></a>        
-          <a href="#" class="indicators grey large"><span>22 Members</span></a>          
+          <%= link_to content_tag(:span, "Volunteer"), new_commitment_url(:project_id => @project.id ), :class => "indicators red large" %>
+          <a href="#" class="indicators grey large"><span><%= @project.volunteer_count %> Members</span></a>          
         </div>
         <% if admin_rights? %><p><%= link_to "Edit", edit_project_path(@project) %> | <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |  <%= link_to "View All", projects_path %></p><% end -%>
       </div>
@@ -48,7 +48,7 @@
             <li><%= link_to opportunity.name, '#', :class => 'greenBg' %></li>
             <% end -%>
           </ul>
-          <%= link_to content_tag(:span, "Get Involved! Click Here!", :class => 'buttonsInner'), '#', :class => 'buttons redB right' %>
+          <%= link_to content_tag(:span, "Get Involved! Click Here!", :class => 'buttonsInner'), new_commitment_path(:project_id => @project.id), :class => 'buttons redB right' %>
         </div>
         <% end -%>
         <% if @project.commitments.confirmed.any? -%>

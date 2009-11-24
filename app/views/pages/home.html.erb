@@ -10,7 +10,7 @@
           <% for project in @projects %>
           <li>
             <div class="clear">
-              <h3><a href="#"><%= project.name %></a></h3>
+              <h3><%= link_to project.name,  project_path(project) %></h3>
               <a href="#" class="indicators red"><span>Volunteer</span></a>
             </div>
             <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
@@ -25,7 +25,7 @@
           <% for post in @posts -%>
           <li>            
             <h3 class="red">11/12 <%= link_to post['regular_title'], post['url_with_slug'] %></h3>
-            <%= truncate_html(post['regular_body'], :length => 180, :omission => "... #{link_to('More', post['url_with_slug'])}") %>
+            <%= truncate_html(post['regular_body'], :length => 150, :omission => "... #{link_to('More', post['url_with_slug'])}") %>
           </li>
           <% end -%>
         </ul>

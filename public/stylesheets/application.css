@@ -48,8 +48,8 @@ H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
 H3 A.noBg:hover{background:#25b14f;color:#fff}
 /*format*/
 P{padding:0 0 10px}
-STRONG{font-weight:700}
-SMALL{font-size:0.85em}
+STRONG, .strong{font-weight:700}
+SMALL, .small{font-size:0.85em}
 SUP{position:relative;bottom:0.3em;vertical-align:baseline}
 SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
 ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}

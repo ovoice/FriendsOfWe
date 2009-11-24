@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "You have successfully logged in."
-      redirect_to root_url
+      redirect_return_or_default(projects_path)
     else
       render :action => 'new'
     end
@@ -21,6 +21,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.find(params[:id])
     @user_session.destroy
     flash[:notice] = "You have successfully logged out."
+    session[:return_to] = nil
     redirect_to root_url
   end
 end
