@@ -21,7 +21,7 @@ BODY{background:#fff url('../images/bg.png') repeat-x 0 0;font:400 1em arial,san
 .pageWrap{width:960px;margin:0 auto;padding:0;position:relative}
 #header{width:950px;padding:0 10px 0 0;background:transparent url('../images/bg_menu_foldunder.png') no-repeat right 120px}
 .headerLiner{background:#fff url('../images/bg_header.gif') no-repeat 0 0;height:183px}
-#content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.8em;color:#333;position:relative;overflow:hidden}
+#content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
 #footer{width:100%;padding:0 0 10px;background:#352400 url('../images/bg_footer.gif') repeat-x center 0}
 #footer .pageWrap{min-height:410px;height:auto !important;height:410px;background:transparent url('../images/bg_footer_tree.gif') no-repeat 652px 0}
 
@@ -47,17 +47,13 @@ H3 A.noBg{background:none;color:#ff6036}
 H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
 H3 A.noBg:hover{background:#25b14f;color:#fff}
 /*format*/
-P{padding:0 0 10px}
+P{padding:0 0 20px}
 STRONG, .strong{font-weight:700}
 SMALL, .small{font-size:0.85em}
 SUP{position:relative;bottom:0.3em;vertical-align:baseline}
 SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
 ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}
-/*form
-FORM{display:block}
-INPUT, SELECT, TEXTAREA{font:1em Arial, Helvetica, sans-serif;border:1px #b0b1ad solid}
-.checkbox{border:none  !important}
-TEXTAREA{width:100%;line-height:1.25}*/
+/*form - see formtastic */
 INPUT.submit, INPUT.submitOv,
 INPUT.buttons, button{cursor:pointer}
 
@@ -79,6 +75,7 @@ INPUT.buttons, button{cursor:pointer}
 .column{margin-right:30px}
 .column.w510{width:510px}
 .column.w360{width:360px}
+.column.w80p{width:80%;margin:0 auto;}
 .column.last{margin:0}
 
 
@@ -100,7 +97,7 @@ INPUT.buttons, button{cursor:pointer}
 .bottom40{margin-bottom:40px}
 
 /* sprites */
-.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner, .buttons INPUT, .buttons BUTTON{background:transparent url('../images/sprite_buttons.png') no-repeat -960px 0}
+.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('../images/sprite_buttons.png') no-repeat -960px 0}
 .buttons{padding:0 10px 0 0}
 .buttons SPAN.buttonsInner{display:block;color:#fff;padding:8px 0 8px 10px;line-height:20px;font:400 1.2em arialRounded,arial,sans;white-space:nowrap}
 A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration:none}
@@ -138,11 +135,11 @@ A.indicators:hover{text-decoration:none}
 /* Homepage */
 #introduction{width:510px;height:250px;padding-right:400px;background:#fff url('../images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
 #introduction .buttons{float:right}
-.byline{font:400 1.2em/1.5em georgia,times,arial,serif;color:#115f85;margin-bottom:20px}
+.byline{font:400 1.1em/1.4em georgia,times,arial,serif;color:#115f85;margin-bottom:0px}
 #introduction .buttons{margin-left:20px}
 UL#campaigns LI H2.header_bg, UL#blog LI H2.header_bg{margin-bottom:15px}
-UL#campaigns LI, UL#blog LI{margin:0 0 15px}
-UL#campaigns P, UL#blog LI P{margin:5px 0}
+UL#campaigns LI, UL#blog LI{margin:0 0 15px;font-size:.9em;line-height:1.1em}
+UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
 
 /* General pages */
 #content .bullets{margin:0 0 25px 20px} 
