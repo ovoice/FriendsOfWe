@@ -1,7 +1,3 @@
-# These helper methods can be called in your template to set variables to be used in the layout
-# This module should be included in all views globally,
-# to do so you may need to add this line to your ApplicationController
-#   helper :layout
 module LayoutHelper
   def title(page_title, show_title = true)
     @content_for_title = page_title.to_s
@@ -19,4 +15,28 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+  
+  def no_content_for(symbol)
+    content_for(symbol) { '' }
+  end
+  
+  def main_menu(active=nil)
+    
+    menu_options = {:name => 'Home', :link => root_path}, {:name => 'Campaigns', :link => projects_path}, 
+    {:name => 'Our Goals', :link => page_path('goals')}, {:name => 'About', :link => page_path('about')}, 
+    {:name => 'weBlog', :link => "http://weblog.friendsofwe.org"}, {:name => 'Volunteer', :link => new_commitment_path}, 
+    {:name => 'Contact', :link => new_contact_path}
+    
+    menu_options.collect do |menu_option|
+      
+      html_class = ''
+      html_class << 'active' if menu_option[:name] == active
+      html_class << ' first' if menu_option[:name] == menu_options.first[:name]
+      html_class << ' normal' if menu_option[:name] == 'weBlog'
+      html_class = " class=\"#{html_class.strip}\"" unless html_class.empty?
+      logger.info html_class
+     "<li#{html_class unless html_class.empty?}>#{link_to(content_tag(:span, menu_option[:name], :class => 'inner'), menu_option[:link])}</li>"
+    end.compact.join("\n")
+  end
+  
 end

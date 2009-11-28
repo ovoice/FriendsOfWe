@@ -1,5 +1,9 @@
 <% title "Campaign &raquo; #{@project.name}" %>
 
+<% content_for :main_menu do %>
+  <%= main_menu('Campaigns') %>
+<% end %>
+
 <div class="clear">
         <h2><%=h @project.name.titleize %></h2>
         <div id="campaign-status">

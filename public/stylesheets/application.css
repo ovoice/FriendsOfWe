@@ -59,12 +59,14 @@ INPUT.buttons, button{cursor:pointer}
 
 /* Header & Menu */
 #header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
-#header UL#menu{float:right;background:#fff url('/images/bg_menu.png') repeat-x 0 0}
-#header UL#menu LI{float:left;padding:10px 30px;height:25px}
+#header UL#menu{float:right;background:#fff url('/images/bg_menu.png') repeat-x 0 0;height:45px}
+#header UL#menu LI{float:left;text-transform:lowercase;padding:10px 20px;height:25px;}
 #header UL#menu LI.first{padding-left:45px;background:transparent url('/images/bg_menu_left.png') no-repeat 0 0}
-#header UL#menu LI A{text-transform:lowercase;color:#fff;font:16px 400 arialrounded,arial,sans}
-#header UL#menu LI A.normal{text-transform:none}
+#header UL#menu LI.normal{text-transform:none}
+#header UL#menu LI A{color:#fff;font:16px 400 arialrounded,arial,sans;padding:0 10px}
 #header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
+#header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
+#header UL#menu LI.active A SPAN.inner{background-position:0 0;padding:7px 0 9px 10px}
 #header UL#user-actions{font-size:.7em;line-height:1em;position:absolute;top:105px;right:35px}
 #header UL#user-actions LI{float:left;padding:0 5px;border-right:1px solid #339acc}
 #header UL#user-actions LI.last{border:none}
