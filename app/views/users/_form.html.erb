@@ -8,7 +8,7 @@
     <%= form.input :skill_list, :as => :string, :hint => "Please list any special skills you have, comma seperated. This is espeically valuable for technical volunteers, ex: flash, AS3, Rails, etc. ", :required => false %>
     <%= form.input :interest_list, :as => :string, :hint => "Are there any special areas of interest you would want to volunteer for? Comma seperated", :required => false %>
     <%= form.input :password %>
-    <%= form.input :password_confirmation, :label =>"Password confirm" %>
+    <%= form.input :password_confirmation, :label =>"Password confirm", :wrapper_html => {:class => "last"}  %>
   <% end %>
   <% form.buttons do %>
     <%= form.commit_button :label => logged_in? ? "Edit your profile" : "Register!" %>

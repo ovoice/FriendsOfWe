@@ -37,8 +37,8 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       store_location
-      flash[:notice] = "You must be logged in to access that page. Please log in."
-      redirect_to new_user_session_path
+      flash[:notice] = "You must sign-up to access that page. Please register below or <a href=\"#{register_path}\">log in</a>."
+      redirect_to register_path
       return false
     end
   end

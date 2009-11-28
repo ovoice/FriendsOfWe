@@ -17,13 +17,13 @@ BLOCKQUOTE, Q{quotes:"" ""}
 HTML{font-size:100.01%}
 
 /** Layout **/
-BODY{background:#fff url('../images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
+BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
 .pageWrap{width:960px;margin:0 auto;padding:0;position:relative}
-#header{width:950px;padding:0 10px 0 0;background:transparent url('../images/bg_menu_foldunder.png') no-repeat right 120px}
-.headerLiner{background:#fff url('../images/bg_header.gif') no-repeat 0 0;height:183px}
+#header{width:950px;padding:0 10px 0 0;background:transparent url('/images/bg_menu_foldunder.png') no-repeat right 120px}
+.headerLiner{background:#fff url('/images/bg_header.gif') no-repeat 0 0;height:183px}
 #content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
-#footer{width:100%;padding:0 0 10px;background:#352400 url('../images/bg_footer.gif') repeat-x center 0}
-#footer .pageWrap{min-height:410px;height:auto !important;height:410px;background:transparent url('../images/bg_footer_tree.gif') no-repeat 652px 0}
+#footer{width:100%;padding:0 0 10px;background:#352400 url('/images/bg_footer.gif') repeat-x center 0}
+#footer .pageWrap{min-height:410px;height:auto !important;height:410px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0}
 
 
 /** Topography **/
@@ -41,7 +41,7 @@ A:hover{text-decoration:underline}
 H2 A:link, H2 A:visited{color:#fff}
 H2 A:hover{color:#ff6036;text-decoration:none}
 H2 A.header_bg.red:hover{color:#ffc736}
-H3 A:link, H3 A:visited,A.greenBg:link,A.greenBg:visited, .greenBg{color:#fff;background:#25b14f;padding:1px 2px;font-weight:700}
+H3 A:link, H3 A:visited,A.greenBg:link,A.greenBg:visited, .greenBg{color:#fff;background:#25b14f;padding:1px 3px 2px;font-weight:700;font-size:0.95em}
 H3 A.plus{padding:1px 5px}
 H3 A.noBg{background:none;color:#ff6036}
 H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
@@ -59,9 +59,9 @@ INPUT.buttons, button{cursor:pointer}
 
 /* Header & Menu */
 #header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
-#header UL#menu{float:right;background:#fff url('../images/bg_menu.png') repeat-x 0 0}
+#header UL#menu{float:right;background:#fff url('/images/bg_menu.png') repeat-x 0 0}
 #header UL#menu LI{float:left;padding:10px 30px;height:25px}
-#header UL#menu LI.first{padding-left:45px;background:transparent url('../images/bg_menu_left.png') no-repeat 0 0}
+#header UL#menu LI.first{padding-left:45px;background:transparent url('/images/bg_menu_left.png') no-repeat 0 0}
 #header UL#menu LI A{text-transform:lowercase;color:#fff;font:16px 400 arialrounded,arial,sans}
 #header UL#menu LI A.normal{text-transform:none}
 #header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
@@ -97,15 +97,19 @@ INPUT.buttons, button{cursor:pointer}
 .bottom40{margin-bottom:40px}
 
 /* sprites */
-.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('../images/sprite_buttons.png') no-repeat -960px 0}
+.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('/images/sprite_buttons.png') no-repeat -960px 0}
 .buttons{padding:0 10px 0 0}
 .buttons SPAN.buttonsInner{display:block;color:#fff;padding:8px 0 8px 10px;line-height:20px;font:400 1.2em arialRounded,arial,sans;white-space:nowrap}
 A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration:none}
 .buttons.menu{padding:0;background-position:right 0} .buttons.menu SPAN.buttonsInner{background-position:0 0;color:#1b8ff9}/* class is needed here or Cufon will cause issues*/
-.buttons.yellowB{background-position:right -60px}    .buttons.yellowB SPAN.buttonsInner{background-position:0 -60px;color:#339acc}
-.buttons.redB{background-position:right -120px}      .buttons.redB SPAN.buttonsInner{background-position:0 -120px}/* Added the B, otherwise IE6 gets indicators.red and buttons.red confused */
+.buttons.redB{background-position:right -60px}      .buttons.redB SPAN.buttonsInner{background-position:0 -60px}/* Added the B, otherwise IE6 gets indicators.red and buttons.red confused */
+.buttons.yellowB{background-position:right -120px}    .buttons.yellowB SPAN.buttonsInner{background-position:0 -120px;color:#339acc}
+.buttons.grayB{background-position:right -180px}    .buttons.grayB SPAN.buttonsInner{background-position:0 -180px;color:#339acc}
+.buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#339acc}
+.buttons.blueB{background-position:right -300px}    .buttons.blueB SPAN.buttonsInner{background-position:0 -300px;color:#339acc}
 
-H2.header_bg{background:url('../images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
+
+H2.header_bg{background:url('/images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
 H2.header_bg.blue{background-position:right 0}
 H2.header_bg.green{background-position:right -100px}
 H2.header_bg.grey{background-position:right -200px}
@@ -116,7 +120,7 @@ H2.header_bg.red{background-position:right -400px}
 
 
 .withIndicators H3{float:left;margin:2px 0}
-.indicators, .indicators SPAN{background:url('../images/sprite_status_indicators.png') no-repeat -960px -30px;text-decoration:none;font:700 1em arial,sans;font-variant:small-caps}
+.indicators, .indicators SPAN{background:url('/images/sprite_status_indicators.png') no-repeat -960px -30px;text-decoration:none;font:700 1em arial,sans;font-variant:small-caps}
 .indicators{float:right;padding:0 10px 0 0;margin:0 10px 0 0}
 A.indicators:hover{text-decoration:none}
 .indicators SPAN{display:block;padding:1px 0 1px 10px;line-height:20px;width:70px;text-align:center;color:#fff}
@@ -133,7 +137,7 @@ A.indicators:hover{text-decoration:none}
 .indicators.red.large{background-position:right -360px}    .indicators.red.large SPAN{background-position:0 -360px}
 
 /* Homepage */
-#introduction{width:510px;height:250px;padding-right:400px;background:#fff url('../images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
+#introduction{width:510px;height:250px;padding-right:400px;background:#fff url('/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
 #introduction .buttons{float:right}
 .byline{font:400 1.1em/1.4em georgia,times,arial,serif;color:#115f85;margin-bottom:0px}
 #introduction .buttons{margin-left:20px}
@@ -145,6 +149,7 @@ UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
 #content .bullets{margin:0 0 25px 20px} 
 #content .bullets LI{list-style-type:square;margin:5px 0 5px 25px}
 #content .columnContent{margin-bottom:20px}
+#content .pagination{font-size:.9em;float:right;margin:20px 0}
 
 /* campaign page */
 
@@ -154,7 +159,7 @@ UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
 
 /* from nifty_scaffold */
 
-#flash{padding:5px 8px;margin:10px 0;background-color:#f8f8f8;border:solid 1px #E0E0E0}
+#flash{padding:5px 8px;margin:0 0 10px;background-color:#f8f8f8;border:solid 1px #E0E0E0}
 #flash.notice{background-color:#CFC;border-color:#6C6}
 #flash.error, #flash.warning{background-color:#FCC;border-color:#C66}
 #flash.message{background:#9FFFAC;border-color:#2CEF46;color:#333;}

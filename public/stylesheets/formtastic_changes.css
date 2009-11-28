@@ -11,11 +11,14 @@ form.formtastic fieldset ol li p.inline-hints { color:#333; }
 FORM.formtastic{width:80%;margin:0 auto}
 
 FORM.formtastic FIELDSET.inputs SPAN.label, FORM.formtastic FIELDSET.inputs .string LABEL,
-FORM.formtastic FIELDSET.inputs LI.password LABEL{font-size:1.2em;line-height:1em;color:#666;font-weight:700;white-space:nowrap}
+FORM.formtastic FIELDSET.inputs LI.password LABEL, FORM.formtastic FIELDSET.inputs LI.text LABEL,
+FORM.formtastic FIELDSET.inputs LEGEND.label{font-size:1.2em;line-height:1em;color:#666;font-weight:700;white-space:nowrap}
 FORM.formtastic FIELDSET.inputs LI{border-bottom:1px solid #ddd;padding-bottom:20px}
+FORM.formtastic FIELDSET.inputs LI.last{border:none;}
 FORM.formtastic FIELDSET.inputs LI LI{border:none;padding-bottom:0}
 
 FORM.formtastic FIELDSET.buttons OL LI{float:right;}
 FORM.formtastic FIELDSET.buttons OL LI, FORM.formtastic FIELDSET.buttons OL LI INPUT {background:transparent url('/images/sprite_buttons.png') no-repeat -960px 0;border:0;padding-right:10px;color:#fff;cursor:pointer}
 FORM.formtastic FIELDSET.buttons OL LI INPUT {padding:6px 0 8px 10px;line-height:20px;font:400 1.2em arialRounded,arial,sans;white-space:nowrap}
-FORM.formtastic FIELDSET.buttons OL LI.commit{background-position:right -120px}  FORM.formtastic FIELDSET.buttons OL LI.commit INPUT{background-position:0 -120px}
+FORM.formtastic FIELDSET.buttons OL LI.commit{background-position:right -60px}  FORM.formtastic FIELDSET.buttons OL LI.commit INPUT{background-position:0 -60px}
+FORM.formtastic FIELDSET.buttons OL LI.commit.blueB{background-position:right -300px}  FORM.formtastic FIELDSET.buttons OL LI.commit.blueB INPUT{background-position:0 -300px}

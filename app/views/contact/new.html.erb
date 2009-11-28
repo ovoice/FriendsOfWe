@@ -5,7 +5,9 @@
   <% form.inputs do -%>
     <%= form.input :name %>
     <%= form.input :email %>
-    <%= form.input :message, :as => :text %>
+    <%= form.input :message, :as => :text, :wrapper_html => {:class => "last"} %>
   <% end -%>
-  <%= form.buttons %>
+  <% form.buttons do %>
+    <%= form.commit_button :label => "Submit", :class => "blueB" %>
+  <% end %>
 <% end %>

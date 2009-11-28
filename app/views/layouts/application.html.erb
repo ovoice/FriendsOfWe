@@ -3,12 +3,12 @@
 <head profile="http://gmpg.org/xfn/11">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Friends Of We &raquo; <%= yield(:title) || "" %></title>
-  <link rel="Shortcut Icon" type="image/ico" href="favicon.ico" />
+  <link rel="Shortcut Icon" type="image/ico" href="/favicon.ico" />
   <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => true %>
   <%= javascript 'jquery', 'cufon-yui.js', 'gillSans_400.development.font', 'arialRounded_400.development.font', :cache => true   %>
   <%= yield(:head) %>
   <script type="text/javascript">
-    Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'});
+    Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'})('.buttons OL LI INPUT', {fontFamily: 'arialRounded'});
     Cufon.replace('H2', {hover: true, fontFamily: 'gillSans'});
   </script>
 </head>

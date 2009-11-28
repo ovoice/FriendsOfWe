@@ -43,7 +43,7 @@ namespace :db do
       project.description  = Faker::Lorem.sentences(5)
       project.activities   = Faker::Lorem.sentences(8)
       project.status       = project_statuses
-      project.state       = project_states
+      project.state        = project_states
       project.volunteer_count = 10 #FIX ME
       Opportunity.populate(ActiveSupport::SecureRandom.random_number(17))  do |opportunity|
         opportunity.name       = Populator.words(ActiveSupport::SecureRandom.random_number(3)+1)
