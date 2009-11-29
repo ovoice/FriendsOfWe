@@ -3,13 +3,14 @@ class CommitmentsController < InheritedResources::Base
   actions :all, :except => [:new, :create]
   
   before_filter :load_user, :only => :create
-  before_filter :require_user, :only => [:new, :create]
+  before_filter :only => [:new, :create]  do |c| 
+    c.send(:require_user, '', '/get-involved')
+  end
   
   def new
     @commitment = Commitment.new
     @projects = params[:project_id].present? ? Project.all(:conditions => {:id => params[:project_id]}) : Project.recruiting
-    #@selected = @projects.first if params[:project_id]  THIS ISN'T YET SUPPORTED BY FORMTASTIC AND I DON'T HAVE TIME TO DO IT
-    # MYSELF RIGHT NOW.
+    #@selected = @projects.first if params[:project_id]  THIS will be supported in the next patch of formtastic
   end
   
   def create

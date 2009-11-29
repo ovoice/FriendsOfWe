@@ -28,13 +28,11 @@ module LayoutHelper
     {:name => 'Contact', :link => new_contact_path}
     
     menu_options.collect do |menu_option|
-      
       html_class = ''
       html_class << 'active' if menu_option[:name] == active
       html_class << ' first' if menu_option[:name] == menu_options.first[:name]
       html_class << ' normal' if menu_option[:name] == 'weBlog'
       html_class = " class=\"#{html_class.strip}\"" unless html_class.empty?
-      logger.info html_class
      "<li#{html_class unless html_class.empty?}>#{link_to(content_tag(:span, menu_option[:name], :class => 'inner'), menu_option[:link])}</li>"
     end.compact.join("\n")
   end

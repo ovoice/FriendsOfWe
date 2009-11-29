@@ -34,11 +34,11 @@ class ApplicationController < ActionController::Base
     logged_in? && (current_user.id == user_id || current_user.admin?)
   end
 
-  def require_user
+  def require_user(message="You must be logged in to access that page. Please login or <a href=\"#{register_path}\">register</a>.", target_path=login_path)
     unless current_user
       store_location
-      flash[:notice] = "You must sign-up to access that page. Please register below or <a href=\"#{register_path}\">log in</a>."
-      redirect_to register_path
+      flash[:notice] = message unless message.empty?
+      redirect_to target_path
       return false
     end
   end
@@ -60,9 +60,9 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin_or_current_user
-    unless (current_user && current_user.id == params[:id].to_i) || current_user.admin?
+    unless logged_in? && (current_user.id == params[:id].to_i || current_user.admin?)
       store_location
-      flash[:notice] = "You can only edit information that pertains to your user. You have been redirected to edit your own volunteer account"
+      flash[:notice] = "You can only edit information that pertains to your user. You have been redirected to edit your own volunteer account."
       redirect_back_or_default edit_user_path(current_user)
     end
   end
