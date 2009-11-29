@@ -5,12 +5,12 @@
 <% end %>
 
 <h2>Contact Us</h2>
-<p class="byline">Maecenas ac diam non lectus accumsan euismod. Ut vel nulla. Quisque leo elit, facilisis tempor, fermentum eu, elementum quis, diam. Integer in libero ac nibh aliquam commodo. Mauris eu ligula quis mi convallis faucibus. </p>
+<p class="byline bottom20">Questions? Comments? We're eager to hear from you!</p>
 <% semantic_form_for :contact, :url => contact_path do |form| %>
   <% form.inputs do -%>
     <%= form.input :name %>
     <%= form.input :email %>
-    <%= form.input :message, :as => :text, :wrapper_html => {:class => "last"} %>
+    <%= form.input :message, :as => :text,  :wrapper_html => {:class => "last"}, :input_html => {:rows => '10'} %>
   <% end -%>
   <% form.buttons do %>
     <%= form.commit_button :label => "Submit", :class => "blueB" %>
