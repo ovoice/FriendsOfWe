@@ -8,6 +8,15 @@ Key gems/plugins:
 * inherited_resources
 * formtastic
 
+h2. Useful Rake Tasks
+
+These will need to be improved later.
+
+* rake db:build - runs migrations loads seed data
+* rake db:rebuild - destroys DB, runs migrations and loads seed data
+* rake db:populate - loads fake data
+* rake db:repopulate - destroys and rebuilds DB, then loads fake data
+
 h2. TO DOs
 
 h3. Short Term

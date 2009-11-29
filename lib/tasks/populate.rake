@@ -1,14 +1,5 @@
 namespace :db do
   
-  desc "Destroys and rebuilds DB"
-  task :rebuild => :environment do 
-    puts 'rebuilding database...'
-    Rake::Task["db:drop"].invoke
-    Rake::Task["db:create"].invoke
-    Rake::Task["db:migrate"].invoke
-    Rake::Task["railmail:install"].invoke
-  end
-  
   desc "fill empty database with fake data"
   task :populate => :environment do
     require 'populator'
@@ -62,12 +53,8 @@ namespace :db do
     puts "setting featured and publising recuting projects..."
     3.times{Project.update(project_ids.rand, :featured => true, :state => 'publish')}
     Project.update_all("status = 'recruiting'", "state = 'publish'")
-
     
-    puts "TODO: creating project tags... "
-    
-    
-    
+    puts "TODO: creating project tags... "    
     puts "TODO LATER? create photos... "
     
     puts "create links... "
@@ -87,6 +74,22 @@ namespace :db do
       document.assetable_type   = "Project"
     end
     
+  end
+  
+  desc "builds DB from scratch"
+  task :build => :environment do 
+    puts "building database..."
+    Rake::Task["db:create"].invoke
+    Rake::Task["db:migrate"].invoke
+    Rake::Task["db:seed"].invoke
+    Rake::Task["railmail:install"].invoke
+  end
+  
+  desc "destroys and rebuilds DB from scratch"
+  task :rebuild => :environment do
+    puts "destroying database..."
+    Rake::Task["db:drop"].invoke
+    Rake::Task["db:build"].invoke
   end
   
   desc "destroys and repopulates database with fake data"
