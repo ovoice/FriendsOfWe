@@ -4,9 +4,9 @@
     <%= form.input :email %>
     <%= form.input :title %>
     <%= form.input :allow_contact, :as => :radio, :hint => "Is it ok for other users to find you and solicit your help on projects you haven't explicitly volunteered for?" %>
-    <%= form.input :allow_email, :as => :radio, :hint => "Is it ok for administrators to email you periodic updates about our organization?"  %>
-    <%= form.input :skill_list, :as => :string, :hint => "Please list any special skills you have, comma seperated. This is espeically valuable for technical volunteers, ex: flash, AS3, Rails, etc. ", :required => false %>
-    <%= form.input :interest_list, :as => :string, :hint => "Are there any special areas of interest you would want to volunteer for? Comma seperated", :required => false %>
+    <%= form.input :allow_email, :as => :radio, :label => "Receive News?", :hint => "Is it ok for administrators to email you periodic updates about our organization? "  %>
+    <%= form.input :skill_list, :as => :string, :label => "Your skills", :hint => "Please list any special skills you have, comma seperated. This is espeically valuable for technical volunteers, ex: flash, AS3, Rails, etc. ", :required => false %>
+    <%= form.input :interest_list, :as => :string, :label => "Your interests", :hint => "Are there any special areas of interest you would want to volunteer for? Comma seperated.", :required => false %>
     <%= form.input :password %>
     <%= form.input :password_confirmation, :label =>"Password confirm", :wrapper_html => {:class => "last"}  %>
   <% end %>

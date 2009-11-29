@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.register 'get-involved', :controller => :users, :action => :new
+  map.register 'get-involved', :controller => :users, :action => :new 
+  #if you change the above, change the reference in commitments_controller
   map.login 'login', :controller => :user_sessions, :action => :new
   map.logout 'logout', :controller => :user_sessions, :action => :destroy
   
