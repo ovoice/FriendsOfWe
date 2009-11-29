@@ -9,7 +9,7 @@
   <%= yield(:head) %>
   <script type="text/javascript">
     Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'})('.buttons OL LI INPUT', {fontFamily: 'arialRounded'});
-    Cufon.replace('H2', {hover: true, fontFamily: 'gillSans'});
+    Cufon.replace('H2', {hover: true, fontFamily: 'gillSans'})('.generalText H3', {fontFamily: 'gillSans'});
   </script>
 </head>
 <body>
@@ -31,7 +31,7 @@
         </ul>
       </div>
     </div>
-    <div id="content">
+    <div id="content"<%= yield :content_class %>>
       <%- flash.each do |name, msg| -%>
         <%= content_tag(:div, msg, :id => "flash", :class => name) %>
       <%- end -%>

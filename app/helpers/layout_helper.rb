@@ -23,9 +23,8 @@ module LayoutHelper
   def main_menu(active=nil)
     
     menu_options = {:name => 'Home', :link => root_path}, {:name => 'Campaigns', :link => projects_path}, 
-    {:name => 'Our Goals', :link => page_path('goals')}, {:name => 'About', :link => page_path('about')}, 
-    {:name => 'weBlog', :link => "http://weblog.friendsofwe.org"}, {:name => 'Volunteer', :link => new_commitment_path}, 
-    {:name => 'Contact', :link => new_contact_path}
+    {:name => 'Our Goals', :link => page_path('goals')}, {:name => 'weBlog', :link => "http://weblog.friendsofwe.org"}, 
+    {:name => 'Volunteer', :link => new_commitment_path}, {:name => 'Contact', :link => new_contact_path}
     
     menu_options.collect do |menu_option|
       html_class = ''
@@ -35,6 +34,10 @@ module LayoutHelper
       html_class = " class=\"#{html_class.strip}\"" unless html_class.empty?
      "<li#{html_class unless html_class.empty?}>#{link_to(content_tag(:span, menu_option[:name], :class => 'inner'), menu_option[:link])}</li>"
     end.compact.join("\n")
+  end
+  
+  def content_class(content_class)
+    " class=\"#{content_class}\"" 
   end
   
 end

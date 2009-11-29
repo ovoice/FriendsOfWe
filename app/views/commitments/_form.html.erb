@@ -1,4 +1,3 @@
-<p class="byline">Please check off any project you would be able and willing to commit some hours toward.</p>
 <% semantic_form_for '', :url => commitments_path, :html => {:class => 'projectForm'}  do |form| %>
   <% form.inputs do -%>
     <%= form.input :project, :as => :check_boxes, :required => false, :collection => @projects, :label => '',
