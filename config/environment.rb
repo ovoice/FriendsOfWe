@@ -26,6 +26,8 @@ Rails::Initializer.run do |config|
   config.gem "state_machine", :source => "http://gemcutter.org"
   config.gem "inherited_resources", :source => "http://gemcutter.org"
   config.gem 'tumblr-api', :lib => 'tumblr', :source => 'http://gemcutter.org'
+  config.gem "populator", :source => 'http://gemcutter.org'
+  config.gem "faker", :source => 'http://gemcutter.org'
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
