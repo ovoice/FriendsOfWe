@@ -28,6 +28,8 @@ Rails::Initializer.run do |config|
   config.gem 'tumblr-api', :lib => 'tumblr', :source => 'http://gemcutter.org'
   config.gem "populator", :source => 'http://gemcutter.org'
   config.gem "faker", :source => 'http://gemcutter.org'
+  config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
+
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
