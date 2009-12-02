@@ -9,3 +9,4 @@ public/attachments
 public/robots.txt
 sh.exe.stackdump
 coverage*
+*~

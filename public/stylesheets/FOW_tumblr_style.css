@@ -88,7 +88,6 @@ A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration
 .buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#339acc}
 .buttons.blueB{background-position:right -300px}    .buttons.blueB SPAN.buttonsInner{background-position:0 -300px;color:#339acc}
 
-
 H2.header_bg{background:url('http://friendsofwe.org/images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
 H2.header_bg.blue{background-position:right 0}
 H2.header_bg.green{background-position:right -100px}
@@ -97,8 +96,6 @@ H2.header_bg.yellow{background-position:right -300px}
   H2.header_bg.yellow A:link, H2.header_bg.yellow A:visited{color:#339acc}
   H2.header_bg.yellow A:hover{color:#ff6036}
 H2.header_bg.red{background-position:right -400px}
-
-
 
 /** Library **/
 .clear{overflow:hidden;width:100%}

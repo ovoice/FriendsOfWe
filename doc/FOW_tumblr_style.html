@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+	<title>{block:SearchPage}Search results for "{SearchQuery}" - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+	<link rel="icon" href="{Favicon}"/>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+	{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="robots" content="noindex, nofollow" /> 
+
+  <link href="http://friendsofwe.org/stylesheets/FOW_tumblr_style.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="http://friendsofwe.org/stylesheets/all.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'})('.buttons OL LI INPUT', {fontFamily: 'arialRounded'});
+    Cufon.replace('H2', {hover: true, fontFamily: 'gillSans'})('.generalText H3', {fontFamily: 'gillSans'});
+  </script>
+  	<!-- DEFAULT COLORS -->
+	<meta name="color:Background" content="#eee"/>
+	<meta name="color:Content Background" content="#fff"/>
+	<meta name="color:Description Background" content="#eee"/>
+	<meta name="color:Chat Background Even" content="#fff"/>
+	<meta name="color:Chat Background Odd" content="#eee"/>
+	<meta name="color:Sidebar Background" content="#e0e0e0"/>
+	<meta name="color:Code Background" content="#eee"/>
+	<meta name="color:Code Border" content="#ddd"/>
+	<meta name="color:Content Background" content="#fff"/>
+	<meta name="color:Content Background" content="#fff"/>
+	<meta name="color:Description Shadow" content="#ddd"/>
+	<meta name="color:Sidebar Shadow" content="#ddd"/>
+	<meta name="color:Content Border" content="#ccc"/>
+	<meta name="color:Footer Border" content="#ccc"/>
+	<meta name="color:Blockquote Border" content="#ccc"/>
+	<meta name="color:Chat Border" content="#ccc"/>
+	<meta name="color:Chat Odd" content="#9B3321"/>
+	<meta name="color:Chat Even" content="#7F99B4"/>
+	<meta name="color:Content Font" content="#555"/>
+	<meta name="color:Header and Footer Font" content="#555"/>
+	<meta name="color:Headings" content="#aaa"/>
+	<meta name="color:Hyperlink" content="#596C86"/>
+	<meta name="color:Sidebar Hyperlink" content="#555"/>
+	<meta name="color:Sidebar Hyperlink Border" content="#999"/>
+	<meta name="color:Visited Hyperlink" content="#582525"/>
+	<!-- END DEFAULT COLORS -->
+		<style type="text/css">
+/*body, h1, h2, h3, blockquote, p, ul, ol, img { border: 0; margin: 0; padding: 0; font-size: 1em; }*/
+#content {color: #555;font: 62.5% Helvetica, Arial, sans-serif;}
+/* a { color: #596C86; }
+a:visited { color: #582525; } */
+.post .sidebar p, .description, #footer .footer, #footer .description p {font-size: 1.1em;line-height: 1.6363em;}
+code, pre {background: #eee;padding: 3px;font-size: 11px;}
+pre {border: 1px solid #ddd;}
+#contents .post {background: #e0e0e0;border-top: 1px solid #ccc;clear: right;}
+#contents .post:first-child {border-top: 0;}
+.post .sidebar {float: right;padding: 3em 0 0;width: 21em;}
+.post .sidebar h2 {color: #aaa;font-size: 1.7em;font-weight: normal;line-height: 1.5em;margin-bottom: 0.618em;}
+.post .sidebar a {color: #555;text-decoration: none;border-bottom: 1px dotted #999;}
+.post .sidebar p.notes+p {margin: 0;}
+.post .content {background: #fff;border-right: 0.5em solid #ddd;margin-right: 23.5em;min-height: 7.2em;padding: 3em;}
+.post .description {background: #eee;border-top: 1px solid #ddd;margin-top: 2em;adding: 1.5em;}
+.description + .description {margin-top: 0;}
+#footer .pageWrap{padding:260px 0 0;color:#fff }
+#footer .description {float: left;width: 60%;padding:0 40% 1.2em 0;}
+#footer .follow {float: right;width: 28em;margin-left: 0em;padding-bottom: 3em;}
+#footer .footer {clear: both;margin-top: 1em;border-top: 1px solid #000;padding-top: 3em;text-align: center;font-size:.9em}
+#footer .search {float:left;width: 27em;margin-left: 0em;padding-bottom: 3em;}
+#footer .search input[type=text] {border: 1px solid #bbb;background: #fff url('http://static.tumblr.com/bwtvnaf/YIzkhqyas/input_bg.gif') repeat-x top;font: 120% Helvetica, Arial, sans-serif;padding: 6px 6px;width: 13em;margin-right: 0.5em;}
+#footer h2 {color: #aaa;font-size: 1.7em;font-weight: normal;line-height: 1.5em;margin-bottom: 0.618em;}
+#footer .description p {color: #555;margin-bottom: 1.6363em;}
+#footer .description img {float: left;margin-right: 10px;}
+#footer .follow ul li {float: left;margin-right: 2px;list-style: none;}
+/* General */
+
+.post h3 {font-size:2.3em;font-weight: normal;line-height: 1.5em;margin-bottom: 0.618em;}
+.post blockquote {border-left: 0.5em solid #ccc;padding-left: 1em;font-style: italic;}
+.post p, .post blockquote, .post ul, .post ol {margin-top: 1.0em;}
+.post p:first-child, .post blockquote:first-child, .post ul:first-child, .post ol:first-child {margin-top: 0;}
+.post .nav {min-height: 0 !important;}
+/* Links */
+.post .link h3 {margin: 0;}
+/* Quote */
+.post .quote .symbol {font-size: 5em;margin-top: -0.1em;float: left;}
+.post .quote .quote {font-size: 1.7em;line-height: 1.5em;margin-left: 1.5em;}
+/* Conversation */
+.post .conversation ul {list-style: none;border-left: 0.5em solid #ccc;}.post .conversation ul li {font-size: 1.2em;line-height: 1.5em;padding: 0.25em 0.5em;}
+.post .conversation ul li {background: #fff;}.
+post .conversation ul li.odd {background: #eee;}
+.post .conversation .label {color: #7F99B4;font-weight: bold;}
+.post .conversation .odd .label {color: #9B3321;}
+/* Text */
+.post .text .go {font-size: 1.2em;line-height: 1.5em;}
+.post .text .go img {max-width: 100%;}
+.post .text blockquote {line-height: 1.5em;}
+.post .text ul, .post .text ol, .post .description ol, .post .description ul {padding-left: 2.5em;}
+/* Notes */
+
+ol.notes {padding: 0px;margin: 0px;list-style-type: none;}
+ol.notes li.note {background: #eee;border-top: 1px solid #ddd;padding: 10px;}
+ol.notes li.note img.avatar {vertical-align: -4px;margin-right: 10px;width: 16px;height: 16px;}
+ol.notes li.note span.action {font-weight: bold;}
+ol.notes li.note .answer_content {font-weight: normal;}
+ol.notes li.note blockquote {border-color: #eee;padding: 4px 10px;margin: 10px 0px 0px 25px;}
+ol.notes li.note blockquote a {text-decoration: none;}
+
+
+	</style>
+  
+  
+  
+  
+  
+  
+  
+</head><body>
+  <div class="pageWrap">
+    <div id="header">
+      <div class="headerLiner">
+        <h1><a href="http://friendsofwe.org/"><img src="http://friendsofwe.org/images/friends-of-we-logo.jpg" alt="Friends of We" /></a></h1>
+        <ul id="menu">   
+          <li class="first"><a href="http://friendsofwe.org/"><span class="inner">Home</span></a></li>
+          <li><a href="http://friendsofwe.org/campaigns"><span class="inner">Campaigns</span></a></li>
+          <li><a href="http://friendsofwe.org/goals"><span class="inner">Our Goals</span></a></li>
+          <li class="normal active"><a href="http://weblog.friendsofwe.org/"><span class="inner">weBlog</span></a></li>
+          <li><a href="http://friendsofwe.org/commitments/new"><span class="inner">Volunteer</span></a></li>
+          <li><a href="http://friendsofwe.org/contact/new"><span class="inner">Contact</span></a></li>
+        </ul>
+        <ul id="user-actions">
+            <li><a href="http://friendsofwe.org/get-involved">Register</a></li>
+            <li class="last"><a href="http://friendsofwe.org/login">Log in</a></li>
+        </ul>
+      </div>
+    </div>
+
+		<a name="content"></a>
+		<div id="content">
+			{block:Posts}
+			<div class="post">
+				<div class="sidebar">
+	
+				{block:NewDayDate}
+					<h2>{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</h2>
+				{/block:NewDayDate}
+				
+				{block:NoteCount}
+					<p class="notes"><a href="{Permalink}/#notes">{NoteCountWithLabel}</a></p>
+				{/block:NoteCount}
+					
+				{block:Regular}
+						<p><a href="{Permalink}">Some nice text</a></p>
+					</div>
+					<div class="content text">
+						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+						<div class="go">
+							{Body}
+						</div>
+				{/block:Regular}
+				
+				{block:Photo}
+						<p><a href="{Permalink}">A nice image</a></p>
+					</div>
+					<div class="content image">
+						{LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+						{block:Caption}
+							<div class="description">{Caption}</div>
+						{/block:Caption}
+				{/block:Photo}
+
+				{block:Quote}
+						<p><a href="{Permalink}">A memorable quote</a></p>
+					</div>
+					<div class="content quote">
+						<div class="symbol">&#147;</div>
+						<div class="quote">
+							{Quote}
+						</div>
+						{block:Source}
+							<div class="description">&mdash; {Source}</div>
+						{/block:Source}
+				{/block:Quote}
+
+				{block:Link}
+						<p><a href="{Permalink}">Super hyperlink!</a></p>
+					</div>
+					<div class="content link">
+						<h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+						{block:Description}
+							<div class="description">{Description}</div>
+						{/block:Description}
+				{/block:Link}
+
+				{block:Conversation}
+						<p><a href="{Permalink}">Worth remembering</a></p>
+					</div>
+					<div class="content conversation">
+						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+						<ul>
+							{block:Lines}
+								<li class="{Alt}">
+									{block:Label}<span class="label">{Label}</span>{/block:Label}
+									{Line}
+								</li>
+							{/block:Lines}
+						</ul>
+				{/block:Conversation}
+
+				{block:Audio}
+						<p><a href="{Permalink}">Audio</a></p>
+					</div>
+					<div class="content audio">
+						{AudioPlayerGrey}
+						{block:Caption}
+							<div class="description">{Caption}</div>
+						{/block:Caption}
+				{/block:Audio}
+
+				{block:Video}
+						<p><a href="{Permalink}">Awesome video</a></p>
+					</div>
+					<div class="content video">
+						{Video-400}
+						{block:Caption}
+							<div class="description">{Caption}</div>
+						{/block:Caption}
+				{/block:Video}
+				
+				{block:RebloggedFrom}
+					<div class="description">Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a></div>
+				{/block:RebloggedFrom}
+
+				{block:HasTags}
+					<div class="description">
+						Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}
+					</div>
+				{/block:HasTags}
+
+				</div>
+			</div>
+			{/block:Posts}
+
+			{block:PostNotes}
+			<div class="post">
+
+				<div class="content notes">
+
+					{PostNotes}
+
+				</div>
+
+			</div>
+			{/block:PostNotes}
+
+			{block:IndexPage}
+			<div class="post">
+				<div class="content nav">
+					{block:PreviousPage}
+						<a href="{PreviousPage}">previous</a> &nbsp;&nbsp;&nbsp;
+					{/block:PreviousPage}
+
+					({CurrentPage}/{TotalPages})        
+   
+					{block:NextPage}
+						&nbsp;&nbsp;&nbsp;<a href="{NextPage}">next &#187;</a>
+					{/block:NextPage}
+				</div>
+			</div>
+			{/block:IndexPage}
+
+		</div>
+		<a name="description"></a>
+    
+  </div>
+  <div id="footer">
+    <div class="pageWrap">
+      <div class="description">
+				<h2><a name="bottom"></a>About</h2>
+				<img src="{PortraitURL-40}" alt="" />
+				<p>{Description}</p>
+			</div>
+			{block:Following}
+			<div class="follow">
+				<h2>I follow</h2>
+				<ul>
+					{block:Followed}
+						<li><a href="{FollowedURL}" title="{FollowedName}"><img src="{FollowedPortraitURL-24}" alt="{FollowedName}" /></a></li>
+					{/block:Followed}
+				</ul>
+			</div>
+			{/block:Following}
+			{block:GroupMembers}
+			<div class="follow">
+				<h2>Group members</h2>
+				<ul>
+					{block:GroupMember}
+						<li><a href="{GroupMemberURL}" title="{GroupMemberName}"><img src="{GroupMemberPortraitURL-24}" alt="{GroupMemberName}" /></a></li>
+					{/block:GroupMember}
+				</ul>
+			</div>
+			{/block:GroupMembers}
+			<div class="search">
+				<h2>Search</h2>
+				<form action="/search" method="get">
+				    <input type="text" name="q" value="{SearchQuery}"/>
+				    <span class="buttons"><input type="submit" value="Search"/></span>
+				</form>
+			</div>
+			<p class="footer">Powered by <a href="http://www.tumblr.com">Tumblr</a> &nbsp;/&nbsp; Here's the <a href="/archive">archive</a> and a <a href="{RSS}">feed</a> if you want.</p>
+    </div>
+  </div>
+  
+  <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));  </script><script src="FOW_tumblr_style_files/ga.js" type="text/javascript"></script>
+  <script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-11870925-1"); pageTracker._setDomainName("weblog.friendsofwe.org"); pageTracker._trackPageview();} catch(err) {}</script>
+</body></html>

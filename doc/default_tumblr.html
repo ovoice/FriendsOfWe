@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> 
+	<title>{block:SearchPage}Search results for "{SearchQuery}" - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+	<link rel="icon" href="{Favicon}"/>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+	{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=775"/>
+	<!-- DEFAULT COLORS -->
+	<meta name="color:Background" content="#eee"/>
+	<meta name="color:Content Background" content="#fff"/>
+	<meta name="color:Description Background" content="#eee"/>
+	<meta name="color:Chat Background Even" content="#fff"/>
+	<meta name="color:Chat Background Odd" content="#eee"/>
+	<meta name="color:Sidebar Background" content="#e0e0e0"/>
+	<meta name="color:Code Background" content="#eee"/>
+	<meta name="color:Code Border" content="#ddd"/>
+	<meta name="color:Content Background" content="#fff"/>
+	<meta name="color:Content Background" content="#fff"/>
+	<meta name="color:Description Shadow" content="#ddd"/>
+	<meta name="color:Sidebar Shadow" content="#ddd"/>
+	<meta name="color:Content Border" content="#ccc"/>
+	<meta name="color:Footer Border" content="#ccc"/>
+	<meta name="color:Blockquote Border" content="#ccc"/>
+	<meta name="color:Chat Border" content="#ccc"/>
+	<meta name="color:Chat Odd" content="#9B3321"/>
+	<meta name="color:Chat Even" content="#7F99B4"/>
+	<meta name="color:Content Font" content="#555"/>
+	<meta name="color:Header and Footer Font" content="#555"/>
+	<meta name="color:Headings" content="#aaa"/>
+	<meta name="color:Hyperlink" content="#596C86"/>
+	<meta name="color:Sidebar Hyperlink" content="#555"/>
+	<meta name="color:Sidebar Hyperlink Border" content="#999"/>
+	<meta name="color:Visited Hyperlink" content="#582525"/>
+	<!-- END DEFAULT COLORS -->
+	<style type="text/css">
+		body,h1,h2,h3,blockquote,p,ul,ol,img{border:0;font-size:1em;margin:0;padding:0;}
+    body{background:{color:Background};}
+    color:{color:Content Font;}
+    a{color:{color:Hyperlink;}
+    a:visited{color:{color:Visited Hyperlink;}
+    #header p,.post .sidebar p,.description,#footer .footer,#footer .description p{font-size:1.1em;line-height:1.6363em;}
+    code,pre{background:{color:Code Background;}
+    pre{border:1px solid {color:Code Border;}
+    #container{width:70em;margin:0 auto;}
+    #header h1{position:relative;height:6em;overflow:hidden;margin-bottom:1em;}
+    #header h1 a{color:{color:Header and Footer font;}
+    #contents .post{background:{color:Sidebar Background};}
+    border-top: 1px solid{color:Description Shadow;}
+    #contents .post:first-child{border-top:0;}
+    .post .sidebar{float:right;width:21em;padding:3em 0 0;}
+    .post .sidebar a{color:{color:Sidebar Hyperlink};text-decoration: none;border-bottom: 1px dotted{color:Sidebar Hyperlink Border};}
+    .post .content{background:{color:Content Background};border-right: 0.5em solid{color:Sidebar Shadow};}
+    #footer .description{float:left;width:29em;padding-bottom:1.2em;}
+    #footer .footer{clear:both;margin-top:1em;border-top:1px solid {color:Footer Border;}
+    #footer .search input[type=text]{border:1px solid #bbb;background:#fff url('http://static.tumblr.com/bwtvnaf/YIzkhqyas/input_bg.gif') repeat-x top;font:120% Helvetica, Arial, sans-serif;width:13em;margin-right:0.5em;padding:6px;}
+    #footer .description img{float:left;margin-right:10px;}
+    #footer .follow ul li{float:left;margin-right:2px;list-style:none;}
+    .post h3{font-size:1.7em;font-weight:400;line-height:1.5em;margin-bottom:0.618em;}
+    .post blockquote{border-left:0.5em solid {color:Blockquote Border;}
+    .post p,.post blockquote,.post ul,.post ol{margin-top:1em;}
+    .post .nav{min-height:0 !important;}
+    .post .quote .symbol{font-size:5em;margin-top:-0.1em;float:left;}
+    .post .quote .quote{font-size:1.7em;line-height:1.5em;margin-left:1.5em;}
+    .post .conversation ul{list-style:none;border-left:0.5em solid {color:Chat Border;}
+    .post .conversation ul li{font-size:1.2em;line-height:1.5em;background:{color:Chat Background Even;padding:0.25em 0.5em;}
+    .post .conversation ul li.odd{background:{color:Chat Background Odd;}
+    .post .conversation .label{color:{color:Chat Even;}
+    .post .conversation .odd .label{color:{color:Chat Odd;}
+    .post .text .go{font-size:1.2em;line-height:1.5em;}
+    .post .text .go img{max-width:100%;}
+    .post .text blockquote{line-height:1.5em;}
+    .post .text ul,.post .text ol,.post .description ol,.post .description ul{padding-left:2.5em;}
+    ol.notes{list-style-type:none;margin:0;padding:0;}
+    ol.notes li.note img.avatar{vertical-align:-4px;margin-right:10px;width:16px;height:16px;}
+    ol.notes li.note span.action{font-weight:700;}
+    ol.notes li.note .answer_content{font-weight:400;}
+    ol.notes li.note blockquote{border-color:#eee;margin:10px 0 0 25px;padding:4px 10px;}
+    ol.notes li.note blockquote a{text-decoration:none;}
+    #header,#footer{padding:3em;}
+    #header p,#footer .description p{color:{color:Header and Footer Font;}
+    .post .sidebar h2,#footer h2{color:{color:Headings;}
+    .post .sidebar p.notes+p,.post .link h3{margin:0;}
+    .post .description,ol.notes li.note{background:{color:Description Background;}
+    .description + .description,.post p:first-child,.post blockquote:first-child,.post ul:first-child,.post ol:first-child{margin-top:0;}
+    #footer .follow,#footer .search{float:right;width:29em;margin-left:3em;padding-bottom:3em;}
+		{CustomCSS}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1><a href="/">{Title}</a></h1>
+			<p>This is a tumblelog, kinda like a blog but with short-form, mixed-media posts with stuff I like. Scroll down a bit to <a href="#contents">start reading</a>, or a bit more to read more <a href="#description">about me</a>.</p>
+		</div>
+		<a name="contents"></a>
+		<div id="contents">
+			{block:Posts}
+			<div class="post">
+				<div class="sidebar">
+	
+				{block:NewDayDate}
+					<h2>{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</h2>
+				{/block:NewDayDate}
+				
+				{block:NoteCount}
+					<p class="notes"><a href="{Permalink}/#notes">{NoteCountWithLabel}</a></p>
+				{/block:NoteCount}
+					
+				{block:Regular}
+						<p><a href="{Permalink}">Some nice text</a></p>
+					</div>
+					<div class="content text">
+						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+						<div class="go">
+							{Body}
+						</div>
+				{/block:Regular}
+				
+				{block:Photo}
+						<p><a href="{Permalink}">A nice image</a></p>
+					</div>
+					<div class="content image">
+						{LinkOpenTag}<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>{LinkCloseTag}
+						{block:Caption}
+							<div class="description">{Caption}</div>
+						{/block:Caption}
+				{/block:Photo}
+
+				{block:Quote}
+						<p><a href="{Permalink}">A memorable quote</a></p>
+					</div>
+					<div class="content quote">
+						<div class="symbol">&#147;</div>
+						<div class="quote">
+							{Quote}
+						</div>
+						{block:Source}
+							<div class="description">&mdash; {Source}</div>
+						{/block:Source}
+				{/block:Quote}
+
+				{block:Link}
+						<p><a href="{Permalink}">Super hyperlink!</a></p>
+					</div>
+					<div class="content link">
+						<h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+						{block:Description}
+							<div class="description">{Description}</div>
+						{/block:Description}
+				{/block:Link}
+
+				{block:Conversation}
+						<p><a href="{Permalink}">Worth remembering</a></p>
+					</div>
+					<div class="content conversation">
+						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
+						<ul>
+							{block:Lines}
+								<li class="{Alt}">
+									{block:Label}<span class="label">{Label}</span>{/block:Label}
+									{Line}
+								</li>
+							{/block:Lines}
+						</ul>
+				{/block:Conversation}
+
+				{block:Audio}
+						<p><a href="{Permalink}">Audio</a></p>
+					</div>
+					<div class="content audio">
+						{AudioPlayerGrey}
+						{block:Caption}
+							<div class="description">{Caption}</div>
+						{/block:Caption}
+				{/block:Audio}
+
+				{block:Video}
+						<p><a href="{Permalink}">Awesome video</a></p>
+					</div>
+					<div class="content video">
+						{Video-400}
+						{block:Caption}
+							<div class="description">{Caption}</div>
+						{/block:Caption}
+				{/block:Video}
+				
+				{block:RebloggedFrom}
+					<div class="description">Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a></div>
+				{/block:RebloggedFrom}
+
+				{block:HasTags}
+					<div class="description">
+						Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}
+					</div>
+				{/block:HasTags}
+
+				</div>
+			</div>
+			{/block:Posts}
+
+			{block:PostNotes}
+			<div class="post">
+
+				<div class="content notes">
+
+					{PostNotes}
+
+				</div>
+
+			</div>
+			{/block:PostNotes}
+
+			{block:IndexPage}
+			<div class="post">
+				<div class="content nav">
+					{block:PreviousPage}
+						<a href="{PreviousPage}">previous</a> &nbsp;&nbsp;&nbsp;
+					{/block:PreviousPage}
+
+					({CurrentPage}/{TotalPages})        
+   
+					{block:NextPage}
+						&nbsp;&nbsp;&nbsp;<a href="{NextPage}">next &#187;</a>
+					{/block:NextPage}
+				</div>
+			</div>
+			{/block:IndexPage}
+
+		</div>
+		<a name="description"></a>
+		<div id="footer">
+		
+			<div class="description">
+				<h2><a name="bottom"></a>About</h2>
+				<img src="{PortraitURL-40}" />
+				<p>{Description}</p>
+			</div>
+			{block:Following}
+			<div class="follow">
+				<h2>I follow</h2>
+				<ul>
+					{block:Followed}
+						<li><a href="{FollowedURL}" title="{FollowedName}"><img src="{FollowedPortraitURL-24}" alt="{FollowedName}" /></a></li>
+					{/block:Followed}
+				</ul>
+			</div>
+			{/block:Following}
+			{block:GroupMembers}
+			<div class="follow">
+				<h2>Group members</h2>
+				<ul>
+					{block:GroupMember}
+						<li><a href="{GroupMemberURL}" title="{GroupMemberName}"><img src="{GroupMemberPortraitURL-24}" alt="{GroupMemberName}" /></a></li>
+					{/block:GroupMember}
+				</ul>
+			</div>
+			{/block:GroupMembers}
+			<div class="search">
+				<h2>Search</h2>
+				<form action="/search" method="get">
+				    <input type="text" name="q" value="{SearchQuery}"/>
+				    <input type="submit" value="Search"/>
+				</form>
+			</div>
+			<p class="footer">Design by <a href="http://www.purrito.net">Marcus Olovsson</a> &nbsp;/&nbsp; Powered by <a href="http://www.tumblr.com">Tumblr</a> &nbsp;/&nbsp; Here's the <a href="/archive">archive</a> and a <a href="{RSS}">feed</a> if you want.</p>
+		</div>
+	</div>
+</body>
+</html>
