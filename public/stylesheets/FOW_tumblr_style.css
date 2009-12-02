@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* Reset */
+HTML, BODY, DIV, SPAN, APPLET, OBJECT, IFRAME, H1, H2, H3, H4, H5, H6, P, BLOCKQUOTE, PRE,
+A, ABBR, ACRONYM, ADDRESS, BIG, CITE, CODE, DEL, DFN, EM, FONT, IMG, INS, KBD, Q, S, SAMP,
+SMALL, STRIKE, STRONG, B, SUB, SUP, TT, VAR, INPUT DL, DT, DD, OL, UL, LI, FIELDSET, FORM, 
+LABEL, LEGEND, TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD, BUTTON
+{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;
+font-size:100%;font-family:inherit;vertical-align:baseline}
+
+:focus{outline:0}
+OL, UL{list-style:none}
+TABLE{border-collapse:collapse;border-spacing:0}
+CAPTION, TH, TD{text-align:left;font-weight:normal}
+BLOCKQUOTE:before, BLOCKQUOTE:after,
+Q:before, Q:after{content:"";content:none}
+BLOCKQUOTE, Q{quotes:"" ""}
+HTML{font-size:100.01%}
+
+/** Layout **/
+BODY{background:#fff url('http://friendsofwe.org/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
+.pageWrap{width:960px;margin:0 auto;padding:0;position:relative}
+#header{width:950px;padding:0 10px 0 0;background:transparent url('http://friendsofwe.org/images/bg_menu_foldunder.png') no-repeat right 120px}
+.headerLiner{background:#fff url('http://friendsofwe.org/images/bg_header.gif') no-repeat 0 0;height:183px}
+#content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
+#footer{width:100%;padding:0 0 10px;background:#352400 url('http://friendsofwe.org/images/bg_footer.gif') repeat-x center 0}
+#footer .pageWrap{min-height:410px;height:auto !important;height:410px;background:transparent url('http://friendsofwe.org/images/bg_footer_tree.gif') no-repeat 652px 0}
+
+
+/** Topography **/
+
+/*heading*/ 
+H1, H2, H3, H4, H5, H6{font:400 1.0em arial,sans}
+H1{font-size:1.8em;display:block}
+H2, .generalText H3{color:#115f85;font-family:/*"Gill Sans MT",*/gillSans,arial,sans;margin:0 0 15px;}
+H2{font-size:1.8em;}
+H3{font-size:1.1em;font-weight:700;} .generalText H3{font-size:1.4em}
+H4{font-size:1.2em}
+/*link*/
+A{color:#ff6036;text-decoration:none}
+A:link, A:visited{color:#ff6036}
+A:hover{text-decoration:underline}
+H2 A:link, H2 A:visited{color:#fff}
+H2 A:hover{color:#ff6036;text-decoration:none}
+H2 A.header_bg.red:hover{color:#ffc736}
+H3 A:link, H3 A:visited,A.greenBg:link,A.greenBg:visited, .greenBg{color:#fff;background:#25b14f;padding:2px 3px 1px;font-weight:700;font-size:1em}
+H3 A.plus{padding:1px 5px}
+H3 A.noBg{background:none;color:#ff6036}
+H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
+H3 A.noBg:hover{background:#25b14f;color:#fff}
+/*format*/
+P{padding:0 0 20px}
+STRONG, .strong{font-weight:700}
+SMALL, .small{font-size:0.80em;font-family:georgia,times,sans}
+EM{font-style:italic}
+SUP{position:relative;bottom:0.3em;vertical-align:baseline;font-size:.9em}
+SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
+ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}
+BLOCKQUOTE{background:#eee;margin:0 0 10px;padding:15px;font:400 .99em georgia,times,arial,serif;}
+/*form - see formtastic */
+INPUT.submit, INPUT.submitOv,
+INPUT.buttons, button{cursor:pointer}
+
+/* Header & Menu */
+#header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
+#header UL#menu{float:right;background:#fff url('http://friendsofwe.org/images/bg_menu.png') repeat-x 0 0;height:45px}
+#header UL#menu LI{float:left;text-transform:lowercase;padding:10px 20px;height:25px;}
+#header UL#menu LI.first{padding-left:45px;background:transparent url('http://friendsofwe.org/images/bg_menu_left.png') no-repeat 0 0}
+#header UL#menu LI.normal{text-transform:none}
+#header UL#menu LI A{color:#fff;font:16px 400 arialrounded,arial,sans;padding:0 10px}
+#header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
+#header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('http://friendsofwe.org/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
+#header UL#menu LI.active A SPAN.inner{background-position:0 0;padding:7px 0 9px 10px}
+#header UL#user-actions{font-size:.7em;line-height:1em;position:absolute;top:105px;right:35px}
+#header UL#user-actions LI{float:left;padding:0 5px;border-right:1px solid #339acc}
+#header UL#user-actions LI.last{border:none}
+#header UL#user-actions LI A{color:#115f85}
+#header UL#user-actions LI A:hover{color:#339acc;text-decoration:none}
+
+/* sprites */
+.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('http://friendsofwe.org/images/sprite_buttons.png') no-repeat -960px 0}
+.buttons{padding:0 10px 0 0}
+.buttons SPAN.buttonsInner{display:block;color:#fff;padding:8px 0 8px 10px;line-height:20px;font:400 1.2em arialRounded,arial,sans;white-space:nowrap}
+A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration:none}
+.buttons.menu{padding:0;background-position:right 0} .buttons.menu SPAN.buttonsInner{background-position:0 0;color:#1b8ff9}/* class is needed here or Cufon will cause issues*/
+.buttons.redB{background-position:right -60px}      .buttons.redB SPAN.buttonsInner{background-position:0 -60px}/* Added the B, otherwise IE6 gets indicators.red and buttons.red confused */
+.buttons.yellowB{background-position:right -120px}    .buttons.yellowB SPAN.buttonsInner{background-position:0 -120px;color:#339acc}
+.buttons.grayB{background-position:right -180px}    .buttons.grayB SPAN.buttonsInner{background-position:0 -180px;color:#339acc}
+.buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#339acc}
+.buttons.blueB{background-position:right -300px}    .buttons.blueB SPAN.buttonsInner{background-position:0 -300px;color:#339acc}
+
+
+H2.header_bg{background:url('http://friendsofwe.org/images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
+H2.header_bg.blue{background-position:right 0}
+H2.header_bg.green{background-position:right -100px}
+H2.header_bg.grey{background-position:right -200px}
+H2.header_bg.yellow{background-position:right -300px} 
+  H2.header_bg.yellow A:link, H2.header_bg.yellow A:visited{color:#339acc}
+  H2.header_bg.yellow A:hover{color:#ff6036}
+H2.header_bg.red{background-position:right -400px}
+
+
+
+/** Library **/
+.clear{overflow:hidden;width:100%}
+.left{float:left}
+.right{float:right}
+.alignLeft{text-align:left}
+.alignCenter{text-align:center}
+.alignRight{text-align:right}
+.indent, #content.generalText .indent{padding:10px 0 0 60%}
+.blue{color:#339acc}
+.darkBlue{color:#115f85}
+.green{color:#25b14f}
+.grey{color:#e3e3e3}
+.yellow{color:#ffc736}
+.red{color:#ff6036}
+.bottom{position:absolute;bottom:5px}
+.bottom20, H2.header_bg.bottom20{margin-bottom:20px}
+.bottom40{margin-bottom:40px}
+.lastBottom{margin-bottom:0;padding-bottom:0}
