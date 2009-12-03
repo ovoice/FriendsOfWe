@@ -2,4 +2,10 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  flash:
+    commitments:
+      create:
+        notice: "Thanks for volunteering!"
+    users:
+      create:
+        notice: "Thanks for signing up!  How would you like to volunteer!?"

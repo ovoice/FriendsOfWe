@@ -15,7 +15,7 @@
           <li>
             <div class="clear">
               <h3><%= link_to project.name,  project_path(project) %></h3>
-              <a href="#" class="indicators red"><span>Volunteer</span></a>
+              <%= link_to content_tag(:span, "Volunteer"), project_path(project), :class => "indicators red" %>
             </div>
             <p><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
           </li>
