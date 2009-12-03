@@ -63,8 +63,8 @@ INPUT.buttons, button{cursor:pointer}
 /* Header & Menu */
 #header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
 #header UL#menu{float:right;background:#fff url('/images/bg_menu.png') repeat-x 0 0;height:45px}
-#header UL#menu LI{float:left;text-transform:lowercase;padding:10px 20px;height:25px;}
-#header UL#menu LI.first{padding-left:45px;background:transparent url('/images/bg_menu_left.png') no-repeat 0 0}
+#header UL#menu LI{float:left;text-transform:lowercase;padding:10px 25px;height:25px;}
+#header UL#menu LI.first{padding-left:65px;background:transparent url('/images/bg_menu_left.png') no-repeat 0 0}
 #header UL#menu LI.normal{text-transform:none}
 #header UL#menu LI A{color:#fff;font:16px 400 arialrounded,arial,sans;padding:0 10px}
 #header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
