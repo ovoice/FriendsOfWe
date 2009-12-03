@@ -48,11 +48,10 @@
           <h2 class="header_bg red">Recruting</h2>
           <ul id="recuriting-list">
             <% for opportunity in @project.opportunities -%>
-            <%# TODO FIX LINK TO ACTUAL VOLUNTEERING PAGE %>
-            <li><%= link_to opportunity.name, '#', :class => 'greenBg' %></li>
+            <li><%= link_to opportunity.name, new_project_opportunity_commitment_path(@project, opportunity), :class => 'greenBg' %> <%= link_to "Get involved", new_project_opportunity_commitment_path(@project, opportunity) %></li>
             <% end -%>
           </ul>
-          <%= link_to content_tag(:span, "Get Involved! Click Here!", :class => 'buttonsInner'), new_commitment_path(:project_id => @project.id), :class => 'buttons redB right' %>
+          <%= link_to content_tag(:span, "Get Involved! Click Here!", :class => 'buttonsInner'), new_project_commitment_path(@project), :class => 'buttons redB right' %>
         </div>
         <% end -%>
         <% if @project.commitments.confirmed.any? -%>
@@ -62,5 +61,5 @@
             <li><span class="greenBg"><%= commitment.name %></span> <%= commitment.volunteer.name %></li>
             <% end -%>
           </ul>
-        <% end -%>
+        <% end -%>@proje
       </div>

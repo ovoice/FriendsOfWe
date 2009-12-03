@@ -6,8 +6,9 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => :user_sessions, :action => :destroy
   
   map.resources :projects, :as => 'campaigns' do |c|
+    c.resources :commitments
     c.resources :opportunities do|o|
-      o.resource :commitments
+      o.resources :commitments
     end
   end
   map.resources :assets

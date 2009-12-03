@@ -6,6 +6,12 @@ class CommitmentsController < InheritedResources::Base
     c.send(:require_user, '', '/register')
   end
   
+  def new
+    @project = Project.find(params[:project_id]) if params[:project_id]
+    @opportunity = Project.find(params[:opportunity_id]) if params[:opportunity_id]
+    new!
+  end
+  
   def create
     create!{root_url}
   end

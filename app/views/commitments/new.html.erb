@@ -6,8 +6,8 @@
 
 <h2>Volunteer</h2>
 <p class="byline">
-  <% if @opportunity -%>
-    You indicated that you wanted to volunteer for <%= @opportunity.name %> for <%= @project.name %>.  Please add any comments you have an click to confirm.  The campaign manager (also a volunteer) will get back to you.
+  <% if @project -%>
+    You indicated that you wanted to volunteer <%= "as the #{@opportunity.name}" if @opportunity %> for the "<%= @project.name %>."  Please add any comments you have and click to confirm.  The campaign manager (also a volunteer) will get back to you.
   <% else -%>
     Thanks for volunteering to get involved!  Please add any comments you have an click to confirm. We'll look into what might be a god for for you and get back to you.
   <% end -%>

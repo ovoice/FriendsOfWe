@@ -4,5 +4,5 @@ class Commitment < ActiveRecord::Base
   
   named_scope :confirmed, :conditions => 'state = "confirmed"'
   
-  attr_accessible :state, :user_id, :project_id, :name
+  attr_accessible :state, :user_id, :project_id, :opportunity_id, :name, :comment
 end

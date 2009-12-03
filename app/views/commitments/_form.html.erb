@@ -2,8 +2,8 @@
   
   <% form.inputs do -%>
     <%= form.input :comment, :as => :text, :label => 'Any Comment', :wrapper_html => {:class => 'last'}, :input_html => {:rows => 5} %>
-    <%= form.input :project_id, :as => :hidden, :value => @project.try(:id) %>
-    <%= form.input :opportunity_id, :as => :hidden, :value => @opportunity.try(:id) %>
+    <%= form.input :project_id, :as => :hidden, :value => params[:project_id] %>
+    <%= form.input :opportunity_id, :as => :hidden, :value => params[:opportunity_id] %>
     <%= form.input :user_id, :as => :hidden, :value => current_user.id %>
   <% end -%>
   <% form.buttons do -%>
