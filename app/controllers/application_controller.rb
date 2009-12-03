@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def redirect_return_or_default(default)
+  def redirect_to_stored_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
