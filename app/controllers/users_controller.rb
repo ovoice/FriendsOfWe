@@ -6,12 +6,11 @@ class UsersController < InheritedResources::Base
   
   
  def create
-   super
+   @user = User.new(params[:user])
    @user.skill_list = params[:user][:skill_list]
    @user.interest_list = params[:user][:interest_list]
-   @user.save
-   #not sure why, but following is triggering double redirect error - my guuess is a redirect is being called in super
-   #create!{redirect_return_or_default(projects_url)}
+   create!{page_path('get-involved')}
+   Notifications.deliver_registration_confirmation(@user)
  end
  
 end

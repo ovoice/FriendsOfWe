@@ -13,6 +13,7 @@ class CommitmentsController < InheritedResources::Base
   end
   
   def create
+    Notifications.deliver_new_commitment_notification(current_user)
     create!{root_url}
   end
 
