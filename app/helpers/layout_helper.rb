@@ -24,7 +24,7 @@ module LayoutHelper
     
     menu_options = {:name => 'Home', :link => root_path}, {:name => 'Campaigns', :link => projects_path}, 
     {:name => 'Our Goals', :link => page_path('goals')}, {:name => 'weBlog', :link => "http://weblog.friendsofwe.org"}, 
-    {:name => 'Volunteer', :link => new_commitment_path}, {:name => 'Contact', :link => new_contact_path}
+    {:name => 'Volunteer', :link => page_path('get-involved')}, {:name => 'Contact', :link => new_contact_path}
     
     menu_options.collect do |menu_option|
       html_class = ''

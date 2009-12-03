@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
   create_table "commitments", :force => true do |t|
     t.string   "state"
     t.string   "name"
+    t.string   "comment"
     t.integer  "user_id"
     t.integer  "project_id"
+    t.integer  "opportunity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
