@@ -1,4 +1,4 @@
-<% title "Our Goals" %>
+<% title "Get Involved: Volunteer" %>
 
 <% content_for :content_class, content_class('generalText') %>
 
@@ -7,12 +7,16 @@
 <% end %>
 
 <h2>Volunteer</h2>
-<p><em>Friends of We</em> insert pitch here.</p>
-<dl>
-  <dt><%= link_to "Find a Campaign", projects_url %></dt>
-  <dd>Find a campaign you want to volunteer for</dd>
-  <dt><%= link_to "Volnteer", new_commitment_url %></dt>
-  <dd>If you want to get involved however you can, click to volunteer for any campaign.</dd>
-</dl>
+<p class="byline bottom20"><em>Friends of We</em> needs you to contribute more than money to the causes you care about. Volunteers with talents from art direction, Ruby on Rails development or more administrative roles are encouraged to get inolved, even if it's for only a few hours. With the many contributions of volunteers, we can aggregate our all-volunteer efforts to effect change in our communities.</p>
+<div id="introduction">
+  <h3>Get Statrted:</h3>
+  <dl class="withBottons">
+    <dt><%= link_to content_tag(:span, "Find a Campaign", :class => "buttonsInner"), projects_url, :class => "buttons redB left" %></dt>
+    <dd>Find a campaign you want to volunteer for</dd>
+    <dt><%= link_to content_tag(:span, "General Volnteer", :class => "buttonsInner"), new_commitment_url, :class => "buttons greenB left" %></dt>
+    <dd>If you want to get involved however you can, wherever you're needed, click here to volunteer for any campaign.</dd>
+  </dl>
+</div>
+
   
  

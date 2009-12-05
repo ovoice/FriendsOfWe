@@ -56,6 +56,10 @@ SUP{position:relative;bottom:0.3em;vertical-align:baseline;font-size:.9em}
 SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
 ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}
 BLOCKQUOTE{background:#eee;margin:0 0 10px;padding:15px;font:400 .99em georgia,times,arial,serif;}
+DL{}
+DL DT{float:left;width:35%;clear:left;margin-bottom:10px}
+DL DD{float:left;width:65%}
+DL.withBottons DD{padding-top:6px}
 /*form - see formtastic */
 INPUT.submit, INPUT.submitOv,
 INPUT.buttons, button{cursor:pointer}
@@ -92,7 +96,7 @@ A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration
 .buttons.redB{background-position:right -60px}      .buttons.redB SPAN.buttonsInner{background-position:0 -60px}/* Added the B, otherwise IE6 gets indicators.red and buttons.red confused */
 .buttons.yellowB{background-position:right -120px}    .buttons.yellowB SPAN.buttonsInner{background-position:0 -120px;color:#339acc}
 .buttons.grayB{background-position:right -180px}    .buttons.grayB SPAN.buttonsInner{background-position:0 -180px;color:#339acc}
-.buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#339acc}
+.buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#fff}
 .buttons.blueB{background-position:right -300px}    .buttons.blueB SPAN.buttonsInner{background-position:0 -300px;color:#339acc}
 
 
@@ -125,9 +129,8 @@ A.indicators:hover{text-decoration:none}
 
 /* Homepage */
 #introduction{width:510px;height:250px;padding-right:400px;background:#fff url('/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
-#introduction .buttons{float:right}
+#introduction.home .buttons{float:right;margin-left:20px}
 .byline{font:400 1.1em/1.4em georgia,times,arial,serif;color:#115f85;margin-bottom:0px}
-#introduction .buttons{margin-left:20px}
 UL#campaigns LI H2.header_bg, UL#blog LI H2.header_bg{margin-bottom:15px}
 UL#campaigns LI, UL#blog LI{margin:0 0 15px;font-size:.9em;line-height:1.1em}
 UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
@@ -174,6 +177,7 @@ UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
 .yellow{color:#ffc736}
 .red{color:#ff6036}
 .bottom{position:absolute;bottom:5px}
+.bottom0{margin-bottom:0}
 .bottom20, H2.header_bg.bottom20{margin-bottom:20px}
 .bottom40{margin-bottom:40px}
 .lastBottom{margin-bottom:0;padding-bottom:0}
