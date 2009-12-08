@@ -16,7 +16,7 @@
   <div class="pageWrap">
     <div id="header">
       <div class="headerLiner">
-        <h1><a href="#"><img src="/images/friends-of-we-logo.jpg" alt="Friends of We" /></a></h1>
+        <h1><%= link_to image_tag("friends-of-we-logo.jpg", :alt => "Friends Of We"), root_path  %></h1>
         <ul id="menu">
           <%= yield(:main_menu) || main_menu %>
         </ul>
