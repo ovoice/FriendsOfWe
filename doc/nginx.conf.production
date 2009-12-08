@@ -1,0 +1,171 @@
+
+user www-data;
+worker_processes  4;
+
+pid        /var/rails/FriendsOfWe/shared/log/nginx.pid;
+
+events {
+  worker_connections  1024;
+}
+
+http {
+
+
+  passenger_root /opt/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.2.7;
+  passenger_ruby /opt/ruby-enterprise/bin/ruby;
+
+  passenger_default_user www-data;
+
+  #passenger_use_global_queue on;
+  passenger_max_pool_size 12;
+
+  #rails_app_spawner_idle_time 0;
+
+
+  include       mime.types;
+  default_type  application/octet-stream;
+
+  log_format main '$remote_addr - $remote_user [$time_local] '
+                  '"$request" $status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+
+  sendfile       on;
+  tcp_nopush     on;
+  tcp_nodelay    off;
+
+  keepalive_timeout  5;
+
+  gzip               on;
+  gzip_min_length    1100;
+  gzip_buffers       16 8k;
+  gzip_http_version  1.0;
+  gzip_comp_level    2;
+  gzip_types         text/plain text/html text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+  #gzip_disable        "MSIE [1-6]\.(?!.*SV1)";
+
+  #server_names_hash_bucket_size 64;
+
+  upstream gaa_upstream {
+     server 127.0.0.1;
+  }
+
+  server {
+    listen 80;
+    root /var/www/nginx-default/FriendsOfWe/current/public;
+    passenger_enabled on;
+    server_name_in_redirect off;
+    rails_env production;
+    
+
+    access_log /var/rails/FriendsOfWe/shared/log/nginx/nginx.access.log main;
+    error_log /var/rails/FriendsOfWe/shared/log/nginx/ngimx.error.log notice;
+
+    # Max size for file uploads
+    # client_max_body_size 100M;
+
+    # This allows people to use images and css in their maintenance.html file
+    if ($request_filename ~* \.(css|jpg|gif|png)$) {
+      break;
+    }
+
+    # Rewrite all the requests to the maintenance.html page if it exists.
+    if (-f $document_root/system/maintenance.html) {
+      return 503;
+    }
+
+    error_page 404 /404.html;
+    error_page 500 502 504 /500.html;
+
+    error_page 503 @503;
+    location @503 {
+      rewrite  ^(.*)$  /system/maintenance.html break;
+    }
+
+    #location / {
+
+      # auth is disabled for this server
+      # auth_basic            "Restricted";
+      # auth_basic_user_file  /etc/nginx/servers/gaa.users;
+
+
+      #index index.html index.htm;
+
+      #expires -1;
+      #add_header Cache-Control no-cache;
+
+      # needed to forward user's IP address to rails
+      proxy_set_header  X-Real-IP       $remote_addr;
+
+      #needed for HTTPS
+      proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header  Host            $http_host;
+      proxy_redirect off;
+      proxy_max_temp_file_size 0;
+
+      # serve any existing file
+      #if (-f $request_filename) {
+      #  break;
+      #}
+
+      #check directory for index and if exits append /index.html
+      #if (-f $request_filename/index.html) {
+      #  rewrite (.*) $1/index.html break;
+      #}
+
+
+      # serve any standard Rails page cache file with .html extension
+      #if (-f $request_filename.html) {
+      #  rewrite (.*) $1.html break;
+      #}
+
+      #if (!-f $request_filename) {
+      #  proxy_pass http://gaa_upstream;
+      #  break;
+      #}
+
+      location ~ ^/release_(.*?)/ {
+        rewrite  ^/release_(.*?)/(.*)$  /$2  last;
+      }
+
+      location /attachments/ {
+        expires 10y;
+      }
+
+
+    #}
+
+    # set Expire header on assets: see http://developer.yahoo.com/performance/rules.html#expires
+    location ~ ^/(images|javascripts|stylesheets)/ {
+      expires 10y;
+    }
+
+
+    location = /500.html {
+      root /var/rails/FriendsOfWe/current/public;
+    }
+
+    location /phpmyadmin {
+      root /usr/share;
+      index index.php;
+    }
+
+    location ~ ^/phpmyadmin.+\.php$ {
+      root /usr/share;
+      fastcgi_index index.php;
+      fastcgi_pass 127.0.0.1:8888;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi_params;
+      #fastcgi_param HTTPS on;
+    }
+
+    location /phpMyAdmin {
+      rewrite ^/* /phpmyadmin last;
+    }
+
+
+  }
+}
+
+
+
