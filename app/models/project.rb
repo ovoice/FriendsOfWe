@@ -14,10 +14,10 @@ class Project < ActiveRecord::Base
   named_scope :published, :conditions => {:state => 'publish'}
   named_scope :recruiting, :conditions => {:status => 'recruiting', :state => 'publish'}
   
-  attr_accessible :name, :description, :activities, :state, :volunteer_count, :featured
+  attr_accessible :name, :description, :activities, :state, :status, :volunteer_count, :featured
   
   def recruiting?
-    state == 'recruiting'
+    status == 'recruiting'
   end
   
 end
