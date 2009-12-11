@@ -4,7 +4,7 @@
   <%= main_menu('Campaigns') %>
 <% end %>
 
-<p class="byline">As a young organization, we're focusing our resources on a few specific campaigns as we seek to demonstrate the capabilities of our volunteer model, before we begin moving forward with our more general goals.  If you find something that piques your interest, get involved! Volunteer today.</p>
+<p class="byline">Contribute more than money to the causes you care about. Find a campaign you care about and get involved! <%= link_to "Volunteer", page_path('get-involved') %> today.</p>
         <h2 class="header_bg blue bottom20"><%= link_to "Campaigns", projects_path %></h2>
         <ul id="campaigns" class="withIndicators">
           <% for project in @projects %>
