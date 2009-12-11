@@ -11,7 +11,11 @@
           <li>
             <div class="clear">
               <h3><%= link_to '+', "#", :class => 'plus' %> <%= link_to project.name, project_path(project), :class => 'noBg' %></h3>
-              <%= link_to content_tag(:span, "Volunteer"), project_path(project), :class => "indicators red" %>
+              <% if project.recruiting? -%>
+                <%= link_to content_tag(:span, "Volunteer"), project_path(project), :class => "indicators red" %>
+              <% else -%>
+                <%= link_to content_tag(:span, "More Info"), project_path(project), :class => "indicators grey" %>
+              <% end -%>
             </div>
             <p class="campaign-description"><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
             <% if admin_rights? %><p><%= link_to "Show", project %> | <%= link_to "Edit", edit_project_path(project) %> | <%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></p><% end -%>
