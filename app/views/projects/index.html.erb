@@ -23,7 +23,7 @@
           <% end %>
         </ul>
         <% if admin_rights? %><p><%= link_to "New Project", new_project_path %></p><% end -%>
-        <div><%= will_paginate @projects %></div>
+        <%= content_tag(:div, will_paginate(@projects)) if @projects.size > 12 %>
         
 <% content_for :footer_scripts  do -%>
   <script type="text/javascript">

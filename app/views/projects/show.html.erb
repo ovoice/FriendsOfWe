@@ -34,17 +34,21 @@
                 </ul>
               </li>
             <% end -%>
+            <% if @project.documents.any? -%>
             <li class="bullets">Documents
               <ul>
-                <li><a href="#">Project Brief</a> &ndash; This is a short description of this document.</li>
+                <%- for document in @project.documents  -%>
+                  <li><%= link_to h(document.name), h(document.url), :target => 'blank' %> &ndash; <%=h document.description %></li>
+                  <%- end -%>
               </ul>
             </li>
+            <% end -%>
           </ul>
         </div>
       </div>
       <div class="column w360 right last">
-        <div class="clear bottom40">
         <% if @project.opportunities.any? -%>
+        <div class="clear bottom40">
           <h2 class="header_bg red">Recruiting</h2>
           <ul id="recuriting-list">
             <% for opportunity in @project.opportunities -%>
@@ -61,5 +65,5 @@
             <li><span class="greenBg"><%= commitment.name %></span> <%= commitment.volunteer.name %></li>
             <% end -%>
           </ul>
-        <% end -%>@proje
+        <% end -%>
       </div>
