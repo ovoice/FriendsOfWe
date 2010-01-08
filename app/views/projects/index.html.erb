@@ -17,7 +17,7 @@
                 <%= link_to content_tag(:span, "More Info"), project_path(project), :class => "indicators grey" %>
               <% end -%>
             </div>
-            <p class="campaign-description"><%= truncate_html(project.description, :length => 150, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
+            <p class="campaign-description"><%= truncate_html(project.description, :length => 140, :omission => '... ') %> <%= link_to 'More', project_path(project) %></p>
             <% if admin_rights? %><p><%= link_to "Show", project %> | <%= link_to "Edit", edit_project_path(project) %> | <%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></p><% end -%>
           </li>
           <% end %>

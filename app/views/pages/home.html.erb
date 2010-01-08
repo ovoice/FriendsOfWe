@@ -29,7 +29,7 @@
           <% for post in @posts -%>
           <li>            
             <h3 class="red">11/12 <%= link_to post['regular_title'], post['url_with_slug'] %></h3>
-            <%= truncate_html(post['regular_body'], :length => 150, :omission => "... #{link_to('More', post['url_with_slug'])}") %>
+            <%= truncate_html(post['regular_body'], :length => 190, :omission => "... #{link_to('More', post['url_with_slug'])}") %>
           </li>
           <% end -%>
         </ul>
