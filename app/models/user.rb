@@ -7,8 +7,9 @@ class User < ActiveRecord::Base
     login_field :email
   end
   
-  validates_presence_of :name, :email, :password
+  validates_presence_of :name, :email, :password, :password_confirmation
   validates_confirmation_of :password
+  validates_email_format_of :email
   attr_accessible :name, :email, :password, :password_confirmation, :state, :title, :allow_contact, :allow_email
   
   def admin?

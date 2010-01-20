@@ -6,13 +6,19 @@ class UsersController < InheritedResources::Base
   
   
  def create
-  @user = User.new(params[:user])
-  @user.skill_list = params[:user][:skill_list]
-  @user.interest_list = params[:user][:interest_list]
-  create! do |format|
-    format.html { redirect_to_stored_or_default(page_path('get-involved')) }
-  end
-  Notifications.deliver_registration_confirmation(@user)
+   @user = User.new(params[:user])
+   @user.skill_list = params[:user][:skill_list]
+   @user.interest_list = params[:user][:interest_list]
+   create! do |success, failure|
+     success.html { 
+      redirect_to_stored_or_default(page_path('get-involved')) 
+      Notifications.deliver_registration_confirmation(@user)
+    } 
+    failure.html {
+      render :action =>:new
+    }
+   end
+   
  end
  
 end
