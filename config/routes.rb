@@ -19,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :password_resets
   
   map.resource :contact, :controller => 'contact'
-  map.page '/:id', :controller => 'pages', :action => 'show', :id => /goals|get-involved/
+  map.page '/:id', :controller => 'pages', :action => 'show', :id => /goals|get-involved|about/
   map.root :controller => 'pages', :action => 'home'
   
   map.connect ':controller/:action/:id'
