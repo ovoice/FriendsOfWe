@@ -23,7 +23,7 @@ BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
 .headerLiner{background:#fff url('/images/bg_header.gif') no-repeat 0 0;height:183px}
 #content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
 #footer{width:100%;padding:0 0 10px;background:#352400 url('/images/bg_footer.gif') repeat-x center 0}
-#footer .pageWrap{min-height:410px;height:auto !important;height:410px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0}
+#footer .pageWrap{padding-top:270px;min-height:140px;height:auto !important;height:140px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
 
 
 /** Topography **/
