@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   config.gem "will_paginate", :version => "~> 2.3.11", :source => "http://gemcutter.org"
   #config.gem "hpricot"
   #config.gem "htmlentities"
-  config.gem 'hoptoad_notifier', :source => "http://gemcutter.org"
   config.gem "truncate_html", :source => "http://gemcutter.org"
   config.gem "formtastic", :source => "http://gemcutter.org"
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
