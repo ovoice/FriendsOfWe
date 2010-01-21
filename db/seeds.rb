@@ -31,6 +31,6 @@ p = Project.new(
   :state => 'publish',
   :featured => true)
 p.links = [
-  Link.create(:name => 'Github Wiki', :url => '', :description => 'FOW\'s wiki page on github'),
-  Link.create(:name => 'Github Wiki', :url => '', :description => 'FOW\'s issues(suggestions) page on github')]
+  Link.create(:name => 'Development plans', :url => 'https://github.com/ovoice/FriendsOfWe/wikis/development-plans', :description => 'FOW\'s Development plans on Github'),
+  Link.create(:name => 'Suggestions', :url => 'http://github.com/ovoice/FriendsOfWe', :description => 'FOW\'s issues(suggestions) page on github')]
 p.save
