@@ -1,28 +1,29 @@
+
 user  www-data;
 worker_processes  6;
 
-pid        /var/rails/FriendsOfWe/shared/log/nginx.pid;
+pid        logs/nginx.pid;
 
 events {
   worker_connections  1024;
-}                          
+}
 
 http {
 
 
   passenger_root /opt/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.2.7;
-  passenger_ruby /opt/ruby-enterprise/bin/ruby;                              
+  passenger_ruby /opt/ruby-enterprise/bin/ruby;
 
   passenger_default_user www-data;
-  
+
   #passenger_use_global_queue on;
   passenger_max_pool_size 12;
 
   #rails_app_spawner_idle_time 0;
 
-  include       mime.types;       
+  include       mime.types;
   default_type  application/octet-stream;
-  
+
     log_format main '$remote_addr - $remote_user [$time_local] '
                   '"$request" $status $body_bytes_sent "$http_referer" '
                   '"$http_user_agent" "$http_x_forwarded_for"';
@@ -128,8 +129,7 @@ http {
     location ~ ^/(images|javascripts|stylesheets)/ {
       expires 10y;
     }
-
-
+    
     location = /500.html {
       root /var/rails/FriendsOfWe/current/public;
     }
@@ -155,6 +155,4 @@ http {
 
   }
 }
-
-
 

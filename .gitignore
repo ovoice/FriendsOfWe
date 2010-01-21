@@ -10,3 +10,5 @@ public/robots.txt
 sh.exe.stackdump
 coverage*
 *~
+config/deploy.rb
+config/environments/production.rb

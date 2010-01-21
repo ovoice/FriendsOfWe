@@ -17,4 +17,4 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.delivery_method = :railmail
 
-ADMIN_RECIPIENT = 'mario@orbitalvoice.com'
+ADMIN_RECIPIENT = 'mario@friendsofwe.org'

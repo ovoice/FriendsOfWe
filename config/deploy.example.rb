@@ -14,11 +14,11 @@ set :dbuser,              "root"
 ssh_options[:paranoid] = false # comment out if it gives you trouble. newest net/ssh needs this set.
 
 task :production do
-  set :password,            "8uvedRat"
+  set :password,            "UPDATE WITH PASSWORD"
   set :branch,              "master"
   set :production_database, "friendsofwe_production"
   set :production_dbhost,   "localhost"
-  set :dbpass,              "lkL823las3e"
+  set :dbpass,              "UPDATE WITH PASSWORD"
   set :rails_env,           "production"
   role :web, "208.88.124.160"
   role :app, "208.88.124.160"
@@ -27,7 +27,7 @@ end
 
 after "deploy", "deploy:cleanup"
 after "deploy:migrations" , "deploy:cleanup"
-after "deploy:update_code",  "deploy:symlinks"
+after "deploy:update_code", "deploy:symlinks"
 after "deploy:restart", "deploy:set_premissions" #see set_premissions note below
 
 
@@ -53,6 +53,7 @@ namespace :deploy do
     run "cd #{release_path}; ln -nsf #{shared_path}/attachments #{release_path}/public/attachments"
     run "cd #{release_path}; ln -nsf #{shared_path}/restart.txt #{release_path}/tmp/restart.txt"
     run "cd #{release_path}; ln -nsf #{shared_path}/database.yml #{release_path}/config/database.yml" 
+    run "cd #{release_path}; ln -nsf #{shared_path}/production.rb #{release_path}/config/environments/production.rb" 
     run "cd #{release_path}; ln -nsf #{shared_path}/robots.txt #{release_path}/public/robots.txt"
   end
   
