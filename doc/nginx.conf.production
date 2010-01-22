@@ -11,7 +11,7 @@ events {
 http {
 
 
-  passenger_root /opt/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.2.7;
+  passenger_root /opt/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.2.8;
   passenger_ruby /opt/ruby-enterprise/bin/ruby;
 
   passenger_default_user www-data;

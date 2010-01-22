@@ -12,13 +12,10 @@ sudo apt-get install htop
 
 gem sources -a http://gems.github.com
 gem sources -a http://gems.rubyforge.org
+gem sources -a http://gemcutter.org
 gem install gemcutter
 # Assembles Rails database.yml based on information
 # provided from a ReadyStack redeploy
-#
-#WC_DB_ENGINE = mysql
-#WC_APP_NAME = gaa_project
-#WC_DB_PASSWORD = GAAlover29
  
 echo "
 production:
