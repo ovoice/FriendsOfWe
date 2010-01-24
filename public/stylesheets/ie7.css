@@ -1,0 +1,4 @@
+#header UL#menu LI.active{padding:2px 15px 15px}
+#header UL#menu LI.first.active{padding-left:65px}
+#header UL#menu LI.active A, * HTML #header UL#menu LI.active A SPAN.inner{display:block;padding:7px 10px 11px 0}
+#header UL#menu LI.active A SPAN.inner{padding:8px 0 10px 9px;}

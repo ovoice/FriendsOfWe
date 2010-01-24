@@ -67,13 +67,22 @@ INPUT.buttons, button{cursor:pointer}
 /* Header & Menu */
 #header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
 #header UL#menu{float:right;background:#fff url('/images/bg_menu.png') repeat-x 0 0;height:45px;padding-right:10px}
-#header UL#menu LI{float:left;text-transform:lowercase;padding:10px 15px;height:25px;}
+#header UL#menu LI{float:left;text-transform:lowercase;padding:10px 15px;height:25px;white-space:nowrap}
 #header UL#menu LI.first{padding-left:65px;background:transparent url('/images/bg_menu_left.png') no-repeat 0 0}
 #header UL#menu LI.normal{text-transform:none}
 #header UL#menu LI A{color:#fff;font:16px 400 arialrounded,arial,sans;padding:0 10px}
 #header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
 #header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
 #header UL#menu LI.active A SPAN.inner{background-position:0 0;padding:7px 0 9px 10px}
+/* IE6 */
+* HTML #header UL#menu LI.active{padding:3px 15px 10px}
+* HTML #header UL#menu LI.first.active{padding-left:60px}
+* HTML #header UL#menu LI.active A, * HTML #header UL#menu LI.active A SPAN.inner{display:block;padding:0 10px 0 0}
+* HTML #header UL#menu LI.active A SPAN.inner{padding:7px 0 9px 10px;}
+/* Opera */
+ @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { #header UL#menu LI{padding:12px 15px 8px} }
+
+
 #header UL#user-actions{font-size:.7em;line-height:1em;position:absolute;top:105px;right:35px}
 #header UL#user-actions LI{float:left;padding:0 5px;border-right:1px solid #339acc}
 #header UL#user-actions LI.last{border:none}
@@ -94,12 +103,11 @@ INPUT.buttons, button{cursor:pointer}
 A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration:none}
 .buttons.menu{padding:0;background-position:right 0} .buttons.menu SPAN.buttonsInner{background-position:0 0;color:#1b8ff9}/* class is needed here or Cufon will cause issues*/
 .buttons.redB{background-position:right -60px}      .buttons.redB SPAN.buttonsInner{background-position:0 -60px}/* Added the B, otherwise IE6 gets indicators.red and buttons.red confused */
-.buttons.yellowB{background-position:right -120px}    .buttons.yellowB SPAN.buttonsInner{background-position:0 -120px;color:#25b14f}
-  .buttons.yellowB:hover SPAN.buttonsInner{color:#339acc}
+.buttons.yellowB{background-position:right -120px}    A.buttons.yellowB:link SPAN.buttonsInner{background-position:0 -120px;color:#339acc}
+  A.buttons.yellowB:hover SPAN.buttonsInner{color:#ff6036}
 .buttons.grayB{background-position:right -180px}    .buttons.grayB SPAN.buttonsInner{background-position:0 -180px;color:#339acc}
 .buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#fff}
 .buttons.blueB{background-position:right -300px}    .buttons.blueB SPAN.buttonsInner{background-position:0 -300px;color:#339acc}
-
 
 H2.header_bg{background:url('/images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
 H2.header_bg.blue{background-position:right 0}
@@ -132,6 +140,7 @@ A.indicators:hover{text-decoration:none}
 /* Homepage */
 #introduction{width:510px;height:250px;padding-right:400px;background:#fff url('/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
 #introduction.home .buttons{float:right;margin-left:20px}
+#introduction DL{width:600px}
 .byline{font:400 1.1em/1.4em georgia,times,arial,serif;color:#115f85;margin-bottom:0px}
 UL#campaigns LI H2.header_bg, UL#blog LI H2.header_bg{margin-bottom:15px}
 UL#campaigns LI, UL#blog LI{margin:0 0 15px;font-size:.9em;line-height:1.1em}

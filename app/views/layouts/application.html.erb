@@ -5,6 +5,9 @@
   <title>Friends Of We &raquo; <%= yield(:title) || "" %></title>
   <link rel="Shortcut Icon" type="image/ico" href="/favicon.ico" />
   <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', :cache => true %>
+  <!--[if IE 7]>
+    <%= stylesheet_link_tag 'ie7', :cache => true %>  
+  <![endif]-->
   <%= javascript 'jquery', 'cufon-yui.js', 'gillSans_400.development.font', 'arialRounded_400.development.font', :cache => true   %>
   <%= yield(:head) %>
   <script type="text/javascript">
@@ -49,6 +52,7 @@
     </div>
   </div>
   <%= yield(:footer_scripts) %>
+  <script type="text/javascript"> Cufon.now(); </script>
   <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));  </script>
   <script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-11870925-1"); pageTracker._setDomainName(".friendsofwe.org"); pageTracker._trackPageview();} catch(err) {}</script>
 </body>
