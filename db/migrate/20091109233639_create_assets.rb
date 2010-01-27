@@ -13,6 +13,8 @@ class CreateAssets < ActiveRecord::Migration
       t.references :assetable, :polymorphic => true
       t.timestamps
     end
+    add_index :assets, :id
+    add_index :assets, [:assetable_id, :assetable_type]
   end
   
   def self.down

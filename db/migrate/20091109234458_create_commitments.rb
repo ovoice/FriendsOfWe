@@ -9,6 +9,11 @@ class CreateCommitments < ActiveRecord::Migration
       t.integer :opportunity_id
       t.timestamps
     end
+    add_index :commitments, :id
+    add_index :commitments, :state
+    add_index :commitments, :user_id
+    add_index :commitments, :project_id
+    add_index :commitments, :opportunity_id
   end
   
   def self.down

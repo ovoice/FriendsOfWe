@@ -5,6 +5,8 @@ class CreateOpportunities < ActiveRecord::Migration
       t.integer :project_id
       t.timestamps
     end
+    add_index :opportunities, :id
+    add_index :opportunities, :project_id
   end
   
   def self.down

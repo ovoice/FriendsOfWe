@@ -19,6 +19,11 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :last_login_at
       t.string :last_login_ip
     end
+    add_index :users, :id
+    add_index :users, :state
+    add_index :users, :email
+    add_index :users, :allow_contact
+    add_index :users, :allow_email
   end
   
   def self.down

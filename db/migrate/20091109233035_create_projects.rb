@@ -10,6 +10,10 @@ class CreateProjects < ActiveRecord::Migration
       t.boolean :featured
       t.timestamps
     end
+    add_index :projects, :id
+    add_index :projects, :status
+    add_index :projects, :state
+    add_index :projects, :featured
   end
   
   def self.down

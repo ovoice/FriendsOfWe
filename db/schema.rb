@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
     t.datetime "updated_at"
   end
 
+  add_index "assets", ["assetable_id", "assetable_type"], :name => "index_assets_on_assetable_id_and_assetable_type"
+  add_index "assets", ["id"], :name => "index_assets_on_id"
+
   create_table "commitments", :force => true do |t|
     t.string   "state"
     t.string   "name"
@@ -38,12 +41,21 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
     t.datetime "updated_at"
   end
 
+  add_index "commitments", ["id"], :name => "index_commitments_on_id"
+  add_index "commitments", ["opportunity_id"], :name => "index_commitments_on_opportunity_id"
+  add_index "commitments", ["project_id"], :name => "index_commitments_on_project_id"
+  add_index "commitments", ["state"], :name => "index_commitments_on_state"
+  add_index "commitments", ["user_id"], :name => "index_commitments_on_user_id"
+
   create_table "opportunities", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "opportunities", ["id"], :name => "index_opportunities_on_id"
+  add_index "opportunities", ["project_id"], :name => "index_opportunities_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -57,6 +69,11 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
     t.datetime "updated_at"
   end
 
+  add_index "projects", ["featured"], :name => "index_projects_on_featured"
+  add_index "projects", ["id"], :name => "index_projects_on_id"
+  add_index "projects", ["state"], :name => "index_projects_on_state"
+  add_index "projects", ["status"], :name => "index_projects_on_status"
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -67,12 +84,15 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
     t.datetime "created_at"
   end
 
+  add_index "taggings", ["id"], :name => "index_taggings_on_id"
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
   add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  add_index "tags", ["id"], :name => "index_tags_on_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -92,5 +112,11 @@ ActiveRecord::Schema.define(:version => 20091115021442) do
     t.datetime "last_login_at"
     t.string   "last_login_ip"
   end
+
+  add_index "users", ["allow_contact"], :name => "index_users_on_allow_contact"
+  add_index "users", ["allow_email"], :name => "index_users_on_allow_email"
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["id"], :name => "index_users_on_id"
+  add_index "users", ["state"], :name => "index_users_on_state"
 
 end
