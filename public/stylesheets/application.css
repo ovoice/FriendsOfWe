@@ -17,13 +17,13 @@ BLOCKQUOTE, Q{quotes:"" ""}
 HTML{font-size:100.01%}
 
 /** Layout **/
-BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
+BODY{background:#fff url('http://friendsofwe.org/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
 .pageWrap{width:960px;margin:0 auto;padding:0;position:relative}
-#header{width:950px;padding:0 10px 0 0;background:transparent url('/images/bg_menu_foldunder.png') no-repeat right 120px}
-.headerLiner{background:#fff url('/images/bg_header.gif') no-repeat 0 0;height:183px}
+#header{width:950px;padding:0 10px 0 0;background:transparent url('http://friendsofwe.org/images/bg_menu_foldunder.png') no-repeat right 120px}
+.headerLiner{background:#fff url('http://friendsofwe.org/images/bg_header.gif') no-repeat 0 0;height:183px}
 #content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
-#footer{width:100%;padding:0 0 10px;background:#352400 url('/images/bg_footer.gif') repeat-x center 0}
-#footer .pageWrap{padding-top:270px;min-height:140px;height:auto !important;height:140px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
+#footer{width:100%;padding:0 0 10px;background:#352400 url('http://friendsofwe.org/images/bg_footer.gif') repeat-x center 0}
+#footer .pageWrap{padding-top:270px;min-height:140px;height:auto !important;height:140px;background:transparent url('http://friendsofwe.org/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
 
 
 /** Topography **/
@@ -66,13 +66,13 @@ INPUT.buttons, button{cursor:pointer}
 
 /* Header & Menu */
 #header H1{float:left;margin:20px 0 0 10px;height:100px;width:930px}
-#header UL#menu{float:right;background:#fff url('/images/bg_menu.png') repeat-x 0 0;height:45px;padding-right:10px}
+#header UL#menu{float:right;background:#fff url('http://friendsofwe.org/images/bg_menu.png') repeat-x 0 0;height:45px;padding-right:10px}
 #header UL#menu LI{float:left;text-transform:lowercase;padding:10px 15px;height:25px;white-space:nowrap}
-#header UL#menu LI.first{padding-left:65px;background:transparent url('/images/bg_menu_left.png') no-repeat 0 0}
+#header UL#menu LI.first{padding-left:65px;background:transparent url('http://friendsofwe.org/images/bg_menu_left.png') no-repeat 0 0}
 #header UL#menu LI.normal{text-transform:none}
 #header UL#menu LI A{color:#fff;font:16px 400 arialrounded,arial,sans;padding:0 10px}
 #header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
-#header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
+#header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('http://friendsofwe.org/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
 #header UL#menu LI.active A SPAN.inner{background-position:0 0;padding:7px 0 9px 10px}
 /* IE6 */
 * HTML #header UL#menu LI.active{padding:3px 15px 10px}
@@ -97,7 +97,7 @@ INPUT.buttons, button{cursor:pointer}
 .column.last{margin:0}
 
 /* sprites */
-.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('/images/sprite_buttons.png') no-repeat -960px 0}
+.buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('http://friendsofwe.org/images/sprite_buttons.png') no-repeat -960px 0}
 .buttons{padding:0 10px 0 0}
 .buttons SPAN.buttonsInner{display:block;color:#fff;padding:8px 0 8px 10px;line-height:20px;font:400 1.2em arialRounded,arial,sans;white-space:nowrap}
 A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration:none}
@@ -109,7 +109,7 @@ A.buttons:hover, A.buttons:hover SPAN.buttonsInner{color:#25b14f;text-decoration
 .buttons.greenB{background-position:right -240px}    .buttons.greenB SPAN.buttonsInner{background-position:0 -240px;color:#fff}
 .buttons.blueB{background-position:right -300px}    .buttons.blueB SPAN.buttonsInner{background-position:0 -300px;color:#339acc}
 
-H2.header_bg{background:url('/images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
+H2.header_bg{background:url('http://friendsofwe.org/images/sprite_header_bgs.png') no-repeat right 0;color:#fff;text-decoration:none;font-size:1.6em;padding:6px 8px 20px;margin-bottom:5px}
 H2.header_bg.blue{background-position:right 0}
   H2.header_bg.blue A:hover{color:#ffc736}
 H2.header_bg.green{background-position:right -100px}
@@ -121,7 +121,7 @@ H2.header_bg.red{background-position:right -400px}
 
 
 .withIndicators H3{float:left;margin:2px 0}
-.indicators, .indicators SPAN{background:url('/images/sprite_status_indicators.png') no-repeat -960px -30px;text-decoration:none;font:700 1em arial,sans;font-variant:small-caps}
+.indicators, .indicators SPAN{background:url('http://friendsofwe.org/images/sprite_status_indicators.png') no-repeat -960px -30px;text-decoration:none;font:700 1em arial,sans;font-variant:small-caps}
 .indicators{float:right;padding:0 10px 0 0;margin:0 10px 0 0}
 A.indicators:hover{text-decoration:none}
 .indicators SPAN{display:block;padding:1px 0 1px 10px;line-height:20px;width:70px;text-align:center;color:#fff}
@@ -138,7 +138,7 @@ A.indicators:hover{text-decoration:none}
 .indicators.red.large{background-position:right -360px}    .indicators.red.large SPAN{background-position:0 -360px}
 
 /* Homepage */
-#introduction{width:510px;height:250px;padding-right:400px;background:#fff url('/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
+#introduction{width:510px;height:250px;padding-right:400px;background:#fff url('http://friendsofwe.org/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
 #introduction.home .buttons{float:right;margin-left:20px}
 #introduction DL{width:600px}
 .byline{font:400 1.1em/1.4em georgia,times,arial,serif;color:#115f85;margin-bottom:0px}
