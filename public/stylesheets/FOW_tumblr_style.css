@@ -60,6 +60,8 @@ DL{}
 DL DT{float:left;width:35%;clear:left;margin-bottom:10px}
 DL DD{float:left;width:65%}
 DL.withBottons DD{padding-top:6px}
+#content.generalText P{padding:0 0 10px}
+#content.generalText UL{margin:0 0 15px 40px;padding:0;list-style:square}
 /*form - see formtastic */
 INPUT.submit, INPUT.submitOv,
 INPUT.buttons, button{cursor:pointer}

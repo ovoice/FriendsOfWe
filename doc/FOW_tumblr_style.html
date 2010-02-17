@@ -12,7 +12,7 @@
 
   <link href="http://friendsofwe.org/stylesheets/FOW_tumblr_style.css" media="screen" rel="stylesheet" type="text/css" />
   <!--[if IE 7]>
-    <link href="http://friendsofwe.org/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" /> 
+    <link href="http://friendsofwe.org/stylesheets/ie7.css" media="screen" rel="stylesheet" type="text/css" />
   <![endif]-->
   <script src="http://friendsofwe.org/javascripts/all.js" type="text/javascript"></script>
   <script type="text/javascript">
@@ -134,7 +134,7 @@ ol.notes li.note blockquote a {text-decoration: none;}
     </div>
 
 		<a name="content"></a>
-		<div id="content">
+		<div id="content" class="generalText">
 			{block:Posts}
 			<div class="post">
 				<div class="sidebar">
@@ -148,7 +148,7 @@ ol.notes li.note blockquote a {text-decoration: none;}
 				{/block:NoteCount}
 					
 				{block:Regular}
-						<p><a href="{Permalink}">Some nice text</a></p>
+						<p><a href="{Permalink}">{Title}</a></p>
 					</div>
 					<div class="content text">
 						{block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
@@ -278,16 +278,6 @@ ol.notes li.note blockquote a {text-decoration: none;}
 				<img src="{PortraitURL-40}" alt="" />
 				<p>{Description}</p>
 			</div>
-			{block:Following}
-			<div class="follow">
-				<h2>I follow</h2>
-				<ul>
-					{block:Followed}
-						<li><a href="{FollowedURL}" title="{FollowedName}"><img src="{FollowedPortraitURL-24}" alt="{FollowedName}" /></a></li>
-					{/block:Followed}
-				</ul>
-			</div>
-			{/block:Following}
 			{block:GroupMembers}
 			<div class="follow">
 				<h2>Group members</h2>
@@ -298,12 +288,7 @@ ol.notes li.note blockquote a {text-decoration: none;}
 				</ul>
 			</div>
 			{/block:GroupMembers}
-			<div class="search">
-				<h2>Search</h2>
-				<form action="/search" method="get">
-				    <input type="text" name="q" value="{SearchQuery}"/>
-				    <span class="buttons"><input type="submit" value="Search"/></span>
-				</form>
+			
 			</div>
 			<p class="footer">Powered by <a href="http://www.tumblr.com">Tumblr</a> &nbsp;/&nbsp; Here's the <a href="/archive">archive</a> and a <a href="{RSS}">feed</a> if you want.</p>
     </div>
