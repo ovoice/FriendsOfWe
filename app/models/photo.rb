@@ -1,2 +1,0 @@
-class Photo < Asset
-end

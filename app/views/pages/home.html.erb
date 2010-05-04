@@ -23,7 +23,7 @@
         </ul>
       </div>
       <div class="column w360 right last">
-        <h2 class="header_bg yellow bottom20"><a href="#">weBlog</a></h2>
+        <h2 class="header_bg yellow bottom20"><%= link_to 'webBlog', 'http://weblog.friendsofwe.org' %><a href="#">weBlog</a></h2>
         <% if @posts.any? -%>
         <ul id="blog">
           <% for post in @posts -%>

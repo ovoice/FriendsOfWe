@@ -42,7 +42,7 @@ A:hover{text-decoration:underline}
 H2 A:link, H2 A:visited{color:#fff}
 H2 A:hover{color:#ff6036;text-decoration:none}
 H2 A.header_bg.red:hover{color:#ffc736}
-H3 A:link, H3 A:visited,A.greenBg:link,A.greenBg:visited, .greenBg{color:#fff;background:#25b14f;padding:2px 3px 1px;font-weight:700;font-size:1em}
+H3 A:link, H3 A:visited,A.greenBg:link,A.greenBg:visited, .greenBg{color:#fff;background:#25b14f;padding:2px 3px 1px;font-weight:700;font-size:1.2em}
 H3 A.plus{padding:1px 5px}
 H3 A.noBg{background:none;color:#ff6036}
 H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}

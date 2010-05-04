@@ -22,10 +22,13 @@ module LayoutHelper
   
   def main_menu(active=nil)
     
-    menu_options = {:name => 'Home', :link => root_path}, {:name => 'Campaigns', :link => projects_path}, 
-    {:name => 'Our Mission', :link => page_path('mission')}, {:name => 'About', :link => page_path('about')},
-    {:name => 'weBlog', :link => "http://weblog.friendsofwe.org"}, {:name => 'Contact', :link => new_contact_path},
-    {:name => 'Volunteer', :link => page_path('get-involved')}
+    menu_options =  {:name => 'Home', :link => root_path}, 
+                    {:name => 'Campaigns', :link => projects_path}, 
+                    {:name => 'Our Mission', :link => page_path('mission')}, 
+                    {:name => 'About', :link => page_path('about')},
+                    {:name => 'weBlog', :link => "http://weblog.friendsofwe.org"}, 
+                    {:name => 'Contact', :link => new_contact_path},
+                    {:name => 'Volunteer', :link => page_path('get-involved')}
     
     menu_options.collect do |menu_option|
       html_class = ''
