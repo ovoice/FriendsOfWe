@@ -11,4 +11,6 @@ sh.exe.stackdump
 coverage*
 *~
 config/deploy.rb
-
+config/environments/production.rb
+config/initializers/hoptoad.rb
+config/initializers/session_store.rb
