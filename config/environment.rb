@@ -15,26 +15,22 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem "paperclip", :source => "http://gemcutter.org"
+  config.gem "paperclip"
   config.gem "authlogic"
-  config.gem "acts-as-taggable-on", :source => "http://gemcutter.org"
-  config.gem "will_paginate", :version => "~> 2.3.11", :source => "http://gemcutter.org"
+  config.gem "acts-as-taggable-on"
+  config.gem "will_paginate", :version => "~> 2.3.11"
   config.gem "hpricot"
   config.gem "htmlentities"
-  config.gem 'hoptoad_notifier', :source => "http://gemcutter.org"
-  config.gem "truncate_html", :source => "http://gemcutter.org"
-  config.gem "formtastic", :source => "http://gemcutter.org"
-  config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-  config.gem "dancroak-validates_email_format_of", :lib => "validates_email_format_of", :source => "http://gems.github.com"
-  config.gem "state_machine", :source => "http://gemcutter.org"
-  config.gem "inherited_resources", :source => "http://gemcutter.org"
-  config.gem 'tumblr-api', :lib => 'tumblr', :source => 'http://gemcutter.org'
-  config.gem "populator", :source => 'http://gemcutter.org'
-  config.gem "faker", :source => 'http://gemcutter.org'
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "hoptoad_notifier"
+  config.gem "truncate_html"
+  config.gem "formtastic"
+  config.gem "factory_girl", :lib => "factory_girl"
+  config.gem "dancroak-validates_email_format_of", :lib => "validates_email_format_of"
+  config.gem "state_machine"
+  config.gem "inherited_resources", :version => "1.0.6"
+  config.gem "tumblr-api", :lib => "tumblr"
+  config.gem "populator"
+  config.gem "faker"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
