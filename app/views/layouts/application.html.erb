@@ -12,14 +12,14 @@
   <%= yield(:head) %>
   <script type="text/javascript">
     Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'})('.buttons OL LI INPUT', {fontFamily: 'arialRounded'});
-    Cufon.replace('H2', {hover: true, fontFamily: 'gillSans'})('.generalText H3', {fontFamily: 'gillSans'});
+    Cufon.replace('H1', {hover: true, fontFamily: 'gillSans'})('H2', {hover: true, fontFamily: 'gillSans'})('.generalText H3', {fontFamily: 'gillSans'});
   </script>
 </head>
 <body>
   <div class="pageWrap">
     <div id="header">
       <div class="headerLiner">
-        <h1><%= link_to image_tag("friends-of-we-logo.jpg", :alt => "Friends Of We"), root_path  %></h1>
+        <h1><%= link_to 'Friends of We', root_path  %></h1>
         <ul id="menu">
           <%= yield(:main_menu) || main_menu %>
         </ul>

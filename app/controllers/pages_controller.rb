@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
   
   def home
-    #not restful, but I didn't want to create a new controller just for this - would be open to suggestions
+    #not restful, but I didn't want to create a new controller just for this action
     @projects = Project.features
     Tumblr.blog = 'weblog.friendsofwe.org'
     @posts = Tumblr::Post.all(:num => 3, :filter => 'text')
