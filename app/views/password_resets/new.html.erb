@@ -3,7 +3,7 @@
  
 <p>Fill out the form below and instructions to reset your password will be emailed to you:</p>
 
-<% semantic_form_for '', :url => password_resets_path do |form| %>
+<% semantic_form_for 'user', :url => password_resets_path do |form| %>
   <%= form.inputs :email  %>
   <% form.buttons do %>
     <%= form.commit_button "Reset my password" %>
