@@ -1,0 +1,33 @@
+h1. Welcome to Friends of We
+
+FOW is a rails based app. 
+
+Key gems/plugins:
+
+* authlogic
+* inherited_resources
+* formtastic
+
+h2. Useful Custom Rake Tasks for Development
+
+These will need to be improved later and may be a little redundent right now.
+
+* rake db:build - creates DB, runs migrations, sets up railmail and loads seed data
+* rake db:rebuild - destroys DB, then runs build
+* rake db:populate - loads fake data
+* rake db:repopulate - runs rebuild then populates with fake data
+
+h2. Getting Development Setup
+
+To prevent secret information from appearing in the public repo.  You will need create these files from the examples.
+
+* config/database.yml
+* config/initializers/session_store.rb
+* config/environments/production.rb - if you want to run in production mode
+
+h2. Getting Production Setup
+
+Java is required to utilize YUI-compressor in the installed plugin yui_compressor_fu:
+
+@sudo apt-get install sun-java6-jre sun-java6-jdk sun-java6-plugin@
+
