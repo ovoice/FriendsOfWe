@@ -30,7 +30,7 @@ BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
 
 /*heading*/ 
 H1, H2, H3, H4, H5, H6{font:400 1.0em arial,sans}
-H1{font-size:1.8em;display:block}
+H1{font-size:2.3em;display:block;}
 H2, .generalText H3{color:#115f85;font-family:/*"Gill Sans MT",*/gillSans,arial,sans;margin:0 0 15px;}
 H2{font-size:1.8em;}
 H3{font-size:1.1em;font-weight:700;} .generalText H3{font-size:1.4em}
@@ -39,6 +39,8 @@ H4{font-size:1.2em}
 A{color:#ff6036;text-decoration:none}
 A:link, A:visited{color:#ff6036}
 A:hover{text-decoration:underline}
+H1 A:link, H1 A:visited{color:#fff}
+H1 A:hover{color:#ff6036;text-decoration:none}
 H2 A:link, H2 A:visited{color:#fff}
 H2 A:hover{color:#ff6036;text-decoration:none}
 H2 A.header_bg.red:hover{color:#ffc736}
