@@ -1,12 +1,17 @@
 h1. Welcome to Friends of We
 
-FOW is a rails based app. 
+FOW is a rails based app. It serves as the homesite for Friends of We and facilitiates the collection of volunteer contact information.  A few notes:
 
-Key gems/plugins:
-
-* authlogic
-* inherited_resources
-* formtastic
+* Key runtime gems: authlogic, inherited_resources, formtastic
+* Volunteering: 
+** New users can register and volunteer in one of three ways:
+*** In general, for no specific campaign or volunteer opportunity.
+*** For a specific campaign.
+*** Or a User can volunteer for a campaignspecific Opportunity – i.e. as a graphic designer, brand planner, or UI designer.
+** The act of volunteering creates a polymorphic commitment record that can belong to either a campaign or a opportunity
+** The commitment is not confirmed until the state is updated in the system. Presently, there is no UI for this.
+* There is no roles system to identify who is an admin/campaign manager, etc.
+* There are almost not tests.  (sorry!)
 
 h2. Useful Custom Rake Tasks for Development
 
