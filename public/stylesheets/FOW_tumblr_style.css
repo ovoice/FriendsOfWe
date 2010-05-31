@@ -23,7 +23,7 @@ BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
 .headerLiner{background:#fff url('/images/bg_header.gif') no-repeat 0 0;height:183px}
 #content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
 #footer{width:100%;padding:0 0 10px;background:#352400 url('/images/bg_footer.gif') repeat-x center 0}
-#footer .pageWrap{padding-top:270px;min-height:140px;height:auto !important;height:140px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
+#footer .pageWrap{padding-top:280px;min-height:140px;height:auto !important;height:140px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
 
 
 /** Topography **/
@@ -76,7 +76,7 @@ INPUT.buttons, button{cursor:pointer}
 #header UL#menu LI.normal{text-transform:none}
 #header UL#menu LI A{color:#fff;font:16px 400 arialrounded,arial,sans;padding:0 10px}
 #header UL#menu LI A:hover{color:#ffc736;text-decoration:none}
-#header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('http://friendsofwe.org/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
+#header UL#menu LI.active A, #header UL#menu LI.active A SPAN.inner{background:transparent url('/images/sprite_buttons.png') no-repeat right 0;padding:7px 10px 9px 0}
 #header UL#menu LI.active A SPAN.inner{background-position:0 0;padding:7px 0 9px 10px}
 /* IE6 */
 * HTML #header UL#menu LI.active{padding:3px 15px 10px}
@@ -84,14 +84,30 @@ INPUT.buttons, button{cursor:pointer}
 * HTML #header UL#menu LI.active A, * HTML #header UL#menu LI.active A SPAN.inner{display:block;padding:0 10px 0 0}
 * HTML #header UL#menu LI.active A SPAN.inner{padding:7px 0 9px 10px;}
 /* Opera */
- @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { #header UL#menu LI{padding:12px 15px 8px} }
-
-
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { #header UL#menu LI{padding:12px 15px 8px} }
+/* User Actions */
 #header UL#user-actions{font-size:.7em;line-height:1em;position:absolute;top:105px;right:35px}
 #header UL#user-actions LI{float:left;padding:0 5px;border-right:1px solid #339acc}
 #header UL#user-actions LI.last{border:none}
 #header UL#user-actions LI A{color:#115f85}
 #header UL#user-actions LI A:hover{color:#339acc;text-decoration:none}
+
+/* footer */
+#footer{font-size:.95em}
+#footer .column{border-top:10px solid #4F3905;padding-top:10px;margin-bottom:40px;}
+#footer UL#footerMenu{float:left;margin:0;}
+#footer UL#footerMenu LI{float:left;margin-left:18px;}
+#footer UL#footerMenu LI.first{margin-left:0;}
+#footer UL#footerMenu LI A{color:#ccc}
+#footer UL#footerMenu LI.active A{color:#666}
+
+/* columns */
+.column{margin-right:30px}
+.column.w630{width:630px}
+.column.w510{width:510px}
+.column.w360{width:360px}
+.column.w80p{width:80%;margin:0 auto;}
+.column.last{margin:0}
 
 /* sprites */
 .buttons, .buttons SPAN,  .buttons SPAN.buttonsInner{background:transparent url('/images/sprite_buttons.png') no-repeat -960px 0}
@@ -134,4 +150,5 @@ H2.header_bg.red{background-position:right -400px}
 .bottom0{margin-bottom:0}
 .bottom20, H2.header_bg.bottom20{margin-bottom:20px}
 .bottom40{margin-bottom:40px}
+.top40{margin-top:40px;}
 .lastBottom{margin-bottom:0;padding-bottom:0}

@@ -48,7 +48,15 @@
   </div>
   <div id="footer">
     <div class="pageWrap">
-      <p>social media content, etc goes here in footer.</p>
+      <div class="column w630 left">
+        social media
+      </div>
+      <div class="column w630 left">
+        <ul id="footerMenu">
+          <%= yield(:main_menu) || main_menu %>
+        </ul>
+        <p class="small top40"><em>Friends of We</em> is in the process of filing as a 501(c)(3) organization.</p> 
+      </div>
     </div>
   </div>
   <%= yield(:footer_scripts) %>
