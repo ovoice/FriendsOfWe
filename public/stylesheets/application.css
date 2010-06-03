@@ -30,14 +30,14 @@ BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
 
 /** Topography **/
 
-/*heading*/ 
+/* heading */ 
 H1, H2, H3, H4, H5, H6{font:400 1.0em arial,sans}
 H1{font-size:2.3em;display:block}
 H2, .generalText H3{color:#115f85;font-family:gillSans,arial,sans;margin:0 0 15px}
 H2{font-size:1.8em}
 H3{font-size:1.1em;font-weight:700} .generalText H3{font-size:1.4em}
 H4{font-size:1.2em}
-/*link*/
+/* link */
 A{color:#ff6036;text-decoration:none}
 A:link, A:visited{color:#ff6036}
 A:hover{text-decoration:underline}
@@ -51,7 +51,7 @@ H3 A.plus{padding:1px 5px}
 H3 A.noBg{background:none;color:#ff6036}
 H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
 H3 A.noBg:hover{background:#25b14f;color:#fff}
-/* format*/
+/* format */
 P{padding:0 0 20px}
 B, STRONG, .strong{font-weight:700}
 SMALL, .small{font-size:0.80em;font-family:georgia,times,sans}
@@ -60,7 +60,7 @@ SUP{position:relative;bottom:0.3em;vertical-align:baseline;font-size:.9em}
 SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
 ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}
 BLOCKQUOTE{background:#eee;margin:0 0 10px;padding:15px;font:400 .99em georgia,times,arial,serif}
-DL{}
+DL{width:100%;overflow:hidden;}
 DL DT{float:left;width:35%;clear:left;margin-bottom:10px}
 DL DD{float:left;width:65%}
 DL.withBottons DD{padding-top:6px}
@@ -157,7 +157,8 @@ A.indicators:hover{text-decoration:none}
 .indicators.red.large{background-position:right -360px}    .indicators.red.large SPAN{background-position:0 -360px}
 
 /* Homepage */
-#introduction{width:510px;height:250px;padding-right:400px;background:#fff url('/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
+#introduction{width:510px;height:270px;padding-right:400px;background:#fff url('/images/placehholder_graphic.gif') no-repeat 600px 0;overflow:hidden}
+#introduction.home {height:250px}
 #introduction.home .buttons{float:right;margin-left:20px}
 #introduction DL{width:600px}
 .byline{font:400 1.1em/1.4em georgia,times,arial,serif;color:#115f85;margin-bottom:0px}
