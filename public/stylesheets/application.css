@@ -17,23 +17,25 @@ BLOCKQUOTE, Q{quotes:"" ""}
 HTML{font-size:100.01%}
 
 /** Layout **/
-BODY{background:#fff url('http://friendsofwe.org/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
-.pageWrap{width:960px;margin:0 auto;padding:0;position:relative}
-#header{width:950px;padding:0 10px 0 0;background:transparent url('http://friendsofwe.org/images/bg_menu_foldunder.png') no-repeat right 120px}
-.headerLiner{background:#fff url('http://friendsofwe.org/images/bg_header.gif') no-repeat 0 0;height:183px}
-#content{min-height:650px;height:auto !important;height:650px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
-#footer{width:100%;overflow:hidden;padding:0 0 10px;background:#352400 url('http://friendsofwe.org/images/bg_footer.gif') repeat-x center 0}
-#footer .pageWrap{padding-top:280px;min-height:140px;height:auto !important;height:140px;background:transparent url('http://friendsofwe.org/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
-
+BODY{background:#fff url('/images/bg.png') repeat-x 0 0;font:400 1em arial,sans}
+#contentWrap{width:960px;margin:0 auto 10px;position:relative;overflow:hidden;padding:0 0 42px;background:transparent url('/images/bg_content_bottom.png') no-repeat 0 bottom}
+#header{width:950px;padding:0 10px 0 0;background:transparent url('/images/bg_menu_foldunder.png') no-repeat right 120px}
+.headerLiner{background:#fff url('/images/bg_header.gif') no-repeat 0 0;height:183px}
+#content{min-height:350px;height:auto !important;height:350px;background:#fff;margin-right:10px;padding:0 20px;font-size:.9em;line-height:1.5em;color:#555;position:relative;overflow:hidden}
+#footer{width:100%;overflow:hidden;padding:0;background:transparent url('/images/bg_footer.gif') repeat-x center 0}
+#footer .contentWrap{width:960px;margin:0 auto;padding-top:10px;background:transparent url('/images/bg_footer_tree.gif') no-repeat 652px 0;color:#eee}
+#footer .contentWrap.default{min-height:262px;height:auto !important;height:262px}
+#footer .brownWrap{background:#352400;margin:0}
+#footer .brownWrap .contentWrap{background-position:652px -272px;min-height:130px;height:auto !important;height:130px}
 
 /** Topography **/
 
 /*heading*/ 
 H1, H2, H3, H4, H5, H6{font:400 1.0em arial,sans}
-H1{font-size:2.3em;display:block;}
-H2, .generalText H3{color:#115f85;font-family:/*"Gill Sans MT",*/gillSans,arial,sans;margin:0 0 15px;}
-H2{font-size:1.8em;}
-H3{font-size:1.1em;font-weight:700;} .generalText H3{font-size:1.4em}
+H1{font-size:2.3em;display:block}
+H2, .generalText H3{color:#115f85;font-family:gillSans,arial,sans;margin:0 0 15px}
+H2{font-size:1.8em}
+H3{font-size:1.1em;font-weight:700} .generalText H3{font-size:1.4em}
 H4{font-size:1.2em}
 /*link*/
 A{color:#ff6036;text-decoration:none}
@@ -49,7 +51,7 @@ H3 A.plus{padding:1px 5px}
 H3 A.noBg{background:none;color:#ff6036}
 H3 A:hover, A.greenBg:hover{background:#ff6036;text-decoration:none}
 H3 A.noBg:hover{background:#25b14f;color:#fff}
-/*format*/
+/* format*/
 P{padding:0 0 20px}
 B, STRONG, .strong{font-weight:700}
 SMALL, .small{font-size:0.80em;font-family:georgia,times,sans}
@@ -57,12 +59,12 @@ I, EM{font-style:italic}
 SUP{position:relative;bottom:0.3em;vertical-align:baseline;font-size:.9em}
 SUB{position:relative;bottom:-0.2em;vertical-align:baseline}
 ACRONYM, ABBR{cursor:help;letter-spacing:1px;border-bottom:1px dashed}
-BLOCKQUOTE{background:#eee;margin:0 0 10px;padding:15px;font:400 .99em georgia,times,arial,serif;}
+BLOCKQUOTE{background:#eee;margin:0 0 10px;padding:15px;font:400 .99em georgia,times,arial,serif}
 DL{}
 DL DT{float:left;width:35%;clear:left;margin-bottom:10px}
 DL DD{float:left;width:65%}
 DL.withBottons DD{padding-top:6px}
-/*form - see formtastic */
+/* form - see formtastic */
 INPUT.submit, INPUT.submitOv,
 INPUT.buttons, button{cursor:pointer}
 
@@ -80,7 +82,7 @@ INPUT.buttons, button{cursor:pointer}
 * HTML #header UL#menu LI.active{padding:3px 15px 10px}
 * HTML #header UL#menu LI.first.active{padding-left:60px}
 * HTML #header UL#menu LI.active A, * HTML #header UL#menu LI.active A SPAN.inner{display:block;padding:0 10px 0 0}
-* HTML #header UL#menu LI.active A SPAN.inner{padding:7px 0 9px 10px;}
+* HTML #header UL#menu LI.active A SPAN.inner{padding:7px 0 9px 10px}
 /* Opera */
 @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { #header UL#menu LI{padding:12px 15px 8px} }
 /* User Actions */
@@ -91,11 +93,17 @@ INPUT.buttons, button{cursor:pointer}
 #header UL#user-actions LI A:hover{color:#339acc;text-decoration:none}
 
 /* footer */
-#footer{font-size:.95em}
-#footer .column{border-top:10px solid #4F3905;padding-top:10px;margin-bottom:40px;}
-#footer UL#footerMenu{margin:0;}
-#footer UL#footerMenu LI{float:left;margin-left:18px;}
-#footer UL#footerMenu LI.first{margin-left:0;}
+#footer{font-size:0.95em}
+#footer .footerContent{border-top:10px solid #4F3905;padding-top:10px;margin:0 0 0 20px}
+#footer .footerContent.above{color:#333;margin-top:20px;height:150px;border:none}
+  #footer .footerContent.above A{float:left;width:64px;height:64px;margin-right:15px;background:transparent url('/images/social_icons.png') no-repeat 0 0;text-indent:-998px}
+  #footer .footerContent.above A.facebook{background-position:0 -128px}
+  #footer .footerContent.above A.linkedin{background-position:0 -255px}
+  #footer .footerContent.above A.rssFeed{background-position:0 -383px}
+#footer .footerContent.last{margin-bottom:0}
+#footer UL#footerMenu{margin:0}
+#footer UL#footerMenu LI{float:left;margin-left:18px}
+#footer UL#footerMenu LI.first{margin-left:0}
 #footer UL#footerMenu LI A{color:#ccc}
 #footer UL#footerMenu LI.active A{color:#666}
 
@@ -104,7 +112,7 @@ INPUT.buttons, button{cursor:pointer}
 .column.w630{width:630px}
 .column.w510{width:510px}
 .column.w360{width:360px}
-.column.w80p{width:80%;margin:0 auto;}
+.column.w80p{width:80%;margin:0 auto}
 .column.last{margin:0}
 
 /* sprites */
@@ -176,7 +184,7 @@ UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
 #flash{padding:5px 8px;margin:0 0 20px;background-color:#f8f8f8;border:solid 1px #E0E0E0}
 #flash.notice{background-color:#CFC;border-color:#6C6}
 #flash.error, #flash.warning{background-color:#FCC;border-color:#C66}
-#flash.message{background:#9FFFAC;border-color:#2CEF46;color:#333;}
+#flash.message{background:#9FFFAC;border-color:#2CEF46;color:#333}
 .fieldWithErrors{display:inline}
 #errorExplanation{width:400px;border:2px solid #CF0000;padding:0px;padding-bottom:12px;margin-bottom:20px;background-color:#f0f0f0}
 #errorExplanation h2{text-align:left;font-weight:bold;padding:5px 5px 5px 15px;font-size:12px;margin:0;background-color:#c00;color:#fff}
@@ -202,5 +210,5 @@ UL#campaigns P, UL#blog LI P{margin:5px 0;padding-bottom:10px}
 .bottom0{margin-bottom:0}
 .bottom20, H2.header_bg.bottom20{margin-bottom:20px}
 .bottom40{margin-bottom:40px}
-.top40{margin-top:40px;}
+.top40{margin-top:40px}
 .lastBottom{margin-bottom:0;padding-bottom:0}

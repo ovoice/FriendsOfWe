@@ -8,15 +8,19 @@
   <!--[if IE 7]>
     <%= stylesheet_link_tag 'ie7', :cache => true %>  
   <![endif]-->
-  <%= javascript 'jquery', 'cufon-yui.js', 'gillSans_400.development.font', 'arialRounded_400.development.font', :cache => true   %>
+  <%= javascript 'jquery', 'cufon-yui.js', 'gillSans_400.development.font', 'arialRounded_400.development.font', :cache => true %>
   <%= yield(:head) %>
   <script type="text/javascript">
     Cufon.replace('UL#menu LI', {hover: true, fontFamily: 'arialRounded'})('A.buttons', {hover: true, fontFamily: 'arialRounded'})('.buttons OL LI INPUT', {fontFamily: 'arialRounded'});
     Cufon.replace('H1', {hover: true, fontFamily: 'gillSans'})('H2', {hover: true, fontFamily: 'gillSans'})('.generalText H3', {fontFamily: 'gillSans'});
   </script>
+  <!--[if IE 6]>
+    <%= javascript_include_tag 'DD_belatedPNG_0.0.8a-min.js' %>
+    <script type="text/javascript">DD_belatedPNG.fix('#contentWrap, #footer .footerContent.above A');</script>
+  <![endif]--> 
 </head>
 <body>
-  <div class="pageWrap">
+  <div id="contentWrap">
     <div id="header">
       <div class="headerLiner">
         <h1><%= link_to 'Friends of We', root_path  %></h1>
@@ -47,15 +51,26 @@
     </div>
   </div>
   <div id="footer">
-    <div class="pageWrap">
+    <div class="contentWrap default">
       <div class="column w630 left">
-        social media
+        <div class="footerContent above">
+          <%= link_to "Twitter Feed", "http://twitter.com/friendsofwe/", :class => "twitter", :title => "Follow us on Twitter" %>
+          <%= link_to "Facebook", "http://www.facebook.com/pages/Friends-of-We/115133918529648", :class => "facebook", :title => "Find us on Facebook" %>
+          <%= link_to "LinkedIn", "#", :class => "linkedin", :title => "Find us on Linked in" %>
+          <%= link_to "RSS Feed", "http://weblog.friendsofwe.org/rss", :class => "rssFeed", :title => "Subscribe to our blog feed" %>
+        </div>
       </div>
-      <div class="column w630 left">
-        <ul id="footerMenu">
-          <%= yield(:main_menu) || main_menu %>
-        </ul>
-        <p class="small top40"><em>Friends of We</em> is in the process of filing as a 501(c)(3) organization.</p> 
+    </div>
+    <div class="brownWrap">
+      <div class="contentWrap">
+        <div class="column w630 left">
+          <div class="footerContent last ">
+            <ul id="footerMenu">
+              <%= yield(:main_menu) || main_menu %>
+            </ul>
+            <p class="small top40"><em>Friends of We</em> is in the process of filing as a 501(c)(3) organization.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
