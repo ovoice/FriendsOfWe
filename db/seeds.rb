@@ -6,7 +6,7 @@ User.create(:email => 'admin@friendsofwe.org', :state => 'admin', :allow_contact
 p = Project.new(
   :name => '"Turn Off" IT Campaign',
   :description => "In the United States, 50% of employed adults don't typically shut down their PCs at the end of the work day. A single company with 10,000 PCs wastes more than $260,000 annually and generates 1,871 tons of CO2 emissions. numbers improve in the UK and Germany, but there is a still a lot that could be done. The \"Turn Off\" campaign is a targeted appeal to IT administrators to encourage their companies' employees to turn off their computers at the end of each work day.",
-  :activities => "While still in the planning phase, our general goal is to create a digial campaign that drives IT administators to learn more about how they can reduce their company's IT energy consumption for the good of the environment and their firm's bottom lines. A content invenory and the development of a messaging stratgey are in progress.",
+  :activities => "While still in the planning phase, our general goal is to create a digital campaign that drives IT administrators to learn more about how they can reduce their company's IT energy consumption for the good of the environment and their firm's bottom lines. A content inventory and the development of a messaging strategy are in progress.",
   :status => 'recruiting',
   :state => 'publish',
   :featured => true)
@@ -15,7 +15,7 @@ p.save
   
 p = Project.new(
   :name => 'The Effects of Climate Change',
-  :description => 'A recent gallup poll found that fewer and fewer Americans understand how climate change will impact their lives or the lives of their children.  With the recent media-hyped contrevercy surrounding "Climate-gate", these numbers have likely fallen further still.  The "Effects of Climate Change" campaign is an effort to help Americans accept the realities of Climate Change by understand how it will impact their lives. Fortunately, the hard work of content creation has largely already been completed in a White House report issues in June of this Year.',
+  :description => 'A recent Gallup poll found that fewer and fewer Americans understand how climate change will impact their lives or the lives of their children.  With the recent media-hyped contrevercy surrounding "Climate-gate", these numbers have likely fallen further still.  The "Effects of Climate Change" campaign is an effort to help Americans accept the realities of Climate Change by understand how it will impact their lives. Fortunately, the hard work of content creation has largely already been completed in a White House report issues in June of this Year.',
   :activities => "While still in the planning phase, our first efforts will focus on development of a messaging strategy and development of a consumer friendly, motion-graphics heavy, rich media landing site.  The White House report is an excellent report that readily lends itself to the creation of engaging, dyanmic content. With these foundations we can begin work on general and digital advertising with Television Public Service Advertising (PSA) and digital PSAs. ",
   :status => 'recruiting',
   :state => 'publish',
