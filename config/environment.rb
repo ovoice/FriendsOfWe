@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "hpricot"
   config.gem "htmlentities"
   config.gem "hoptoad_notifier"
-  config.gem "truncate_html"
+  config.gem "truncate_html", :verssion => "0.3.2"
   config.gem "formtastic"
   config.gem "factory_girl", :lib => "factory_girl"
   config.gem "dancroak-validates_email_format_of", :lib => "validates_email_format_of"
