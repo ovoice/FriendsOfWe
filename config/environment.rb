@@ -31,6 +31,7 @@ Rails::Initializer.run do |config|
   config.gem "populator"
   config.gem "faker"
   config.gem "feed-normalizer"
+  config.gem "yaml_db"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

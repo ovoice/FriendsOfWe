@@ -1,0 +1,120 @@
+
+--- 
+assets: 
+  columns: 
+  - id
+  - type
+  - name
+  - description
+  - url
+  - attachment_file_name
+  - attachment_content_type
+  - attachment_file_size
+  - attachment_updated_at
+  - state
+  - assetable_id
+  - assetable_type
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - Link
+    - PC Energy Report 2009
+    - An annual study from 1e.com that helps illustrate the need and trends in IT energy consumption.
+    - http://www.1e.com/energycampaign/index.aspx
+    - 
+    - 
+    - 
+    - 
+    - 
+    - "1"
+    - Project
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
+  - - "2"
+    - Link
+    - Global Climate Change Impacts in the United States
+    - The official White House report on the science and the impacts of climate change on the United States.
+    - http://www.globalchange.gov/publications/reports/scientific-assessments/us-impacts
+    - 
+    - 
+    - 
+    - 
+    - 
+    - "2"
+    - Project
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
+  - - "3"
+    - Link
+    - Development plans
+    - FOW's Development plans on Github
+    - https://github.com/ovoice/FriendsOfWe/wikis/development-plans
+    - 
+    - 
+    - 
+    - 
+    - 
+    - "3"
+    - Project
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
+  - - "4"
+    - Link
+    - Suggestions
+    - FOW's issues(suggestions) page on github
+    - http://github.com/ovoice/FriendsOfWe
+    - 
+    - 
+    - 
+    - 
+    - 
+    - "3"
+    - Project
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
+
+--- 
+projects: 
+  columns: 
+  - id
+  - name
+  - description
+  - activities
+  - status
+  - state
+  - volunteer_count
+  - featured
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - "\"Turn Off\" IT Campaign"
+    - In the United States, 50% of employed adults don't typically shut down their PCs at the end of the work day. A single company with 10,000 PCs wastes more than $260,000 annually and generates 1,871 tons of CO2 emissions. numbers improve in the UK and Germany, but there is a still a lot that could be done. The "Turn Off" campaign is a targeted appeal to IT administrators to encourage their companies' employees to turn off their computers at the end of each work day.
+    - While still in the planning phase, our general goal is to create a digital campaign that drives IT administrators to learn more about how they can reduce their company's IT energy consumption for the good of the environment and their firm's bottom lines. A content inventory and the development of a messaging strategy are in progress.
+    - recruiting
+    - publish
+    - 
+    - true
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
+  - - "2"
+    - The Effects of Climate Change
+    - A recent Gallup poll found that fewer and fewer Americans understand how climate change will impact their lives or the lives of their children.  With the recent media-hyped contrevercy surrounding "Climate-gate", these numbers have likely fallen further still.  The "Effects of Climate Change" campaign is an effort to help Americans accept the realities of Climate Change by understand how it will impact their lives. Fortunately, the hard work of content creation has largely already been completed in a White House report issues in June of this Year.
+    - "While still in the planning phase, our first efforts will focus on development of a messaging strategy and development of a consumer friendly, motion-graphics heavy, rich media landing site.  The White House report is an excellent report that readily lends itself to the creation of engaging, dyanmic content. With these foundations we can begin work on general and digital advertising with Television Public Service Advertising (PSA) and digital PSAs. "
+    - recruiting
+    - publish
+    - 
+    - true
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
+  - - "3"
+    - FriendsOfWe.org Enhancements
+    - Help us build and grow the FriendsOfWe.org website as a tool to help volunteers more effectively get involved on the projects they are passionate about.
+    - We are looking for rails developers to help add features and suggest improvements via github.
+    - recruiting
+    - publish
+    - 
+    - true
+    - 2010-06-03 07:44:39
+    - 2010-06-03 07:44:39
