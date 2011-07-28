@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :projects, :as => 'campaigns' do |c|
     c.resources :commitments
-    c.resources :opportunities do|o|
+    c.resources :opportunities do |o|
       o.resources :commitments
     end
   end

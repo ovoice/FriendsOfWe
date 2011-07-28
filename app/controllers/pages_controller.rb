@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   unloadable
   before_filter :ensure_valid, :only => 'show'  
+  require 'feed-normalizer'
 
   def show
     render :template => current_page
@@ -9,8 +10,7 @@ class PagesController < ApplicationController
   def home
     #not restful, but I didn't want to create a new controller just for this action
     @projects = Project.features
-    Tumblr.blog = 'weblog.friendsofwe.org'
-    @posts = Tumblr::Post.all(:num => 3, :filter => 'text')
+    @posts = FeedNormalizer::FeedNormalizer.parse open('http://weblog.friendsofwe.org/rss')
   end
 
   protected
